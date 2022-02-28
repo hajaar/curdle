@@ -61,69 +61,68 @@ class ViewController: UIViewController {
     }
     
     func updateLabels() {
-        label11.text = game.guesses[0]
-        label12.text = game.guesses[1]
-        label13.text = game.guesses[2]
-        label14.text = game.guesses[3]
-        label15.text = game.guesses[4]
-        label21.text = game.guesses[5]
-        label22.text = game.guesses[6]
-        label23.text = game.guesses[7]
-        label24.text = game.guesses[8]
-        label25.text = game.guesses[9]
-        label31.text = game.guesses[10]
-        label32.text = game.guesses[11]
-        label33.text = game.guesses[12]
-        label34.text = game.guesses[13]
-        label35.text = game.guesses[14]
-        label41.text = game.guesses[15]
-        label42.text = game.guesses[16]
-        label43.text = game.guesses[17]
-        label44.text = game.guesses[18]
-        label45.text = game.guesses[19]
-        label51.text = game.guesses[20]
-        label52.text = game.guesses[21]
-        label53.text = game.guesses[22]
-        label54.text = game.guesses[23]
-        label55.text = game.guesses[24]
-        label61.text = game.guesses[25]
-        label62.text = game.guesses[26]
-        label63.text = game.guesses[27]
-        label64.text = game.guesses[28]
-        label65.text = game.guesses[29]
+        label11.text = game.guesses[0].gText
+        label12.text = game.guesses[1].gText
+        label13.text = game.guesses[2].gText
+        label14.text = game.guesses[3].gText
+        label15.text = game.guesses[4].gText
+        label21.text = game.guesses[5].gText
+        label22.text = game.guesses[6].gText
+        label23.text = game.guesses[7].gText
+        label24.text = game.guesses[8].gText
+        label25.text = game.guesses[9].gText
+        label31.text = game.guesses[10].gText
+        label32.text = game.guesses[11].gText
+        label33.text = game.guesses[12].gText
+        label34.text = game.guesses[13].gText
+        label35.text = game.guesses[14].gText
+        label41.text = game.guesses[15].gText
+        label42.text = game.guesses[16].gText
+        label43.text = game.guesses[17].gText
+        label44.text = game.guesses[18].gText
+        label45.text = game.guesses[19].gText
+        label51.text = game.guesses[20].gText
+        label52.text = game.guesses[21].gText
+        label53.text = game.guesses[22].gText
+        label54.text = game.guesses[23].gText
+        label55.text = game.guesses[24].gText
+        label61.text = game.guesses[25].gText
+        label62.text = game.guesses[26].gText
+        label63.text = game.guesses[27].gText
+        label64.text = game.guesses[28].gText
+        label65.text = game.guesses[29].gText
+        label11.backgroundColor = game.guesses[0].gColor
+        label12.backgroundColor = game.guesses[1].gColor
+        label13.backgroundColor = game.guesses[2].gColor
+        label14.backgroundColor = game.guesses[3].gColor
+        label15.backgroundColor = game.guesses[4].gColor
+        label21.backgroundColor = game.guesses[5].gColor
+        label22.backgroundColor = game.guesses[6].gColor
+        label23.backgroundColor = game.guesses[7].gColor
+        label24.backgroundColor = game.guesses[8].gColor
+        label25.backgroundColor = game.guesses[9].gColor
+        label31.backgroundColor = game.guesses[10].gColor
+        label32.backgroundColor = game.guesses[11].gColor
+        label33.backgroundColor = game.guesses[12].gColor
+        label34.backgroundColor = game.guesses[13].gColor
+        label35.backgroundColor = game.guesses[14].gColor
+        label41.backgroundColor = game.guesses[15].gColor
+        label42.backgroundColor = game.guesses[16].gColor
+        label43.backgroundColor = game.guesses[17].gColor
+        label44.backgroundColor = game.guesses[18].gColor
+        label45.backgroundColor = game.guesses[19].gColor
+        label51.backgroundColor = game.guesses[20].gColor
+        label52.backgroundColor = game.guesses[21].gColor
+        label53.backgroundColor = game.guesses[22].gColor
+        label54.backgroundColor = game.guesses[23].gColor
+        label55.backgroundColor = game.guesses[24].gColor
+        label61.backgroundColor = game.guesses[25].gColor
+        label62.backgroundColor = game.guesses[26].gColor
+        label63.backgroundColor = game.guesses[27].gColor
+        label64.backgroundColor = game.guesses[28].gColor
+        label65.backgroundColor = game.guesses[29].gColor
     }
-    func updateColors() {
-        label11.backgroundColor = game.guessesColors[0]
-        label12.backgroundColor = game.guessesColors[1]
-        label13.backgroundColor = game.guessesColors[2]
-        label14.backgroundColor = game.guessesColors[3]
-        label15.backgroundColor = game.guessesColors[4]
-        label21.backgroundColor = game.guessesColors[5]
-        label22.backgroundColor = game.guessesColors[6]
-        label23.backgroundColor = game.guessesColors[7]
-        label24.backgroundColor = game.guessesColors[8]
-        label25.backgroundColor = game.guessesColors[9]
-        label31.backgroundColor = game.guessesColors[10]
-        label32.backgroundColor = game.guessesColors[11]
-        label33.backgroundColor = game.guessesColors[12]
-        label34.backgroundColor = game.guessesColors[13]
-        label35.backgroundColor = game.guessesColors[14]
-        label41.backgroundColor = game.guessesColors[15]
-        label42.backgroundColor = game.guessesColors[16]
-        label43.backgroundColor = game.guessesColors[17]
-        label44.backgroundColor = game.guessesColors[18]
-        label45.backgroundColor = game.guessesColors[19]
-        label51.backgroundColor = game.guessesColors[20]
-        label52.backgroundColor = game.guessesColors[21]
-        label53.backgroundColor = game.guessesColors[22]
-        label54.backgroundColor = game.guessesColors[23]
-        label55.backgroundColor = game.guessesColors[24]
-        label61.backgroundColor = game.guessesColors[25]
-        label62.backgroundColor = game.guessesColors[26]
-        label63.backgroundColor = game.guessesColors[27]
-        label64.backgroundColor = game.guessesColors[28]
-        label65.backgroundColor = game.guessesColors[29]
-    }
+
     
 }
 
@@ -139,7 +138,6 @@ extension ViewController: UITextFieldDelegate {
             //print(game.guesses)
             // print(game.guessesColors)
             updateLabels()
-            updateColors()
             textField.text = ""
         }
         return true
