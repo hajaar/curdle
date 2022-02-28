@@ -15,6 +15,7 @@
 		F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */; };
 		F24337B927CC4E2F005E72A5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337B827CC4E2F005E72A5 /* K.swift */; };
 		F24337C027CC60B8005E72A5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337BF27CC60B8005E72A5 /* Game.swift */; };
+		F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03027CC8CA5003BAB28 /* Handy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F24337B227CC4DF1005E72A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24337B827CC4E2F005E72A5 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		F24337BF27CC60B8005E72A5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F2FEE03027CC8CA5003BAB28 /* Handy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		F243379827CC4DF1005E72A5 = {
 			isa = PBXGroup;
 			children = (
+				F2FEE03027CC8CA5003BAB28 /* Handy.swift */,
 				F24337A327CC4DF1005E72A5 /* curdle */,
 				F24337A227CC4DF1005E72A5 /* Products */,
 			);
@@ -156,6 +159,7 @@
 				F24337C027CC60B8005E72A5 /* Game.swift in Sources */,
 				F24337B927CC4E2F005E72A5 /* K.swift in Sources */,
 				F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */,
+				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

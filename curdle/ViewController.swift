@@ -38,7 +38,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var label63: UILabel!
     @IBOutlet weak var label64: UILabel!
     @IBOutlet weak var label65: UILabel!
-/* Have to replace these dumb labels with a collection view later*/
+    /* Have to replace these dumb labels with a collection view later*/
+    
+    
+    
+    
+    
+    @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var messagesLabel: UILabel!
+
     
     var game = Game()
     
@@ -46,13 +54,68 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(game.chosenWord!)
-        game.chosenWord!.forEach { c in
-            label11.text = String(c)
-        }
+        inputText.delegate = self
+        inputText.returnKeyType = .done
+        inputText.autocorrectionType = .no
+
     }
 
 
     
 }
+
+public extension String {
+    subscript(value: Int) -> Character {
+        self[index(at: value)]
+    }
+}
+
+public extension String {
+    subscript(value: NSRange) -> Substring {
+        self[value.lowerBound..<value.upperBound]
+    }
+}
+
+public extension String {
+    subscript(value: CountableClosedRange<Int>) -> Substring {
+        self[index(at: value.lowerBound)...index(at: value.upperBound)]
+    }
+    
+    subscript(value: CountableRange<Int>) -> Substring {
+        self[index(at: value.lowerBound)..<index(at: value.upperBound)]
+    }
+    
+    subscript(value: PartialRangeUpTo<Int>) -> Substring {
+        self[..<index(at: value.upperBound)]
+    }
+    
+    subscript(value: PartialRangeThrough<Int>) -> Substring {
+        self[...index(at: value.upperBound)]
+    }
+    
+    subscript(value: PartialRangeFrom<Int>) -> Substring {
+        self[index(at: value.lowerBound)...]
+    }
+}
+
+private extension String {
+    func index(at offset: Int) -> String.Index {
+        index(startIndex, offsetBy: offset)
+    }
+}
+
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let t: String = textField.text {
+            textField.text = String(t.prefix(K.maxLengthOfWord))
+        }
+        let guess = textField.text!
+        messagesLabel.text = game.checkGuess(guess: guess)
+ //       print(game.guesses)
+        textField.text = ""
+        return true
+    }
+}
+
 
