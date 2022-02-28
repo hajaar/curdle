@@ -15,7 +15,8 @@ struct Game {
     var guessesColors = [UIColor](repeating: K.notMatchColor, count: K.maxLengthOfWord * K.maxNumberOfAttempts)
     var isGameWon: Bool = false
     var chosenChars = [String]()
-    var numberOfAttempts = 0
+    var numberOfAttempts = 1
+    var letterPosition = 0
     
     init() {
         chosenWord!.forEach { c in
@@ -71,13 +72,15 @@ struct Game {
             return true
         } else {
             for i in (0...(K.maxLengthOfWord - 1)) {
+                guesses[letterPosition] = String(guess[i...i])
                 if chosenWord!.contains(guess[i...i]) {
                     if chosenWord![i...i] == guess[i...i] {
-                        // write code to mark the color as green
+                        guessesColors[letterPosition] = K.perfectMatchColor
                     } else {
-                        // mark color as yellow
+                        guessesColors[letterPosition] = K.imperfectMatchColor
                     }
                 }
+                letterPosition += 1
             }
             
             

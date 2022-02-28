@@ -69,8 +69,9 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !game.isGameWon {
             messagesLabel.text = game.checkGuess(guess: textField.text!)
-            print(game.chosenWord!)
-            print(game.guesses)
+            //print(game.chosenWord!)
+            //print(game.guesses)
+            // print(game.guessesColors)
             textField.text = ""
         }
         return true
