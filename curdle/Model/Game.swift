@@ -15,7 +15,7 @@ struct Game {
     var guessesColors = [UIColor](repeating: K.notMatchColor, count: K.maxLengthOfWord * K.maxNumberOfAttempts)
     var isGameWon: Bool = false
     var chosenChars = [String]()
-    var numberOfAttempts = 1
+    var numberOfAttempts = 0
     var letterPosition = 0
     
     init() {
@@ -67,33 +67,24 @@ struct Game {
     }
     
     mutating func isGuessCorrect(_ guess: String) -> Bool {
+        for i in (0...(K.maxLengthOfWord - 1)) {
+            guesses[letterPosition] = String(guess[i...i])
+            if chosenWord!.contains(guess[i...i]) {
+                if chosenWord![i...i] == guess[i...i] {
+                    guessesColors[letterPosition] = K.perfectMatchColor
+                } else {
+                    guessesColors[letterPosition] = K.imperfectMatchColor
+                }
+            }
+            letterPosition += 1
+        }
         if guess == chosenWord {
             isGameWon =  true
             return true
         } else {
-            for i in (0...(K.maxLengthOfWord - 1)) {
-                guesses[letterPosition] = String(guess[i...i])
-                if chosenWord!.contains(guess[i...i]) {
-                    if chosenWord![i...i] == guess[i...i] {
-                        guessesColors[letterPosition] = K.perfectMatchColor
-                    } else {
-                        guessesColors[letterPosition] = K.imperfectMatchColor
-                    }
-                }
-                letterPosition += 1
-            }
-            
-            
-            
-            
-            
-            
+            return false
         }
         
-        
-        
-        
-        return false
     }
 }
 

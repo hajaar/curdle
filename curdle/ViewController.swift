@@ -60,9 +60,75 @@ class ViewController: UIViewController {
         
     }
     
-    
+    func updateLabels() {
+        label11.text = game.guesses[0]
+        label12.text = game.guesses[1]
+        label13.text = game.guesses[2]
+        label14.text = game.guesses[3]
+        label15.text = game.guesses[4]
+        label21.text = game.guesses[5]
+        label22.text = game.guesses[6]
+        label23.text = game.guesses[7]
+        label24.text = game.guesses[8]
+        label25.text = game.guesses[9]
+        label31.text = game.guesses[10]
+        label32.text = game.guesses[11]
+        label33.text = game.guesses[12]
+        label34.text = game.guesses[13]
+        label35.text = game.guesses[14]
+        label41.text = game.guesses[15]
+        label42.text = game.guesses[16]
+        label43.text = game.guesses[17]
+        label44.text = game.guesses[18]
+        label45.text = game.guesses[19]
+        label51.text = game.guesses[20]
+        label52.text = game.guesses[21]
+        label53.text = game.guesses[22]
+        label54.text = game.guesses[23]
+        label55.text = game.guesses[24]
+        label61.text = game.guesses[25]
+        label62.text = game.guesses[26]
+        label63.text = game.guesses[27]
+        label64.text = game.guesses[28]
+        label65.text = game.guesses[29]
+    }
+    func updateColors() {
+        label11.backgroundColor = game.guessesColors[0]
+        label12.backgroundColor = game.guessesColors[1]
+        label13.backgroundColor = game.guessesColors[2]
+        label14.backgroundColor = game.guessesColors[3]
+        label15.backgroundColor = game.guessesColors[4]
+        label21.backgroundColor = game.guessesColors[5]
+        label22.backgroundColor = game.guessesColors[6]
+        label23.backgroundColor = game.guessesColors[7]
+        label24.backgroundColor = game.guessesColors[8]
+        label25.backgroundColor = game.guessesColors[9]
+        label31.backgroundColor = game.guessesColors[10]
+        label32.backgroundColor = game.guessesColors[11]
+        label33.backgroundColor = game.guessesColors[12]
+        label34.backgroundColor = game.guessesColors[13]
+        label35.backgroundColor = game.guessesColors[14]
+        label41.backgroundColor = game.guessesColors[15]
+        label42.backgroundColor = game.guessesColors[16]
+        label43.backgroundColor = game.guessesColors[17]
+        label44.backgroundColor = game.guessesColors[18]
+        label45.backgroundColor = game.guessesColors[19]
+        label51.backgroundColor = game.guessesColors[20]
+        label52.backgroundColor = game.guessesColors[21]
+        label53.backgroundColor = game.guessesColors[22]
+        label54.backgroundColor = game.guessesColors[23]
+        label55.backgroundColor = game.guessesColors[24]
+        label61.backgroundColor = game.guessesColors[25]
+        label62.backgroundColor = game.guessesColors[26]
+        label63.backgroundColor = game.guessesColors[27]
+        label64.backgroundColor = game.guessesColors[28]
+        label65.backgroundColor = game.guessesColors[29]
+    }
     
 }
+
+
+
 
 
 extension ViewController: UITextFieldDelegate {
@@ -72,6 +138,8 @@ extension ViewController: UITextFieldDelegate {
             //print(game.chosenWord!)
             //print(game.guesses)
             // print(game.guessesColors)
+            updateLabels()
+            updateColors()
             textField.text = ""
         }
         return true
