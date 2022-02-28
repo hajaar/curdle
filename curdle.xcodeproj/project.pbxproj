@@ -14,7 +14,6 @@
 		F24337AE27CC4DF1005E72A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24337AD27CC4DF1005E72A5 /* Assets.xcassets */; };
 		F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */; };
 		F24337B927CC4E2F005E72A5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337B827CC4E2F005E72A5 /* K.swift */; };
-		F24337BC27CC4E64005E72A5 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = F24337BB27CC4E64005E72A5 /* Model */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		F24337B027CC4DF1005E72A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F24337B227CC4DF1005E72A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24337B827CC4E2F005E72A5 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		F24337BB27CC4E64005E72A5 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				F24337B827CC4E2F005E72A5 /* K.swift */,
-				F24337BB27CC4E64005E72A5 /* Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,7 +138,6 @@
 			files = (
 				F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */,
 				F24337AE27CC4DF1005E72A5 /* Assets.xcassets in Resources */,
-				F24337BC27CC4E64005E72A5 /* Model in Resources */,
 				F24337AC27CC4DF1005E72A5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
