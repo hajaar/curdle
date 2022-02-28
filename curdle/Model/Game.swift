@@ -6,12 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct Game {
     let chosenWord = K.vocalbulary.randomElement()
-    var guesses = [String]()
+    var guesses = [String](repeating: "", count: K.maxLengthOfWord * K.maxNumberOfAttempts)
+    var guessesColors = [UIColor](repeating: K.notMatchColor, count: K.maxLengthOfWord * K.maxNumberOfAttempts)
     var isGameWon: Bool = false
+    var chosenChars = [String]()
+    var numberOfAttempts = 0
+    
+    init() {
+        chosenWord!.forEach { c in
+            chosenChars.append(String(c))
+        }
+    }
+    
     
     mutating func checkGuess(guess: String) -> String {
         if !doesWordExistInVocabulary(guess) {
@@ -46,8 +57,8 @@ struct Game {
     }
     
     mutating func ableToAddGuessToList(_ guess: String) -> Bool {
-        if guesses.count < 5 {
-            guesses.append(guess)
+        if numberOfAttempts < K.maxNumberOfAttempts {
+            numberOfAttempts += 1
             return true
         } else {
             return false
@@ -59,7 +70,29 @@ struct Game {
             isGameWon =  true
             return true
         } else {
-            return false
+            for i in (0...(K.maxLengthOfWord - 1)) {
+                if chosenWord!.contains(guess[i...i]) {
+                    if chosenWord![i...i] == guess[i...i] {
+                        // write code to mark the color as green
+                    } else {
+                        // mark color as yellow
+                    }
+                }
+            }
+            
+            
+            
+            
+            
+            
         }
+        
+        
+        
+        
+        return false
     }
 }
+
+
+
