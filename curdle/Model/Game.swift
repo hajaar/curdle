@@ -11,7 +11,7 @@ import UIKit
 
 struct Game {
     let chosenWord = K.vocalbulary.randomElement()
-    var guesses = [Guess](repeating: Guess(gText: "", gColor: K.notMatchColor), count: K.maxNumberOfAttempts * K.maxLengthOfWord)
+    var guesses = [Guess](repeating: Guess(gText: "", gColor: K.notMatchColor), count: K.maxLetters)
     var isGameWon: Bool = false
     var numberOfAttempts = 0
     var letterPosition = 0
