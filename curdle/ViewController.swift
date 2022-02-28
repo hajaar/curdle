@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var messagesLabel: UILabel!
-
+    
     
     var game = Game()
     
@@ -56,64 +56,23 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         inputText.delegate = self
         inputText.returnKeyType = .done
-        inputText.autocorrectionType = .no
-
-    }
-
-
-    
-}
-
-public extension String {
-    subscript(value: Int) -> Character {
-        self[index(at: value)]
-    }
-}
-
-public extension String {
-    subscript(value: NSRange) -> Substring {
-        self[value.lowerBound..<value.upperBound]
-    }
-}
-
-public extension String {
-    subscript(value: CountableClosedRange<Int>) -> Substring {
-        self[index(at: value.lowerBound)...index(at: value.upperBound)]
+        print(game.chosenWord!)
+        
     }
     
-    subscript(value: CountableRange<Int>) -> Substring {
-        self[index(at: value.lowerBound)..<index(at: value.upperBound)]
-    }
     
-    subscript(value: PartialRangeUpTo<Int>) -> Substring {
-        self[..<index(at: value.upperBound)]
-    }
     
-    subscript(value: PartialRangeThrough<Int>) -> Substring {
-        self[...index(at: value.upperBound)]
-    }
-    
-    subscript(value: PartialRangeFrom<Int>) -> Substring {
-        self[index(at: value.lowerBound)...]
-    }
-}
-
-private extension String {
-    func index(at offset: Int) -> String.Index {
-        index(startIndex, offsetBy: offset)
-    }
 }
 
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let t: String = textField.text {
-            textField.text = String(t.prefix(K.maxLengthOfWord))
+        if !game.isGameWon {
+            messagesLabel.text = game.checkGuess(guess: textField.text!)
+            print(game.chosenWord!)
+            print(game.guesses)
+            textField.text = ""
         }
-        let guess = textField.text!
-        messagesLabel.text = game.checkGuess(guess: guess)
- //       print(game.guesses)
-        textField.text = ""
         return true
     }
 }
