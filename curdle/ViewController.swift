@@ -40,9 +40,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var label65: UILabel!
 /* Have to replace these dumb labels with a collection view later*/
     
+    var game = Game()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(game.chosenWord!)
+        game.chosenWord!.forEach { c in
+            label11.text = String(c)
+        }
     }
 
 
