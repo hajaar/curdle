@@ -17,6 +17,7 @@
 		F24337C027CC60B8005E72A5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337BF27CC60B8005E72A5 /* Game.swift */; };
 		F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03027CC8CA5003BAB28 /* Handy.swift */; };
 		F2FEE03327CC8F38003BAB28 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03227CC8F38003BAB28 /* StringHelper.swift */; };
+		F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03727CCE20C003BAB28 /* WordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F24337BF27CC60B8005E72A5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F2FEE03027CC8CA5003BAB28 /* Handy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handy.swift; sourceTree = "<group>"; };
 		F2FEE03227CC8F38003BAB28 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
+		F2FEE03727CCE20C003BAB28 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		F24337A327CC4DF1005E72A5 /* curdle */ = {
 			isa = PBXGroup;
 			children = (
+				F2FEE03727CCE20C003BAB28 /* WordCell.swift */,
 				F2FEE03427CC938C003BAB28 /* Helpers */,
 				F24337A427CC4DF1005E72A5 /* AppDelegate.swift */,
 				F24337A627CC4DF1005E72A5 /* SceneDelegate.swift */,
@@ -171,6 +174,7 @@
 				F24337B927CC4E2F005E72A5 /* K.swift in Sources */,
 				F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */,
 				F2FEE03327CC8F38003BAB28 /* StringHelper.swift in Sources */,
+				F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */,
 				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
 			);
