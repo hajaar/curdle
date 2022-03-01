@@ -68,9 +68,9 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
-        cell.wordLabel.text = game.guesses[indexPath.row].gText
-        print(cell.wordLabel.text! + String(indexPath.row))
-        cell.wordLabel.backgroundColor = game.guesses[indexPath.row].gColor
+        let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        cell.wordImage.image = UIImage(systemName: String(game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle)
+        cell.wordImage.tintColor = game.guesses[indexPath.row].gColor
         return cell
     }
     

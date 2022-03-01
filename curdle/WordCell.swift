@@ -8,5 +8,5 @@
 import UIKit
 
 class WordCell: UICollectionViewCell {
-    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var wordImage: UIImageView!
 }

@@ -21,7 +21,7 @@ struct K {
 
 static let sectionInsets = UIEdgeInsets(
     top: 10.0,
-    left: 22.0,
+    left: 16.0,
     bottom: 10.0,
-    right: 22.0)
+    right: 16.0)
 }
