@@ -51,6 +51,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        inputText.becomeFirstResponder()
         if !game.isGameWon {
             messagesLabel.text = game.checkGuess(guess: textField.text!)
             self.collectionView.reloadData()
@@ -69,8 +70,13 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
         let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
-        cell.wordImage.image = UIImage(systemName: String(game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle)
+        //cell.wordImage.image = UIImage(systemName: String(game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle)
         cell.wordImage.tintColor = game.guesses[indexPath.row].gColor
+        UIView.transition(with: cell.wordImage,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve,
+                          animations: { cell.wordImage.image = UIImage(systemName: String(self.game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle) },
+                          completion: nil)
         return cell
     }
     
