@@ -8,6 +8,12 @@
 import UIKit
 
 class guessTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var imageView1: UIImageView!
+    @IBOutlet weak var imageView2: UIImageView!
+    @IBOutlet weak var imageView3: UIImageView!
+    @IBOutlet weak var imageView4: UIImageView!
+    @IBOutlet weak var imageView5: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

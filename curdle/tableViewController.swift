@@ -32,7 +32,6 @@ class tableViewController: UIViewController {
     }
 
     @IBAction func inputTextEditing(_ sender: UITextField) {
-        //messagesLabel.text = inputText.text
         tmpText = inputText.text ?? ""
         guessesTableView.reloadData()
     }
@@ -63,16 +62,17 @@ extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
-        
-       
-            cell.textLabel?.text = game.guessWords[indexPath.row]
-            print(indexPath.row)
+
+        let tmpString = game.guessWords[indexPath.row]
+        print(tmpString.prefix(2))
+        //cell.imageView1.image = UIImage(systemName: String(tmpString[0...0] + ".square.fill"))
+
         
         if (Int(indexPath.row) == game.numberOfAttempts) {
             cell.textLabel?.text = tmpText
         }
         
-        print(cell.textLabel!.text!)
+        
         return cell
         
 

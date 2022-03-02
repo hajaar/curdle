@@ -55,7 +55,6 @@ struct Game {
     mutating func ableToGuess(_ guess: String) -> Bool {
         if numberOfAttempts < K.maxNumberOfAttempts {
             guessWords[numberOfAttempts] = guess
-            print(guessWords)
             numberOfAttempts += 1
             
             return true
@@ -66,13 +65,14 @@ struct Game {
     
     mutating func findMatchingLetters(_ guess: String) {
         for i in (0...(K.maxLengthOfWord - 1)) {
-            guesses[letterPosition].gText = String(guess[i...i])
-            if chosenWord!.contains(guess[i...i]) {
-                if chosenWord![i...i] == guess[i...i] {
+            guesses[letterPosition].gText = String(guess[guess.index(guess.startIndex, offsetBy: i)])
+            if chosenWord!.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
+                if chosenWord![chosenWord!.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] {
                     guesses[letterPosition].gColor = K.perfectMatchColor
                 } else {
                     guesses[letterPosition].gColor = K.imperfectMatchColor
                 }
+                
             }
             letterPosition += 1
         }
