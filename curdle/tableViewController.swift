@@ -64,25 +64,42 @@ extension tableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
         
         var tmpString: String = ""
+        var isGuessDone = true
         
         if (Int(indexPath.row) != game.numberOfAttempts) {
             tmpString = game.guessWords[indexPath.row]
+            isGuessDone = true
         } else {
             tmpString = tmpText
+            isGuessDone =  false
         }
+         
         
         let tmpLength = K.maxLengthOfWord - tmpString.count
-        for _ in 0..<tmpLength + 1 {
+        for _ in 0..<tmpLength {
             tmpString += " "
         }
         
+        let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         
-        
-        cell.imageView1.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 0)]) + ".square.fill")
-        cell.imageView2.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 1)]) + ".square.fill")
-        cell.imageView3.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 2)]) + ".square.fill")
-        cell.imageView4.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 3)]) + ".square.fill")
-        cell.imageView5.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 4)]) + ".square.fill")
+        var i = 0
+        if isGuessDone {
+            tmpString.forEach { c in
+                imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
+                i += 1
+            }
+        } else {
+            tmpString.forEach { c in
+                UIView.transition(with: imageArray[i],
+                                  duration: 0.75,
+                                  options: .transitionCrossDissolve,
+                                  animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
+                                  completion: nil)
+                i += 1
+            }
+        }
+
         
         
         
