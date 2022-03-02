@@ -7,7 +7,7 @@ import UIKit
 struct K {
     static let maxLengthOfWord = 5
     static let maxNumberOfAttempts = 6
-    static let perfectMatchColor = UIColor.green
+    static let perfectMatchColor = UIColor.purple
     static let imperfectMatchColor = UIColor.orange
     static let notMatchColor = UIColor.darkGray
     static var maxLetters: Int {

@@ -37,10 +37,7 @@ class ViewController: UIViewController {
         
     }
     
-    func updateLabels() {
-        
-        
-    }
+
     
     
 }

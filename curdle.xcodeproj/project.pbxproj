@@ -15,6 +15,8 @@
 		F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */; };
 		F24337B927CC4E2F005E72A5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337B827CC4E2F005E72A5 /* K.swift */; };
 		F24337C027CC60B8005E72A5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337BF27CC60B8005E72A5 /* Game.swift */; };
+		F2DD0BFD27CF0C00003E4D21 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */; };
+		F2DD0BFF27CF170A003E4D21 /* guessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */; };
 		F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03027CC8CA5003BAB28 /* Handy.swift */; };
 		F2FEE03327CC8F38003BAB28 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03227CC8F38003BAB28 /* StringHelper.swift */; };
 		F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03727CCE20C003BAB28 /* WordCell.swift */; };
@@ -31,6 +33,8 @@
 		F24337B227CC4DF1005E72A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24337B827CC4E2F005E72A5 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		F24337BF27CC60B8005E72A5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessTableViewCell.swift; sourceTree = "<group>"; };
 		F2FEE03027CC8CA5003BAB28 /* Handy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handy.swift; sourceTree = "<group>"; };
 		F2FEE03227CC8F38003BAB28 /* StringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		F2FEE03727CCE20C003BAB28 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				F24337AD27CC4DF1005E72A5 /* Assets.xcassets */,
 				F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */,
 				F24337B227CC4DF1005E72A5 /* Info.plist */,
+				F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */,
+				F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */,
 			);
 			path = curdle;
 			sourceTree = "<group>";
@@ -170,11 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24337A927CC4DF1005E72A5 /* ViewController.swift in Sources */,
+				F2DD0BFF27CF170A003E4D21 /* guessTableViewCell.swift in Sources */,
 				F24337C027CC60B8005E72A5 /* Game.swift in Sources */,
 				F24337B927CC4E2F005E72A5 /* K.swift in Sources */,
 				F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */,
 				F2FEE03327CC8F38003BAB28 /* StringHelper.swift in Sources */,
 				F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */,
+				F2DD0BFD27CF0C00003E4D21 /* tableViewController.swift in Sources */,
 				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
 			);
