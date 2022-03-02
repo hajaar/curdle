@@ -63,41 +63,36 @@ extension tableViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
         
-        var tmpString = game.guessWords[indexPath.row]
-        if (tmpString != "") {
-            cell.imageView1.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 0)]) + ".square.fill")
-            cell.imageView2.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 1)]) + ".square.fill")
-            cell.imageView3.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 2)]) + ".square.fill")
-            cell.imageView4.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 3)]) + ".square.fill")
-            cell.imageView5.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 4)]) + ".square.fill")
-
-        }
+        var tmpString: String = ""
         
-        if (Int(indexPath.row) == game.numberOfAttempts) {
+        if (Int(indexPath.row) != game.numberOfAttempts) {
+            tmpString = game.guessWords[indexPath.row]
+        } else {
             tmpString = tmpText
-
-            let tmpLength = K.maxLengthOfWord - tmpString.count
-            for _ in 0..<tmpLength + 1 {
-                tmpString += " "
-            }
-
-
-            if (tmpString != "") {
-                cell.imageView1.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 0)]) + ".square.fill")
-                cell.imageView2.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 1)]) + ".square.fill")
-                cell.imageView3.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 2)]) + ".square.fill")
-                cell.imageView4.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 3)]) + ".square.fill")
-                cell.imageView5.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 4)]) + ".square.fill")
-                
-            }
-            
+        }
+        
+        let tmpLength = K.maxLengthOfWord - tmpString.count
+        for _ in 0..<tmpLength + 1 {
+            tmpString += " "
         }
         
         
-        return cell
+        
+        cell.imageView1.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 0)]) + ".square.fill")
+        cell.imageView2.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 1)]) + ".square.fill")
+        cell.imageView3.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 2)]) + ".square.fill")
+        cell.imageView4.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 3)]) + ".square.fill")
+        cell.imageView5.image = UIImage(systemName: String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: 4)]) + ".square.fill")
         
         
-    }
+        
     
     
+    
+    return cell
+    
+    
+}
+
+
 }
