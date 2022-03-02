@@ -65,6 +65,7 @@ extension tableViewController: UITableViewDataSource {
         
         var tmpString: String = ""
         var isGuessDone = true
+        var tmpTextLength = tmpText.count
         
         if (Int(indexPath.row) != game.numberOfAttempts) {
             tmpString = game.guessWords[indexPath.row]
@@ -73,7 +74,7 @@ extension tableViewController: UITableViewDataSource {
             tmpString = tmpText
             isGuessDone =  false
         }
-         
+        
         
         let tmpLength = K.maxLengthOfWord - tmpString.count
         for _ in 0..<tmpLength {
@@ -85,31 +86,40 @@ extension tableViewController: UITableViewDataSource {
         
         var i = 0
         if isGuessDone {
+            i = 0
             tmpString.forEach { c in
                 imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 i += 1
             }
         } else {
+            i = 0
             tmpString.forEach { c in
-                UIView.transition(with: imageArray[i],
-                                  duration: 0.75,
-                                  options: .transitionCrossDissolve,
-                                  animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
-                                  completion: nil)
+                
+                
+                
+                if (i == tmpTextLength - 1) {
+                    UIView.transition(with: imageArray[i],
+                                      duration: 0.75,
+                                      options: .transitionCrossDissolve,
+                                      animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
+                                      completion: nil)
+                } else {
+                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
+                }
                 i += 1
             }
         }
-
         
         
         
+        
+        
+        
+        
+        return cell
+        
+        
+    }
     
     
-    
-    return cell
-    
-    
-}
-
-
 }
