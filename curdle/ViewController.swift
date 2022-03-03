@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        print(game.chosenWord!)
+        print(game.chosenWord)
         
     }
     

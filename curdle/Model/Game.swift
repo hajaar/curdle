@@ -10,12 +10,19 @@ import UIKit
 
 
 struct Game {
-    let chosenWord = K.vocalbulary.randomElement()
-    var guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-    var isGameWon: Bool = false
-    var isGameOver: Bool = false
-    var numberOfAttempts = 0
+    var chosenWord: String
+    var guessWords: [GuessWord]
+    var isGameWon: Bool
+    var isGameOver: Bool
+    var numberOfAttempts: Int
     
+    init() {
+        chosenWord = K.vocalbulary.randomElement()!
+        guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
+        isGameWon = false
+        isGameOver = false
+        numberOfAttempts = 0
+    }
     
     
     mutating func checkGuess(guess: String) -> String {
@@ -62,8 +69,8 @@ struct Game {
     
     mutating func findMatchingLetters(_ guess: String) {
         for i in (0...(K.maxLengthOfWord - 1)) {
-            if chosenWord!.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
-                if chosenWord![chosenWord!.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] {
+            if chosenWord.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
+                if chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] {
                     guessWords[numberOfAttempts].gColor[i] = K.perfectMatchColor
                 } else {
                     guessWords[numberOfAttempts].gColor[i] = K.imperfectMatchColor

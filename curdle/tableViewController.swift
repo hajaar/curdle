@@ -14,7 +14,7 @@ class tableViewController: UIViewController {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
-    
+    var gameSession = GameSession()
     var game = Game()
     var tmpText: String = ""
     var msgText: String = ""
@@ -28,7 +28,7 @@ class tableViewController: UIViewController {
         guessesTableView.delegate = self
         guessesTableView.dataSource = self
         
-        print(game.chosenWord!)
+        print(game.chosenWord)
         
     }
     
@@ -103,13 +103,12 @@ extension tableViewController: UITableViewDataSource {
                     imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 }
             } else {
-                if indexPath.row == game.numberOfAttempts {
-                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
-                    imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]
-                } else {
+
                 imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]
-                }
+
+
+                
             }
             
             i += 1
