@@ -17,6 +17,7 @@ class tableViewController: UIViewController {
     
     var game = Game()
     var tmpText: String = ""
+    var msgText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class tableViewController: UIViewController {
 extension tableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !game.isGameOver {
-            messagesLabel.text = game.checkGuess(guess: textField.text!)
+            msgText = game.checkGuess(guess: textField.text!)
             textField.text = ""
             tmpText = ""
         }
@@ -122,6 +123,17 @@ extension tableViewController: UITableViewDataSource {
         
         
     }
+        // Create a standard header that includes the returned text.
+    func tableView(_ tableView: UITableView, titleForHeaderInSection
+                            section: Int) -> String? {
+        return "CURDLE"
+    }
     
-    
+        // Create a standard footer that includes the returned text.
+    func tableView(_ tableView: UITableView, titleForFooterInSection
+                            section: Int) -> String? {
+        return msgText
+    }
 }
+
+

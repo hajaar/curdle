@@ -73,14 +73,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="evo-qG-F8L">
                                         <rect key="frame" x="0.0" y="359" width="359" height="359"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G7-FL-s4G">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="51.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwd-mY-hjU">
-                                                <rect key="frame" x="0.0" y="51.333333333333314" width="359" height="51.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -95,19 +89,19 @@
                                                 </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-KQ-4hH">
-                                                <rect key="frame" x="0.0" y="102.66666666666661" width="359" height="51.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="60" width="359" height="59.666666666666657"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJk-e4-0OB">
-                                                <rect key="frame" x="0.0" y="154" width="359" height="51"/>
+                                                <rect key="frame" x="0.0" y="119.66666666666663" width="359" height="60"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85J-i9-CYP">
-                                                <rect key="frame" x="0.0" y="205" width="359" height="51.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="179.66666666666663" width="359" height="59.666666666666657"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Ke-RXT">
-                                                <rect key="frame" x="0.0" y="256.33333333333337" width="359" height="51.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="239.33333333333337" width="359" height="60"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftF-pL-urt">
-                                                <rect key="frame" x="0.0" y="307.66666666666663" width="359" height="51.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="299.33333333333337" width="359" height="59.666666666666686"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -126,7 +120,6 @@
                     <connections>
                         <outlet property="guessesTableView" destination="E6z-fb-JMn" id="RKu-uY-Nqu"/>
                         <outlet property="inputText" destination="nwd-mY-hjU" id="HaV-IG-BV5"/>
-                        <outlet property="messagesLabel" destination="2G7-FL-s4G" id="ve5-gw-4qb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRP-d4-2np" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
