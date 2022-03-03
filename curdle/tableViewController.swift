@@ -27,7 +27,6 @@ class tableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameSession.startNewGame()
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeDown.direction = .down
@@ -68,7 +67,7 @@ extension tableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !gameSession.game.isGameOver {
             msgText = gameSession.game.checkGuess(guess: textField.text!)
-            gameSession.getGameAttributes()
+            gameSession.setGameAttributes()
             textField.text = ""
             tmpText = ""
         }
@@ -145,11 +144,31 @@ extension tableViewController: UITableViewDataSource {
    
     }
         // Create a standard header that includes the returned text.
-    func tableView(_ tableView: UITableView, titleForHeaderInSection
-                            section: Int) -> String? {
-        return "CURDLE " + msgText
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        
+        let nameLabel = UILabel()
+        nameLabel.frame = CGRect.init(x: 10, y: 5, width: headerView.frame.width/2 - 10, height: headerView.frame.height-10)
+        nameLabel.text = "Curdle"
+        nameLabel.font = .systemFont(ofSize: 20)
+        
+        nameLabel.textColor = K.notMatchColor
+        
+        let gamesPlayedLabel = UILabel()
+        gamesPlayedLabel.frame = CGRect.init(x: 10 + headerView.frame.width / 2, y: 5, width: headerView.frame.width / 2 - 20, height: headerView.frame.height-10)
+        gamesPlayedLabel.text = String(gameSession.getGamesWon()) + "/" + String(gameSession.getGamesPlayed()) +  " " +  "\u{2303}" +  String(gameSession.getCurrentStreak())
+        gamesPlayedLabel.font = .systemFont(ofSize: 20)
+        gamesPlayedLabel.textAlignment = .right
+        gamesPlayedLabel.textColor = K.perfectMatchColor
+        
+        
+        headerView.addSubview(nameLabel)
+        headerView.addSubview(gamesPlayedLabel)
+        return headerView
     }
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 
 }
 

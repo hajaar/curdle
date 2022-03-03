@@ -1,9 +1,9 @@
-//
-//  GameSession.swift
-//  curdle
-//
-//  Created by Kartik Narayanan on 03/03/22.
-//
+    //
+    //  GameSession.swift
+    //  curdle
+    //
+    //  Created by Kartik Narayanan on 03/03/22.
+    //
 
 import Foundation
 
@@ -34,20 +34,25 @@ struct GameSession {
     
     func getGamesWon() -> Int {
         var t = 0
-        for i in 0...gameStats.count {
-            t += gameStats[i].isGameWon ? 1 : 0
+        if gameStats.count > 0 {
+            for i in 1...gameStats.count {
+                t += gameStats[i-1].isGameWon ? 1 : 0
+            }
         }
         return t
+        
     }
     
     mutating func getCurrentStreak() -> Int {
         var maxStreak = 0
-        for i in 0...gameStats.count {
-            if gameStats[i].isGameWon {
-                maxStreak += 1
-            } else {
-                currentStreak = currentStreak > maxStreak ? currentStreak : maxStreak
-                maxStreak = 0
+        if gameStats.count > 0 {
+            for i in 1...gameStats.count {
+                if gameStats[i-1].isGameWon {
+                    maxStreak += 1
+                    currentStreak = currentStreak > maxStreak ? currentStreak : maxStreak
+                } else {
+                    maxStreak = 0
+                }
             }
         }
         return currentStreak
