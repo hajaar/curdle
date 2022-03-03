@@ -56,18 +56,20 @@ extension tableViewController: UITableViewDelegate {
 
 extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return game.guessWords.count
+        return K.maxNumberOfAttempts
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
-        
+        let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         var tmpString: String = ""
         var isGuessDone = true
-        var tmpTextLength = tmpText.count
+        let tmpTextLength = tmpText.count
         
         if (Int(indexPath.row) != game.numberOfAttempts) {
+
             tmpString = game.guessWords[indexPath.row]
             isGuessDone = true
         } else {
@@ -76,38 +78,28 @@ extension tableViewController: UITableViewDataSource {
         }
         
         
-        let tmpLength = K.maxLengthOfWord - tmpString.count
-        for _ in 0..<tmpLength {
+     
+        for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
             tmpString += " "
         }
         
-        let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
-        let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
+        
         
         var i = 0
-        if isGuessDone {
-            i = 0
-            tmpString.forEach { c in
-                imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
-                i += 1
-            }
-        } else {
-            i = 0
-            tmpString.forEach { c in
-                
-                
-                
+        tmpString.forEach { c in
+            
+            if (!isGuessDone) {
                 if (i == tmpTextLength - 1) {
                     UIView.transition(with: imageArray[i],
                                       duration: 0.75,
                                       options: .transitionCrossDissolve,
                                       animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
                                       completion: nil)
-                } else {
-                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 }
-                i += 1
             }
+            
+            imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
+            i += 1
         }
         
         
