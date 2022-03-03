@@ -20,19 +20,21 @@ struct Game {
 
     
     mutating func checkGuess(guess: String) -> String {
+        if !ableToGuess(guess) {
+            return "Sorry. All out of guesses"
+        }
         if !doesWordExistInVocabulary(guess) {
             return guess + " is not in my vocabulary"
         }
         if isWordDuplicated(guess) {
             return "You have already guessed " + guess
         }
-        if !ableToGuess(guess) {
-            return "Sorry. All out of guesses"
-        }
+        addGuessToList(guess)
         findMatchingLetters(guess)
         if isGuessCorrect(guess){
             return "Woohoo!. You win."
         }
+        numberOfAttempts += 1
         return "You guessed " + guess
     }
     
@@ -53,12 +55,12 @@ struct Game {
         return false
     }
     
+    mutating func addGuessToList(_ guess: String) {
+        guessWords[numberOfAttempts].gText = guess
+    }
     
-    mutating func ableToGuess(_ guess: String) -> Bool {
-        if numberOfAttempts < K.maxNumberOfAttempts {
-            guessWords[numberOfAttempts].gText = guess
-            numberOfAttempts += 1
-            
+    func ableToGuess(_ guess: String) -> Bool {
+        if numberOfAttempts < K.maxNumberOfAttempts + 1 {
             return true
         } else {
             return false
@@ -71,8 +73,10 @@ struct Game {
             if chosenWord!.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
                 if chosenWord![chosenWord!.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] {
                     guesses[letterPosition].gColor = K.perfectMatchColor
+                    guessWords[numberOfAttempts].gColor[i] = K.perfectMatchColor
                 } else {
                     guesses[letterPosition].gColor = K.imperfectMatchColor
+                    guessWords[numberOfAttempts].gColor[i] = K.imperfectMatchColor
                 }
                 
             }

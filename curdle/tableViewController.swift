@@ -95,10 +95,14 @@ extension tableViewController: UITableViewDataSource {
                                       options: .transitionCrossDissolve,
                                       animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
                                       completion: nil)
+                } else {
+                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 }
+            } else {
+                imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
+                imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]
             }
             
-            imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
             i += 1
         }
         
