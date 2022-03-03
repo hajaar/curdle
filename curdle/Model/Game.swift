@@ -1,9 +1,9 @@
-//
-//  Game.swift
-//  curdle
-//
-//  Created by Kartik Narayanan on 28/02/22.
-//
+    //
+    //  Game.swift
+    //  curdle
+    //
+    //  Created by Kartik Narayanan on 28/02/22.
+    //
 
 import Foundation
 import UIKit
@@ -16,10 +16,10 @@ struct Game {
     var isGameOver: Bool = false
     var numberOfAttempts = 0
     
-
+    
     
     mutating func checkGuess(guess: String) -> String {
-
+        
         if !doesWordExistInVocabulary(guess) {
             return guess + " is not in my vocabulary"
         }
@@ -40,7 +40,7 @@ struct Game {
     }
     
     func doesWordExistInVocabulary(_ guess: String) -> Bool {
-       return (K.vocalbulary.contains(guess) ? true : false)
+        return (K.vocalbulary.contains(guess) ? true : false)
     }
     
     func isWordDuplicated(_ guess: String) -> Bool {
@@ -73,14 +73,14 @@ struct Game {
         }
     }
     
-     mutating func isGuessCorrect(_ guess: String) -> Bool {
+    mutating func isGuessCorrect(_ guess: String) -> Bool {
         if guess == chosenWord {
             isGameWon =  true
             isGameOver = true
             return true
         }
         return false
-        }
+    }
     
 }
 

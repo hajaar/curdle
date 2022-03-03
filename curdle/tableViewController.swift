@@ -70,7 +70,7 @@ extension tableViewController: UITableViewDataSource {
         var isGuessDone = true
         let tmpTextLength = tmpText.count
         
-        if (Int(indexPath.row) != game.numberOfAttempts) {
+        if (Int(indexPath.row) != game.numberOfAttempts) || game.isGameWon {
 
             tmpString = game.guessWords[indexPath.row].gText
             isGuessDone = true
@@ -101,8 +101,12 @@ extension tableViewController: UITableViewDataSource {
                     imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 }
             } else {
+                if indexPath.row == game.numberOfAttempts {
+                    
+                } else {
                 imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]
+                }
             }
             
             i += 1
