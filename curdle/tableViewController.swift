@@ -65,7 +65,8 @@ extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
-        let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
+        let largeTitle = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 40), scale: .large)
+        
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         var tmpString: String = ""
         var isGuessDone = true
@@ -103,7 +104,8 @@ extension tableViewController: UITableViewDataSource {
                 }
             } else {
                 if indexPath.row == game.numberOfAttempts {
-                    
+                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
+                    imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]
                 } else {
                 imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
                 imageArray[i].tintColor = game.guessWords[indexPath.row].gColor[i]

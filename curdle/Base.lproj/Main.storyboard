@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-Zq-I94">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-Zq-I94">
                                 <rect key="frame" x="8" y="52" width="359" height="718"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="E6z-fb-JMn">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="359"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="502.66666666666669"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="v1a-eH-h0V" customClass="guessTableViewCell" customModule="curdle" customModuleProvider="target">
@@ -71,10 +71,10 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="evo-qG-F8L">
-                                        <rect key="frame" x="0.0" y="359" width="359" height="359"/>
+                                        <rect key="frame" x="0.0" y="502.66666666666657" width="359" height="215.33333333333331"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nwd-mY-hjU">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="71.666666666666671"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -89,23 +89,18 @@
                                                 </connections>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-KQ-4hH">
-                                                <rect key="frame" x="0.0" y="60" width="359" height="59.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="71.666666666666742" width="359" height="72"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJk-e4-0OB">
-                                                <rect key="frame" x="0.0" y="119.66666666666663" width="359" height="60"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85J-i9-CYP">
-                                                <rect key="frame" x="0.0" y="179.66666666666663" width="359" height="59.666666666666657"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-Ke-RXT">
-                                                <rect key="frame" x="0.0" y="239.33333333333337" width="359" height="60"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftF-pL-urt">
-                                                <rect key="frame" x="0.0" y="299.33333333333337" width="359" height="59.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="143.66666666666674" width="359" height="71.666666666666686"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="evo-qG-F8L" firstAttribute="height" secondItem="bfw-Zq-I94" secondAttribute="height" multiplier="0.3" id="01r-N1-oJa"/>
+                                    <constraint firstItem="E6z-fb-JMn" firstAttribute="height" secondItem="bfw-Zq-I94" secondAttribute="height" multiplier="0.7" id="w1h-1S-suN"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MbG-jf-wpa"/>
