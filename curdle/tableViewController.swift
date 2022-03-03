@@ -32,15 +32,17 @@ class tableViewController: UIViewController {
     }
     
     @IBAction func inputTextEditing(_ sender: UITextField) {
-        tmpText = inputText.text ?? ""
-        guessesTableView.reloadData()
+        if !game.isGameOver {
+            tmpText = inputText.text ?? ""
+            guessesTableView.reloadData()
+        }
     }
     
 }
 
 extension tableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if !game.isGameWon {
+        if !game.isGameOver {
             messagesLabel.text = game.checkGuess(guess: textField.text!)
             textField.text = ""
             tmpText = ""
@@ -91,8 +93,8 @@ extension tableViewController: UITableViewDataSource {
             if (!isGuessDone) {
                 if (i == tmpTextLength - 1) {
                     UIView.transition(with: imageArray[i],
-                                      duration: 0.75,
-                                      options: .transitionCrossDissolve,
+                                      duration: 0.50,
+                                      options: .transitionFlipFromTop,
                                       animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
                                       completion: nil)
                 } else {

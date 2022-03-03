@@ -61,19 +61,19 @@ extension ViewController: UITextFieldDelegate {
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return game.guesses.count
+        return game.guessWords.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WordCell", for: indexPath) as! WordCell
         let largeTitle = UIImage.SymbolConfiguration(textStyle: .largeTitle)
         //cell.wordImage.image = UIImage(systemName: String(game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle)
-        cell.wordImage.tintColor = game.guesses[indexPath.row].gColor
-        UIView.transition(with: cell.wordImage,
-                          duration: 0.75,
-                          options: .transitionCrossDissolve,
-                          animations: { cell.wordImage.image = UIImage(systemName: String(self.game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle) },
-                          completion: nil)
+//        cell.wordImage.tintColor = game.guesses[indexPath.row].gColor
+//        UIView.transition(with: cell.wordImage,
+//                          duration: 0.75,
+//                          options: .transitionCrossDissolve,
+//                          animations: { cell.wordImage.image = UIImage(systemName: String(self.game.guesses[indexPath.row].gText + ".square.fill"), withConfiguration: largeTitle) },
+//                          completion: nil)
         return cell
     }
     
