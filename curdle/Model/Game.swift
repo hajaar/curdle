@@ -5,6 +5,8 @@
     //  Created by Kartik Narayanan on 28/02/22.
     //
 
+
+
 import Foundation
 import UIKit
 
@@ -18,6 +20,7 @@ struct Game {
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!
+        print(chosenWord)
         guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
         isGameWon = false
         isGameOver = false
