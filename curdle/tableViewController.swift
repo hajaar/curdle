@@ -128,14 +128,10 @@ extension tableViewController: UITableViewDataSource {
         // Create a standard header that includes the returned text.
     func tableView(_ tableView: UITableView, titleForHeaderInSection
                             section: Int) -> String? {
-        return "CURDLE"
+        return "CURDLE " + msgText
     }
     
-        // Create a standard footer that includes the returned text.
-    func tableView(_ tableView: UITableView, titleForFooterInSection
-                            section: Int) -> String? {
-        return msgText
-    }
+
 }
 
 

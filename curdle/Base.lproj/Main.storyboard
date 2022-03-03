@@ -25,31 +25,43 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="v1a-eH-h0V" customClass="guessTableViewCell" customModule="curdle" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="359" height="128"/>
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="359" height="132"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v1a-eH-h0V" id="Rey-rI-bTL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="128"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="132"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nRd-YQ-VRU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="128"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="132"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bFh-dj-0tT">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="71.666666666666671" height="128"/>
+                                                                    <rect key="frame" x="0.0" y="2" width="71.666666666666671" height="128"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9Y-oW-hlB">
-                                                                    <rect key="frame" x="71.666666666666671" y="0.0" width="72.000000000000014" height="128"/>
+                                                                    <rect key="frame" x="71.666666666666671" y="2" width="72.000000000000014" height="128"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N4K-T4-Nlq">
-                                                                    <rect key="frame" x="143.66666666666666" y="0.0" width="71.666666666666657" height="128"/>
+                                                                    <rect key="frame" x="143.66666666666666" y="2" width="71.666666666666657" height="128"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hie-Tp-CG1">
-                                                                    <rect key="frame" x="215.33333333333334" y="0.0" width="72.000000000000028" height="128"/>
+                                                                    <rect key="frame" x="215.33333333333334" y="2" width="72.000000000000028" height="128"/>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-b0-CAQ">
-                                                                    <rect key="frame" x="287.33333333333331" y="0.0" width="71.666666666666686" height="128"/>
+                                                                    <rect key="frame" x="287.33333333333331" y="2" width="71.666666666666686" height="128"/>
                                                                 </imageView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="bFh-dj-0tT" firstAttribute="top" secondItem="nRd-YQ-VRU" secondAttribute="top" constant="2" id="27F-In-g4M"/>
+                                                                <constraint firstItem="hie-Tp-CG1" firstAttribute="top" secondItem="nRd-YQ-VRU" secondAttribute="top" constant="2" id="8xc-VL-2wj"/>
+                                                                <constraint firstAttribute="bottom" secondItem="HWF-b0-CAQ" secondAttribute="bottom" constant="2" id="Gl3-V5-QnV"/>
+                                                                <constraint firstAttribute="bottom" secondItem="bFh-dj-0tT" secondAttribute="bottom" constant="2" id="HH6-La-fzW"/>
+                                                                <constraint firstItem="S9Y-oW-hlB" firstAttribute="top" secondItem="nRd-YQ-VRU" secondAttribute="top" constant="2" id="MHu-G0-elC"/>
+                                                                <constraint firstItem="N4K-T4-Nlq" firstAttribute="top" secondItem="nRd-YQ-VRU" secondAttribute="top" constant="2" id="RaK-wp-BOq"/>
+                                                                <constraint firstItem="HWF-b0-CAQ" firstAttribute="top" secondItem="nRd-YQ-VRU" secondAttribute="top" constant="2" id="Ywk-Qc-27U"/>
+                                                                <constraint firstAttribute="bottom" secondItem="N4K-T4-Nlq" secondAttribute="bottom" constant="2" id="p3N-4H-JvK"/>
+                                                                <constraint firstAttribute="bottom" secondItem="hie-Tp-CG1" secondAttribute="bottom" constant="2" id="t57-ZZ-WG9"/>
+                                                                <constraint firstAttribute="bottom" secondItem="S9Y-oW-hlB" secondAttribute="bottom" constant="2" id="tVg-wX-Yru"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
