@@ -60,7 +60,7 @@ struct Game {
     }
     
     func ableToGuess(_ guess: String) -> Bool {
-        if numberOfAttempts < K.maxNumberOfAttempts + 1 {
+        if numberOfAttempts < K.maxNumberOfAttempts {
             return true
         } else {
             return false
