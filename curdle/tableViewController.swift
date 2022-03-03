@@ -70,7 +70,7 @@ extension tableViewController: UITableViewDataSource {
         
         if (Int(indexPath.row) != game.numberOfAttempts) {
 
-            tmpString = game.guessWords[indexPath.row]
+            tmpString = game.guessWords[indexPath.row].gText
             isGuessDone = true
         } else {
             tmpString = tmpText

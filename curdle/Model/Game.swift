@@ -12,7 +12,7 @@ import UIKit
 struct Game {
     let chosenWord = K.vocalbulary.randomElement()
     var guesses = [Guess](repeating: Guess(gText: "", gColor: K.notMatchColor), count: K.maxLetters)
-    var guessWords = [String](repeating: "", count: K.maxNumberOfAttempts)
+    var guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
     var isGameWon: Bool = false
     var numberOfAttempts = 0
     var letterPosition = 0
@@ -45,16 +45,18 @@ struct Game {
     }
     
     func isWordDuplicated(_ guess: String) -> Bool {
-        if guessWords.contains(guess) {
-            return true
-        } else {
-            return false
+        for i in 0..<K.maxNumberOfAttempts {
+            if guessWords[i].gText == guess {
+                return true
+            }
         }
+        return false
     }
+    
     
     mutating func ableToGuess(_ guess: String) -> Bool {
         if numberOfAttempts < K.maxNumberOfAttempts {
-            guessWords[numberOfAttempts] = guess
+            guessWords[numberOfAttempts].gText = guess
             numberOfAttempts += 1
             
             return true
@@ -93,3 +95,15 @@ struct Guess {
     var gColor: UIColor
 }
 
+struct GuessWord {
+    var gText: String
+    var gColor: [UIColor]
+    
+    init() {
+        gText = ""
+        gColor = [UIColor]()
+        for _ in 0..<K.maxNumberOfAttempts {
+            gColor.append(K.notMatchColor)
+        }
+    }
+}
