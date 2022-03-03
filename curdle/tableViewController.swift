@@ -14,6 +14,12 @@ class tableViewController: UIViewController {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
+    @IBAction func startNewGame(_ sender: UIButton) {
+        gameSession.startNewGame()
+        isNewGame = true
+        guessesTableView.reloadData()
+
+    }
     var gameSession = GameSession()
     var isNewGame: Bool = true
     var tmpText: String = ""

@@ -8,30 +8,47 @@
 import Foundation
 
 struct GameSession {
-    var gamesPlayed: Int
-    var gamesWon: Int
     var currentStreak: Int
     var game: Game
+    var gameStats: [GameStats]
     
     init() {
-        gamesPlayed = 0
-        gamesWon = 0
         currentStreak = 0
         game = Game()
+        gameStats = [GameStats]()
     }
     
     mutating func startNewGame() {
         game = Game()
     }
     
-    mutating func getGameAttributes() {
+    mutating func setGameAttributes() {
         if game.isGameOver {
-            gamesPlayed += 1
+            gameStats.append(GameStats(game.chosenWord,game.isGameWon,game.numberOfAttempts))
         }
-        if game.isGameWon {
-            gamesWon += 1
+    }
+    
+    func getGamesPlayed() -> Int {
+        return gameStats.count
+    }
+    
+    func getGamesWon() -> Int {
+        var t = 0
+        for i in 0...gameStats.count {
+            t += gameStats[i].isGameWon ? 1 : 0
         }
-        print(gamesPlayed)
-        print(gamesWon)
+        return t
+    }
+}
+
+struct GameStats {
+    let chosenWord: String
+    let isGameWon: Bool
+    let noOfAttempts: Int
+    
+    init(_ chosenWord: String, _ isGameWon: Bool, _ noOfAttempts: Int) {
+        self.chosenWord = chosenWord
+        self.isGameWon = isGameWon
+        self.noOfAttempts = noOfAttempts
     }
 }
