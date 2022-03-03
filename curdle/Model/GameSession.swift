@@ -39,6 +39,19 @@ struct GameSession {
         }
         return t
     }
+    
+    mutating func getCurrentStreak() -> Int {
+        var maxStreak = 0
+        for i in 0...gameStats.count {
+            if gameStats[i].isGameWon {
+                maxStreak += 1
+            } else {
+                currentStreak = currentStreak > maxStreak ? currentStreak : maxStreak
+                maxStreak = 0
+            }
+        }
+        return currentStreak
+    }
 }
 
 struct GameStats {
