@@ -145,13 +145,56 @@
                     <view key="view" contentMode="scaleToFill" id="iyn-SK-LXC" customClass="Results">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TDV-V4-UUV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeC-C8-cDl">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="72.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                        <connections>
+                                            <action selector="dismissScreen:" destination="TtS-cX-BSo" eventType="touchUpInside" id="xnN-Ha-GX5"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGd-0a-EAe">
+                                        <rect key="frame" x="0.0" y="72.333333333333343" width="375" height="72.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Lk-3r-Fgg">
+                                        <rect key="frame" x="0.0" y="144.66666666666663" width="375" height="217.33333333333337"/>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-1M-ceu">
+                                        <rect key="frame" x="0.0" y="362" width="375" height="362"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="yeC-C8-cDl" firstAttribute="height" secondItem="TDV-V4-UUV" secondAttribute="height" multiplier="0.1" id="4o1-ga-wja"/>
+                                    <constraint firstItem="6Lk-3r-Fgg" firstAttribute="height" secondItem="TDV-V4-UUV" secondAttribute="height" multiplier="0.3" id="L8p-NG-ECM"/>
+                                    <constraint firstItem="QGd-0a-EAe" firstAttribute="height" secondItem="TDV-V4-UUV" secondAttribute="height" multiplier="0.1" id="TCj-i7-ehp"/>
+                                    <constraint firstItem="Yfh-1M-ceu" firstAttribute="height" secondItem="TDV-V4-UUV" secondAttribute="height" multiplier="0.5" id="cuD-Hu-xlC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cuc-fa-7aA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TDV-V4-UUV" firstAttribute="leading" secondItem="cuc-fa-7aA" secondAttribute="leading" id="LcN-JQ-Ast"/>
+                            <constraint firstItem="cuc-fa-7aA" firstAttribute="bottom" secondItem="TDV-V4-UUV" secondAttribute="bottom" id="O4c-LR-eyX"/>
+                            <constraint firstItem="cuc-fa-7aA" firstAttribute="trailing" secondItem="TDV-V4-UUV" secondAttribute="trailing" id="kmf-Fd-2i1"/>
+                            <constraint firstItem="TDV-V4-UUV" firstAttribute="top" secondItem="cuc-fa-7aA" secondAttribute="top" id="nRc-au-shx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="yeC-C8-cDl" id="haL-VC-nHx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvd-Uh-SPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="159"/>
+            <point key="canvasLocation" x="76" y="158.86699507389164"/>
         </scene>
     </scenes>
     <resources>
