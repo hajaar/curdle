@@ -57,7 +57,14 @@ struct GameSession {
         }
         return currentStreak
     }
+    
+    mutating func getGameStatsForLabel() -> String {
+        return String(getGamesWon()) + "/" + String(getGamesPlayed()) +  " " +  "\u{2303}" +  String(getCurrentStreak())
+    }
+    
 }
+
+
 
 struct GameStats {
     let chosenWord: String

@@ -149,14 +149,10 @@ extension tableViewController: UITableViewDataSource {
         
         let nameLabel = UILabel()
         nameLabel.frame = CGRect.init(x: 10, y: 5, width: headerView.frame.width/2 - 10, height: headerView.frame.height-10)
-        nameLabel.text = "Curdle"
         nameLabel.font = .systemFont(ofSize: 20)
-        
         nameLabel.textColor = K.notMatchColor
-        
         let gamesPlayedLabel = UILabel()
         gamesPlayedLabel.frame = CGRect.init(x: 10 + headerView.frame.width / 2, y: 5, width: headerView.frame.width / 2 - 20, height: headerView.frame.height-10)
-        gamesPlayedLabel.text = String(gameSession.getGamesWon()) + "/" + String(gameSession.getGamesPlayed()) +  " " +  "\u{2303}" +  String(gameSession.getCurrentStreak())
         gamesPlayedLabel.font = .systemFont(ofSize: 20)
         gamesPlayedLabel.textAlignment = .right
         gamesPlayedLabel.textColor = K.perfectMatchColor
@@ -164,6 +160,10 @@ extension tableViewController: UITableViewDataSource {
         
         headerView.addSubview(nameLabel)
         headerView.addSubview(gamesPlayedLabel)
+        
+        nameLabel.text = K.appName
+        gamesPlayedLabel.text = gameSession.getGameStatsForLabel()
+        
         return headerView
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
