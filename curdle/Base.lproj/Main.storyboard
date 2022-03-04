@@ -131,11 +131,27 @@
                     <connections>
                         <outlet property="guessesTableView" destination="E6z-fb-JMn" id="RKu-uY-Nqu"/>
                         <outlet property="inputText" destination="nwd-mY-hjU" id="HaV-IG-BV5"/>
+                        <segue destination="TtS-cX-BSo" kind="presentation" identifier="goToResult" id="r25-Sv-oTL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XRP-d4-2np" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-814" y="65"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="nxU-ZP-uga">
+            <objects>
+                <viewController id="TtS-cX-BSo" customClass="resultsViewController" customModule="curdle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iyn-SK-LXC" customClass="Results">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cuc-fa-7aA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rvd-Uh-SPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="159"/>
         </scene>
     </scenes>
     <resources>

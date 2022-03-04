@@ -14,6 +14,7 @@
 		F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */; };
 		F24337B927CC4E2F005E72A5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337B827CC4E2F005E72A5 /* K.swift */; };
 		F24337C027CC60B8005E72A5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337BF27CC60B8005E72A5 /* Game.swift */; };
+		F2487C8D27D210F500E6CDE2 /* resultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2487C8C27D210F500E6CDE2 /* resultsViewController.swift */; };
 		F2B1728A27D1A3E400F3FC9E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728927D1A3E400F3FC9E /* Realm */; };
 		F2B1728C27D1A3E400F3FC9E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728B27D1A3E400F3FC9E /* RealmSwift */; };
 		F2B1728E27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */; };
@@ -35,6 +36,7 @@
 		F24337B227CC4DF1005E72A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24337B827CC4E2F005E72A5 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		F24337BF27CC60B8005E72A5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F2487C8C27D210F500E6CDE2 /* resultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultsViewController.swift; sourceTree = SOURCE_ROOT; };
 		F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurdleGameStatsDataModel.swift; sourceTree = "<group>"; };
 		F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWord.swift; sourceTree = "<group>"; };
 		F2B1729127D1B46B00F3FC9E /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		F2B1728727D1995500F3FC9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2487C8C27D210F500E6CDE2 /* resultsViewController.swift */,
 				F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */,
 				F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */,
 			);
@@ -208,6 +211,7 @@
 				F2B1729227D1B46B00F3FC9E /* GameStats.swift in Sources */,
 				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
+				F2487C8D27D210F500E6CDE2 /* resultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

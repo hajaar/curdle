@@ -61,6 +61,17 @@ class tableViewController: UIViewController {
             isNewGame = false
             guessesTableView.reloadData()
         }
+        if gameSession.game.isGameOver {
+            self.performSegue(withIdentifier: "goToResult", sender: self)
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! resultsViewController
+            
+        }
     }
     
 }
@@ -74,9 +85,15 @@ extension tableViewController: UITextFieldDelegate {
             tmpText = ""
         }
         guessesTableView.reloadData()
+        if gameSession.game.isGameOver {
+            self.performSegue(withIdentifier: "goToResult", sender: self)
+        }
         return true
     }
 }
+
+
+
 
 extension tableViewController: UITableViewDelegate {
     
