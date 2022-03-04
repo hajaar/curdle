@@ -11,9 +11,14 @@ import RealmSwift
 struct GameSession {
     let realm = try! Realm()
     lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
-    var game: Game = Game()
-    var gameStats = GameStats()
+    var game: Game
+    var gameStats: GameStats
 
+    init() {
+        game = Game()
+        gameStats = GameStats()
+        getGamesStats()
+    }
     
     
     mutating func startNewGame() {
@@ -49,7 +54,7 @@ struct GameSession {
             
         }
         gameStats.gamesPlayed = tmpGamesPlayed
-        gameStats.winPercent = round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0)
+        gameStats.winPercent = tmpGamesPlayed > 0 ? round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0) : 0
         gameStats.currentStreak = tmpCurrentStreak
         gameStats.maxStreak = tmpMaxStreak
         
