@@ -18,7 +18,6 @@
 		F2DD0BFF27CF170A003E4D21 /* guessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */; };
 		F2FBC34927D0903C00EA961C /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBC34827D0903C00EA961C /* GameSession.swift */; };
 		F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03027CC8CA5003BAB28 /* Handy.swift */; };
-		F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FEE03727CCE20C003BAB28 /* WordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessTableViewCell.swift; sourceTree = "<group>"; };
 		F2FBC34827D0903C00EA961C /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		F2FEE03027CC8CA5003BAB28 /* Handy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handy.swift; sourceTree = "<group>"; };
-		F2FEE03727CCE20C003BAB28 /* WordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +66,6 @@
 		F24337A327CC4DF1005E72A5 /* curdle */ = {
 			isa = PBXGroup;
 			children = (
-				F2FEE03727CCE20C003BAB28 /* WordCell.swift */,
 				F2FEE03427CC938C003BAB28 /* Helpers */,
 				F24337A427CC4DF1005E72A5 /* AppDelegate.swift */,
 				F24337A627CC4DF1005E72A5 /* SceneDelegate.swift */,
@@ -77,8 +74,7 @@
 				F24337AD27CC4DF1005E72A5 /* Assets.xcassets */,
 				F24337AF27CC4DF1005E72A5 /* LaunchScreen.storyboard */,
 				F24337B227CC4DF1005E72A5 /* Info.plist */,
-				F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */,
-				F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */,
+				F2B1728727D1995500F3FC9E /* Views */,
 			);
 			path = curdle;
 			sourceTree = "<group>";
@@ -91,6 +87,15 @@
 				F2FBC34827D0903C00EA961C /* GameSession.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F2B1728727D1995500F3FC9E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */,
+				F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F2FEE03427CC938C003BAB28 /* Helpers */ = {
@@ -177,7 +182,6 @@
 				F24337C027CC60B8005E72A5 /* Game.swift in Sources */,
 				F24337B927CC4E2F005E72A5 /* K.swift in Sources */,
 				F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */,
-				F2FEE03827CCE20C003BAB28 /* WordCell.swift in Sources */,
 				F2DD0BFD27CF0C00003E4D21 /* tableViewController.swift in Sources */,
 				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
