@@ -38,10 +38,10 @@ struct Game {
         }
         addGuessToList(guess)
         findMatchingLetters(guess)
+        numberOfAttempts += 1
         if isGuessCorrect(guess){
             return "Woohoo!. You win."
         }
-        numberOfAttempts += 1
         if !ableToGuess(guess) {
             isGameOver = true
             return "Sorry. All out of guesses"
