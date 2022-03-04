@@ -13,4 +13,5 @@ struct GameStats {
     var currentStreak = 0
     var maxStreak = 0
     var attemptDistribution = [Int](repeating: 0, count: K.maxNumberOfAttempts)
+    var avgTimeToWin = 0.0
 }
