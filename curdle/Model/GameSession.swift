@@ -6,74 +6,62 @@
     //
 
 import Foundation
+import RealmSwift
 
 struct GameSession {
-    var currentStreak: Int
-    var game: Game
-    var gameStats: [GameStats]
+    let realm = try! Realm()
+    lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
+    var game: Game = Game()
+    var gameStats = GameStats()
+
     
-    init() {
-        currentStreak = 0
-        game = Game()
-        gameStats = [GameStats]()
-    }
     
     mutating func startNewGame() {
         game = Game()
+        getGamesStats()
     }
     
     mutating func setGameAttributes() {
         if game.isGameOver {
-            gameStats.append(GameStats(game.chosenWord,game.isGameWon,game.numberOfAttempts))
+            try! realm.write({
+                let newgameStat = CurdleGameStatsDataModel()
+                newgameStat.chosenWord = game.chosenWord
+                newgameStat.isGameWon = game.isGameWon
+                newgameStat.noOfAttempts = game.numberOfAttempts
+                realm.add(newgameStat)
+                print("success")
+            })
         }
+        getGamesStats()
     }
     
-    func getGamesPlayed() -> Int {
-        return gameStats.count
-    }
-    
-    func getGamesWon() -> Int {
-        var t = 0
-        if gameStats.count > 0 {
-            for i in 1...gameStats.count {
-                t += gameStats[i-1].isGameWon ? 1 : 0
+    mutating func getGamesStats() {
+        self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
+        let tmpGamesPlayed = gameStatsModelData.count > 0 ? gameStatsModelData.count : 0
+        var tmpGamesWon = 0
+        var tmpCurrentStreak = 0
+        var tmpMaxStreak = 0
+        if tmpGamesPlayed > 0 {
+            for i in 0...tmpGamesPlayed-1{
+                tmpGamesWon += gameStatsModelData[i].isGameWon ? 1 : 0
             }
+            
+            
         }
-        return t
+        gameStats.gamesPlayed = tmpGamesPlayed
+        gameStats.winPercent = round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0)
+        gameStats.currentStreak = tmpCurrentStreak
+        gameStats.maxStreak = tmpMaxStreak
         
     }
     
-    mutating func getCurrentStreak() -> Int {
-        var maxStreak = 0
-        if gameStats.count > 0 {
-            for i in 1...gameStats.count {
-                if gameStats[i-1].isGameWon {
-                    maxStreak += 1
-                    currentStreak = currentStreak > maxStreak ? currentStreak : maxStreak
-                } else {
-                    maxStreak = 0
-                }
-            }
-        }
-        return currentStreak
-    }
     
     mutating func getGameStatsForLabel() -> String {
-        return String(getGamesWon()) + "/" + String(getGamesPlayed()) +  " " +  "\u{2303}" +  String(getCurrentStreak())
+
+        return String(gameStats.gamesPlayed) + " " + String(gameStats.winPercent) +  "% " + String(gameStats.currentStreak)
     }
     
 }
 
 
 
-struct GameStats {
-    let chosenWord: String
-    let isGameWon: Bool
-    let noOfAttempts: Int
-    
-    init(_ chosenWord: String, _ isGameWon: Bool, _ noOfAttempts: Int) {
-        self.chosenWord = chosenWord
-        self.isGameWon = isGameWon
-        self.noOfAttempts = noOfAttempts
-    }
-}

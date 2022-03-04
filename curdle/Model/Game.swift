@@ -96,12 +96,4 @@ struct Game {
 
 
 
-struct GuessWord {
-    var gText: String
-    var gColor: [UIColor]
-    
-    init() {
-        gText = ""
-        gColor = [UIColor](repeating: K.notMatchColor, count: K.maxNumberOfAttempts)
-    }
-}
+
