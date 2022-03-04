@@ -32,7 +32,7 @@ struct GameSession {
                 let newgameStat = CurdleGameStatsDataModel()
                 newgameStat.chosenWord = game.chosenWord
                 newgameStat.isGameWon = game.isGameWon
-                newgameStat.noOfAttempts = game.numberOfAttempts
+                newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
                 realm.add(newgameStat)
                 print("success")
             })
@@ -42,21 +42,27 @@ struct GameSession {
     
     mutating func getGamesStats() {
         self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
+        
         let tmpGamesPlayed = gameStatsModelData.count > 0 ? gameStatsModelData.count : 0
         var tmpGamesWon = 0
         var tmpCurrentStreak = 0
         var tmpMaxStreak = 0
+        
         if tmpGamesPlayed > 0 {
-            for i in 0...tmpGamesPlayed-1{
+            for i in 0...tmpGamesPlayed-1 {
                 tmpGamesWon += gameStatsModelData[i].isGameWon ? 1 : 0
+                if gameStatsModelData[i].noOfAttempts > 0 {
+                    //print(gameStatsModelData[i].noOfAttempts)
+                    gameStats.attemptDistribution[gameStatsModelData[i].noOfAttempts - 1] += 1
+                }
             }
-            
-            
         }
+        
         gameStats.gamesPlayed = tmpGamesPlayed
         gameStats.winPercent = tmpGamesPlayed > 0 ? round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0) : 0
         gameStats.currentStreak = tmpCurrentStreak
         gameStats.maxStreak = tmpMaxStreak
+        print(gameStats)
         
     }
     
