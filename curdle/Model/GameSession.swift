@@ -57,6 +57,8 @@ struct GameSession {
                    //print(gameStatsModelData[i].noOfAttempts, tmpattemptDistribution[gameStatsModelData[i].noOfAttempts - 1] )
                     tmpattemptDistribution[gameStatsModelData[i].noOfAttempts - 1] += 1
                 }
+                tmpMaxStreak = gameStatsModelData[i].isGameWon ? tmpMaxStreak + 1 : 0
+                gameStats.maxStreak = gameStats.maxStreak > tmpMaxStreak ? gameStats.maxStreak : tmpMaxStreak
             }
         }
         

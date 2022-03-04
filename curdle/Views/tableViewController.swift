@@ -7,10 +7,11 @@
 
 import UIKit
 
+
 class tableViewController: UIViewController {
     
     
-    @IBOutlet weak var messagesLabel: UILabel!
+
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
@@ -27,6 +28,7 @@ class tableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
         swipeDown.direction = .down
