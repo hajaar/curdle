@@ -40,7 +40,7 @@ struct GameSession {
                 newgameStat.chosenWord = game.chosenWord
                 newgameStat.isGameWon = game.isGameWon
                 newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
-                newgameStat.timeToWin = round(startingPoint.timeIntervalSinceNow * -1 * 10.0)/10.0
+                newgameStat.timeToWin = round(startingPoint.timeIntervalSinceNow * -1 )
                 realm.add(newgameStat)
             })
            
@@ -71,12 +71,12 @@ struct GameSession {
         }
         
         gameStats.gamesPlayed = tmpGamesPlayed
-        gameStats.winPercent = tmpGamesPlayed > 0 ? round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0) : 0
+        gameStats.winPercent = tmpGamesPlayed > 0 ? tmpGamesWon/tmpGamesPlayed * 100 : 0
         gameStats.currentStreak = currentStreak
         for i in 0...tmpattemptDistribution.count - 1 {
             gameStats.attemptDistribution[i] = tmpattemptDistribution[i]
         }
-        gameStats.avgTimeToWin = round(tmpTotalTimeToWin/Double(tmpGamesWon))*10.0/10.0
+        gameStats.avgTimeToWin = Int(tmpTotalTimeToWin)/tmpGamesWon
         print(gameStats)
         
     }

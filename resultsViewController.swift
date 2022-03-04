@@ -10,6 +10,11 @@ import UIKit
 class resultsViewController: UIViewController {
     @IBOutlet weak var dismissButton: UIButton!
     
+    @IBOutlet weak var playedLabel: UILabel!
+    @IBOutlet weak var wonLabel: UILabel!
+    @IBOutlet weak var currentStreakLabel: UILabel!
+    @IBOutlet weak var maxStreakLabel: UILabel!
+    @IBOutlet weak var avgTimeLabel: UILabel!
     var resultGameStats = GameStats()
     
     
@@ -18,7 +23,12 @@ class resultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(resultGameStats)
-        // Do any additional setup after loading the view.
+        playedLabel.text = String(resultGameStats.gamesPlayed)
+        wonLabel.text = String(resultGameStats.winPercent)
+        currentStreakLabel.text = String(resultGameStats.currentStreak)
+        maxStreakLabel.text = String(resultGameStats.maxStreak)
+        avgTimeLabel.text = String(resultGameStats.avgTimeToWin)
+        
     }
     
     

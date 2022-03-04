@@ -302,7 +302,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="avgTimeLabel" destination="faT-m3-mZq" id="435-PY-c0T"/>
+                        <outlet property="currentStreakLabel" destination="VD9-tf-wHU" id="ksw-YN-T00"/>
                         <outlet property="dismissButton" destination="yeC-C8-cDl" id="haL-VC-nHx"/>
+                        <outlet property="maxStreakLabel" destination="rq8-gH-zeg" id="nmg-bO-Xzk"/>
+                        <outlet property="playedLabel" destination="tfH-26-SEu" id="qIA-Fo-t5H"/>
+                        <outlet property="wonLabel" destination="FSt-Zh-eno" id="u49-N4-zU5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvd-Uh-SPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
