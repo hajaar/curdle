@@ -13,6 +13,7 @@ struct GameSession {
     lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
     var game: Game
     var gameStats: GameStats
+    var currentStreak: Int = 0
 
     init() {
         game = Game()
@@ -35,8 +36,8 @@ struct GameSession {
                 newgameStat.isGameWon = game.isGameWon
                 newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
                 realm.add(newgameStat)
-                //print("success")
             })
+            currentStreak = game.isGameWon ? currentStreak + 1 : 0
         }
         getGamesStats()
     }
@@ -46,7 +47,6 @@ struct GameSession {
         
         let tmpGamesPlayed = gameStatsModelData.count > 0 ? gameStatsModelData.count : 0
         var tmpGamesWon = 0
-        var tmpCurrentStreak = 0
         var tmpMaxStreak = 0
         var tmpattemptDistribution = [Int](repeating: 0, count: K.maxNumberOfAttempts)
         
@@ -54,7 +54,6 @@ struct GameSession {
             for i in 0...tmpGamesPlayed-1 {
                 tmpGamesWon += gameStatsModelData[i].isGameWon ? 1 : 0
                 if gameStatsModelData[i].noOfAttempts > 0 {
-                   //print(gameStatsModelData[i].noOfAttempts, tmpattemptDistribution[gameStatsModelData[i].noOfAttempts - 1] )
                     tmpattemptDistribution[gameStatsModelData[i].noOfAttempts - 1] += 1
                 }
                 tmpMaxStreak = gameStatsModelData[i].isGameWon ? tmpMaxStreak + 1 : 0
@@ -64,12 +63,11 @@ struct GameSession {
         
         gameStats.gamesPlayed = tmpGamesPlayed
         gameStats.winPercent = tmpGamesPlayed > 0 ? round(Double(tmpGamesWon)/Double(tmpGamesPlayed) * 100.0) : 0
-        gameStats.currentStreak = tmpCurrentStreak
-        gameStats.maxStreak = tmpMaxStreak
+        gameStats.currentStreak = currentStreak
         for i in 0...tmpattemptDistribution.count - 1 {
             gameStats.attemptDistribution[i] = tmpattemptDistribution[i]
         }
-        //print(gameStats)
+        print(gameStats)
         
     }
     
