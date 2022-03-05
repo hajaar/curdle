@@ -280,7 +280,7 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-1M-ceu">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfh-1M-ceu" customClass="RadarChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="217.33333333333334" width="375" height="506.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
@@ -307,6 +307,7 @@
                         <outlet property="dismissButton" destination="yeC-C8-cDl" id="haL-VC-nHx"/>
                         <outlet property="maxStreakLabel" destination="rq8-gH-zeg" id="nmg-bO-Xzk"/>
                         <outlet property="playedLabel" destination="tfH-26-SEu" id="qIA-Fo-t5H"/>
+                        <outlet property="radarChart" destination="Yfh-1M-ceu" id="ynN-Ro-17p"/>
                         <outlet property="wonLabel" destination="FSt-Zh-eno" id="u49-N4-zU5"/>
                     </connections>
                 </viewController>
