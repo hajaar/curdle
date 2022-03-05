@@ -28,52 +28,86 @@ class resultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(resultGameStats)
+        
         playedLabel.text = String(resultGameStats.gamesPlayed)
         wonLabel.text = String(resultGameStats.winPercent)
         currentStreakLabel.text = String(resultGameStats.currentStreak)
         maxStreakLabel.text = String(resultGameStats.maxStreak)
         avgTimeLabel.text = String(resultGameStats.avgTimeToWin)
         
-        let greenDataSet = RadarChartDataSet(
-            entries: [
-                RadarChartDataEntry(value: 210),
-                RadarChartDataEntry(value: 60.0),
-                RadarChartDataEntry(value: 150.0),
-                RadarChartDataEntry(value: 150.0),
-                RadarChartDataEntry(value: 160.0),
-                RadarChartDataEntry(value: 150.0),
-                RadarChartDataEntry(value: 110.0),
-                RadarChartDataEntry(value: 190.0),
-                RadarChartDataEntry(value: 200.0)
-            ]
-        )
-        let redDataSet = RadarChartDataSet(
-            entries: [
-                RadarChartDataEntry(value: 120.0),
-                RadarChartDataEntry(value: 160.0),
-                RadarChartDataEntry(value: 110.0),
-                RadarChartDataEntry(value: 110.0),
-                RadarChartDataEntry(value: 210.0),
-                RadarChartDataEntry(value: 120.0),
-                RadarChartDataEntry(value: 210.0),
-                RadarChartDataEntry(value: 100.0),
-                RadarChartDataEntry(value: 210.0)
-            ]
-        )
-        
-            // 2
-        let data = RadarChartData(dataSets: [greenDataSet, redDataSet])
-        
-            // 3
-        radarChart.data = data
+        setChartData()
+        formatChart()
         
     }
     
+
     
     @IBAction func dismissScreen(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func setChartData() {
+        let redDataSet = RadarChartDataSet(
+            entries: [
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[0])),
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[1])),
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[2])),
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[3])),
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[4])),
+                RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[5])),
+
+            ]
+        )
+        print(resultGameStats.attemptDistribution)
+
+        let data = RadarChartData(dataSets: [redDataSet])
+        
+
+        radarChart.data = data
+        
+        redDataSet.lineWidth = 2
+        
+
+        let redColor = K.imperfectMatchColor
+        let redFillColor = K.perfectMatchColor
+        redDataSet.colors = [redColor]
+        redDataSet.fillColor = redFillColor
+        redDataSet.drawFilledEnabled = true
+        
+            // 3
+        redDataSet.valueFormatter = DataSetValueFormatter()
+    }
+    
+    func formatChart() {
+        
+
+        
+        
+        radarChart.webLineWidth = 1.5
+        radarChart.innerWebLineWidth = 1.5
+        radarChart.webColor = .lightGray
+        radarChart.innerWebColor = .lightGray
+        
+            // 3
+        let xAxis = radarChart.xAxis
+        xAxis.labelFont = .systemFont(ofSize: 9, weight: .bold)
+        xAxis.labelTextColor = K.notMatchColor
+        xAxis.xOffset = 10
+        xAxis.yOffset = 10
+        xAxis.valueFormatter = XAxisFormatter()
+        
+            // 4
+        let yAxis = radarChart.yAxis
+        yAxis.labelFont = .systemFont(ofSize: 9, weight: .light)
+        yAxis.labelCount = 6
+        yAxis.drawTopYLabelEntryEnabled = false
+        yAxis.axisMinimum = 0
+        yAxis.valueFormatter = YAxisFormatter()
+        
+            // 5
+        radarChart.rotationEnabled = false
+        radarChart.legend.enabled = false
+    }
     
 
     /*
@@ -86,4 +120,30 @@ class resultsViewController: UIViewController {
     }
     */
 
+}
+class DataSetValueFormatter: IValueFormatter {
+    
+    func stringForValue(_ value: Double,
+                        entry: ChartDataEntry,
+                        dataSetIndex: Int,
+                        viewPortHandler: ViewPortHandler?) -> String {
+        ""
+    }
+}
+
+    // 2
+class XAxisFormatter: IAxisValueFormatter {
+    
+    let titles = "123456".map { "Attempt \($0)" }
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        titles[Int(value) % titles.count]
+    }
+}
+
+    // 3
+class YAxisFormatter: IAxisValueFormatter {
+    
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        "\(Int(value)) "
+    }
 }
