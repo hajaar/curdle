@@ -147,18 +147,22 @@ extension tableViewController: UITableViewDataSource {
         
         
         
-       /* for i in 0..<K.maxLengthOfWord {
-            UIView.transition(with: imageArray[i],
-                              duration: gameSession.game.WordDetails[i].letterImageDuration,
-                              options: .transitionFlipFromTop,
-                              animations: { imageArray[i].image = gameSession.game.WordDetails[i].letterImage, withConfiguration: largeTitle) },
-                              completion: nil)
-            imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
-
-        } */
+        /* for i in 0..<K.maxLengthOfWord {
+         UIView.transition(with: imageArray[i],
+         duration: gameSession.game.WordDetails[i].letterImageDuration,
+         options: .transitionFlipFromTop,
+         animations: { imageArray[i].image = gameSession.game.WordDetails[i].letterImage, withConfiguration: largeTitle) },
+         completion: nil)
+         imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
+         
+         } */
         if isNewGame {
             for i in 0..<K.maxLengthOfWord {
-                imageArray[i].image = UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)
+                UIView.transition(with: imageArray[i],
+                                  duration: 0.0,
+                                  options: .transitionFlipFromTop,
+                                  animations: { imageArray[i].image = UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle) },
+                                  completion: nil)
                 imageArray[i].tintColor = K.notMatchColor
             }
         } else {
@@ -177,27 +181,17 @@ extension tableViewController: UITableViewDataSource {
             
             var i = 0
             tmpString.forEach { c in
-                
-                if (!isGuessDone) {
-                    if (i == tmpTextLength - 1) {
-                        UIView.transition(with: imageArray[i],
-                                          duration: 0.50,
-                                          options: .transitionFlipFromTop,
-                                          animations: { imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle) },
-                                          completion: nil)
-                    } else {
-                        imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle)
-                    }
-                } else {
-                    
-                    imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle)
-                    imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
-                    
-                }
-                
+                let tmpDuration = (!isGuessDone) && (i == tmpTextLength - 1) ? 0.5 : 0.0
+                UIView.transition(with: imageArray[i],
+                                  duration: tmpDuration,
+                                  options: .transitionFlipFromTop,
+                                  animations: { imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle) },
+                                  completion: nil)
+                imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
                 i += 1
             }
         }
+        
         return cell
         
     }
