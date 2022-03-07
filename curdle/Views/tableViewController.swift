@@ -123,7 +123,7 @@ extension tableViewController: UITableViewDataSource {
         for i in 0...K.maxLengthOfWord - 1 {
             UIView.transition(with: imageArray[i],
                               duration: gameSession.game.wordDetails[i].letterDuration,
-                              options: .transitionFlipFromTop,
+                              options: gameSession.game.wordDetails[i].letterAnimation,
                               animations: { imageArray[i].image = self.gameSession.game.wordDetails[i].letterImage },
                               completion: nil)
             imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor

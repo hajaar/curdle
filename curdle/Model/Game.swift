@@ -18,6 +18,7 @@ struct Game {
     var isGameOver: Bool
     var numberOfAttempts: Int
     var wordDetails: [WordDetails]
+    var animateOnce: [Bool]
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!
@@ -26,7 +27,8 @@ struct Game {
         isGameWon = false
         isGameOver = false
         numberOfAttempts = 0
-        wordDetails = [WordDetails](repeating: WordDetails(letterImage: UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!, letterDuration: 0.0, letterColor: K.notMatchColor), count: K.maxLengthOfWord)
+        wordDetails = [WordDetails](repeating: WordDetails(letterImage: UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!, letterDuration: 0.0, letterColor: K.notMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
+        animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
     }
     
     
@@ -100,8 +102,7 @@ struct Game {
         var isGuessDone = true
         let tmpTextLength = typeText.count
         
-        
-        
+
         if (row != numberOfAttempts) || isGameWon {
             
             tmpString = guessWords[row].gText
@@ -111,16 +112,35 @@ struct Game {
             isGuessDone =  false
         }
         
+        
         for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
             tmpString += " "
         }
         
         for i in 0...K.maxLengthOfWord - 1 {
-            wordDetails[i].letterDuration = ((!isGuessDone) && (i == tmpTextLength - 1)) ? 0.5 : 0.0
+            
+            if (isGuessDone) {
+                if (row == numberOfAttempts - 1) && animateOnce[numberOfAttempts - 1] {
+                    wordDetails[i].letterAnimation = .transitionCurlDown
+                    wordDetails[i].letterDuration = 0.5
+                    if i == K.maxLengthOfWord - 1 {
+                        animateOnce[numberOfAttempts - 1] = false
+                    }
+                } else {
+                    wordDetails[i].letterDuration = 0.0
+                }
+            } else {
+                if (i == tmpTextLength - 1) {
+                    wordDetails[i].letterAnimation = .transitionFlipFromTop
+                    wordDetails[i].letterDuration = 0.5
+                } else {
+                    wordDetails[i].letterDuration = 0.0
+                }
+            }
             wordDetails[i].letterImage = UIImage(systemName: (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
             wordDetails[i].letterColor = guessWords[row].gColor[i]
-            print(String(i))
         }
+
     }
 }
 
@@ -128,7 +148,8 @@ struct WordDetails {
     var letterImage: UIImage
     var letterDuration: Double
     var letterColor: UIColor
-    
+    var letterAnimation: UIView.AnimationOptions
+    var letterAnimateOnce: Bool
 }
 
 
