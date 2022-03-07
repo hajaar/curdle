@@ -11,7 +11,7 @@ import UIKit
 class tableViewController: UIViewController {
     
     
-
+    
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
@@ -19,7 +19,7 @@ class tableViewController: UIViewController {
         gameSession.startNewGame()
         isNewGame = true
         guessesTableView.reloadData()
-
+        
     }
     var gameSession = GameSession()
     var isNewGame: Bool = true
@@ -79,9 +79,9 @@ class tableViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         
-      //  UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
+            //  UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
         
-            let messageStr = gameSession.getGameStatsForLabel()
+        let messageStr = gameSession.getGameStatsForLabel()
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems:  [screenshot, messageStr], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
         
@@ -139,60 +139,67 @@ extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
-        let largeTitle = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 40), scale: .large)
         
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         var tmpString: String = ""
         var isGuessDone = true
         let tmpTextLength = tmpText.count
         
+        
+        
+       /* for i in 0..<K.maxLengthOfWord {
+            UIView.transition(with: imageArray[i],
+                              duration: gameSession.game.WordDetails[i].letterImageDuration,
+                              options: .transitionFlipFromTop,
+                              animations: { imageArray[i].image = gameSession.game.WordDetails[i].letterImage, withConfiguration: largeTitle) },
+                              completion: nil)
+            imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
+
+        } */
         if isNewGame {
             for i in 0..<K.maxLengthOfWord {
-            imageArray[i].image = UIImage(systemName: "questionmark.app", withConfiguration: largeTitle)
+                imageArray[i].image = UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)
                 imageArray[i].tintColor = K.notMatchColor
             }
         } else {
-            
-        
-        
-        if (Int(indexPath.row) != gameSession.game.numberOfAttempts) || gameSession.game.isGameWon {
-
-            tmpString = gameSession.game.guessWords[indexPath.row].gText
-            isGuessDone = true
-        } else {
-            tmpString = tmpText
-            isGuessDone =  false
-        }
-  
-        for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
-            tmpString += " "
-        }
-      
-        var i = 0
-        tmpString.forEach { c in
-            
-            if (!isGuessDone) {
-                if (i == tmpTextLength - 1) {
-                    UIView.transition(with: imageArray[i],
-                                      duration: 0.50,
-                                      options: .transitionFlipFromTop,
-                                      animations: { imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle) },
-                                      completion: nil)
-                } else {
-                    imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
-                }
+            if (Int(indexPath.row) != gameSession.game.numberOfAttempts) || gameSession.game.isGameWon {
+                
+                tmpString = gameSession.game.guessWords[indexPath.row].gText
+                isGuessDone = true
             } else {
-
-                imageArray[i].image = UIImage(systemName: String(c) + ".square.fill", withConfiguration: largeTitle)
-                imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
-         
+                tmpString = tmpText
+                isGuessDone =  false
             }
             
-            i += 1
-        }
+            for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
+                tmpString += " "
+            }
+            
+            var i = 0
+            tmpString.forEach { c in
+                
+                if (!isGuessDone) {
+                    if (i == tmpTextLength - 1) {
+                        UIView.transition(with: imageArray[i],
+                                          duration: 0.50,
+                                          options: .transitionFlipFromTop,
+                                          animations: { imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle) },
+                                          completion: nil)
+                    } else {
+                        imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle)
+                    }
+                } else {
+                    
+                    imageArray[i].image = UIImage(systemName: String(c) + K.letterTile, withConfiguration: K.largeTitle)
+                    imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
+                    
+                }
+                
+                i += 1
+            }
         }
         return cell
-   
+        
     }
         // Create a standard header that includes the returned text.
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -220,7 +227,7 @@ extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-
+    
 }
 
 
