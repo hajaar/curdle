@@ -66,6 +66,33 @@ class tableViewController: UIViewController {
         }
     }
     
+    @IBAction func shareImage(_ sender: UIButton) {
+        
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: guessesTableView.bounds.width, height: guessesTableView.bounds.height),
+            false,
+            2
+        )
+        
+        guessesTableView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        
+        UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
+        
+    }
+    
+    
+    @objc func imageWasSaved(_ image: UIImage, error: Error?, context: UnsafeMutableRawPointer) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        print("Image was saved in the photo gallery")
+        UIApplication.shared.open(URL(string:"photos-redirect://")!)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {

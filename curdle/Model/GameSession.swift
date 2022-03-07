@@ -76,7 +76,7 @@ struct GameSession {
         for i in 0...tmpattemptDistribution.count - 1 {
             gameStats.attemptDistribution[i] = tmpattemptDistribution[i]
         }
-        gameStats.avgTimeToWin = Int(tmpTotalTimeToWin)/tmpGamesWon
+        gameStats.avgTimeToWin = tmpGamesWon > 0 ? Int(tmpTotalTimeToWin)/tmpGamesWon : 0
         print(gameStats)
         
     }
