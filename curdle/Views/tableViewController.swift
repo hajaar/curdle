@@ -147,41 +147,30 @@ extension tableViewController: UITableViewDataSource {
         
         
         
-        /* for i in 0..<K.maxLengthOfWord {
-         UIView.transition(with: imageArray[i],
-         duration: gameSession.game.WordDetails[i].letterImageDuration,
-         options: .transitionFlipFromTop,
-         animations: { imageArray[i].image = gameSession.game.WordDetails[i].letterImage, withConfiguration: largeTitle) },
-         completion: nil)
-         imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
-         
-         } */
-
-            if (Int(indexPath.row) != gameSession.game.numberOfAttempts) || gameSession.game.isGameWon {
-                
-                tmpString = gameSession.game.guessWords[indexPath.row].gText
-                isGuessDone = true
-            } else {
-                tmpString = tmpText
-                isGuessDone =  false
-            }
+        if (Int(indexPath.row) != gameSession.game.numberOfAttempts) || gameSession.game.isGameWon {
             
-            for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
-                tmpString += " "
-            }
+            tmpString = gameSession.game.guessWords[indexPath.row].gText
+            isGuessDone = true
+        } else {
+            tmpString = tmpText
+            isGuessDone =  false
+        }
+        
+        for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
+            tmpString += " "
+        }
+        
+        for i in 0...K.maxLengthOfWord - 1 {
+            let tmpDuration = (!isGuessDone) && (i == tmpTextLength - 1) ? 0.5 : 0.0
+            let c = (isNewGame) ? K.defaultTile : (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile)
+            UIView.transition(with: imageArray[i],
+                              duration: tmpDuration,
+                              options: .transitionFlipFromTop,
+                              animations: { imageArray[i].image = UIImage(systemName: c, withConfiguration: K.largeTitle) },
+                              completion: nil)
+            imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
             
-            var i = 0
-            tmpString.forEach { c in
-                let tmpDuration = (!isGuessDone) && (i == tmpTextLength - 1) ? 0.5 : 0.0
-                let c = (isNewGame) ? K.defaultTile : (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile)
-                UIView.transition(with: imageArray[i],
-                                  duration: tmpDuration,
-                                  options: .transitionFlipFromTop,
-                                  animations: { imageArray[i].image = UIImage(systemName: c, withConfiguration: K.largeTitle) },
-                                  completion: nil)
-                imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
-                i += 1
-            }
+        }
         
         
         return cell
