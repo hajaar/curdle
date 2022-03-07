@@ -79,7 +79,12 @@ class tableViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         
-        UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
+      //  UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
+        
+            let messageStr = gameSession.getGameStatsForLabel()
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems:  [screenshot, messageStr], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+        
         
     }
     
