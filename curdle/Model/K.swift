@@ -12,7 +12,7 @@ struct K {
     static let notMatchColor = UIColor.darkGray
     static let appName = "Curdle"
     static let largeTitle = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 40), scale: .large)
-    static let defaultTile = "questionmark.app"
+    static let defaultTile = "square.dashed"
     static let letterTile = ".square.fill"
 
 

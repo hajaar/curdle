@@ -30,10 +30,6 @@ class tableViewController: UIViewController {
         super.viewDidLoad()
         
         
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(respondToSwipeGesture))
-        swipeDown.direction = .down
-        self.view.addGestureRecognizer(swipeDown)
-        
         inputText.becomeFirstResponder()
         inputText.delegate = self
         inputText.returnKeyType = .done
@@ -42,18 +38,7 @@ class tableViewController: UIViewController {
         guessesTableView.dataSource = self
     }
     
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-        
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case .down:
-                gameSession.startNewGame()
-                isNewGame = true
-            default:
-                break
-            }
-        }
-    }
+
     
     @IBAction func inputTextEditing(_ sender: UITextField) {
         if !gameSession.game.isGameOver {
@@ -88,16 +73,7 @@ class tableViewController: UIViewController {
         
     }
     
-    
-    @objc func imageWasSaved(_ image: UIImage, error: Error?, context: UnsafeMutableRawPointer) {
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        }
-        
-        print("Image was saved in the photo gallery")
-        UIApplication.shared.open(URL(string:"photos-redirect://")!)
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
@@ -141,34 +117,16 @@ extension tableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! guessTableViewCell
         
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
-        var tmpString: String = ""
-        var isGuessDone = true
-        let tmpTextLength = tmpText.count
         
-        
-        
-        if (Int(indexPath.row) != gameSession.game.numberOfAttempts) || gameSession.game.isGameWon {
-            
-            tmpString = gameSession.game.guessWords[indexPath.row].gText
-            isGuessDone = true
-        } else {
-            tmpString = tmpText
-            isGuessDone =  false
-        }
-        
-        for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
-            tmpString += " "
-        }
+        gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText)
         
         for i in 0...K.maxLengthOfWord - 1 {
-            let tmpDuration = (!isGuessDone) && (i == tmpTextLength - 1) ? 0.5 : 0.0
-            let c = (isNewGame) ? K.defaultTile : (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile)
             UIView.transition(with: imageArray[i],
-                              duration: tmpDuration,
+                              duration: gameSession.game.wordDetails[i].letterDuration,
                               options: .transitionFlipFromTop,
-                              animations: { imageArray[i].image = UIImage(systemName: c, withConfiguration: K.largeTitle) },
+                              animations: { imageArray[i].image = self.gameSession.game.wordDetails[i].letterImage },
                               completion: nil)
-            imageArray[i].tintColor = gameSession.game.guessWords[indexPath.row].gColor[i]
+            imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor
             
         }
         

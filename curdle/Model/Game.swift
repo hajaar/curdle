@@ -17,6 +17,7 @@ struct Game {
     var isGameWon: Bool
     var isGameOver: Bool
     var numberOfAttempts: Int
+    var wordDetails: [WordDetails]
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!
@@ -25,6 +26,7 @@ struct Game {
         isGameWon = false
         isGameOver = false
         numberOfAttempts = 0
+        wordDetails = [WordDetails](repeating: WordDetails(letterImage: UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!, letterDuration: 0.0, letterColor: K.notMatchColor), count: K.maxLengthOfWord)
     }
     
     
@@ -92,8 +94,41 @@ struct Game {
         return false
     }
     
+    
+    mutating func getWordDetails(row: Int, typeText: String) {
+        var tmpString: String = ""
+        var isGuessDone = true
+        let tmpTextLength = typeText.count
+        
+        
+        
+        if (row != numberOfAttempts) || isGameWon {
+            
+            tmpString = guessWords[row].gText
+            isGuessDone = true
+        } else {
+            tmpString = typeText
+            isGuessDone =  false
+        }
+        
+        for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
+            tmpString += " "
+        }
+        
+        for i in 0...K.maxLengthOfWord - 1 {
+            wordDetails[i].letterDuration = ((!isGuessDone) && (i == tmpTextLength - 1)) ? 0.5 : 0.0
+            wordDetails[i].letterImage = UIImage(systemName: (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
+            wordDetails[i].letterColor = guessWords[row].gColor[i]
+            print(String(i))
+        }
+    }
 }
 
-
+struct WordDetails {
+    var letterImage: UIImage
+    var letterDuration: Double
+    var letterColor: UIColor
+    
+}
 
 
