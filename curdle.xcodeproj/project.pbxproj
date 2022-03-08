@@ -20,6 +20,11 @@
 		F2B1728E27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */; };
 		F2B1729027D1B3AC00F3FC9E /* GuessWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */; };
 		F2B1729227D1B46B00F3FC9E /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1729127D1B46B00F3FC9E /* GameStats.swift */; };
+		F2C3799A27D71EC3000FDC49 /* gamelost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799527D71EC3000FDC49 /* gamelost.mp3 */; };
+		F2C3799B27D71EC3000FDC49 /* startnewgame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799627D71EC3000FDC49 /* startnewgame.mp3 */; };
+		F2C3799C27D71EC3000FDC49 /* correctguess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799727D71EC3000FDC49 /* correctguess.mp3 */; };
+		F2C3799D27D71EC3000FDC49 /* wordentered.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799827D71EC3000FDC49 /* wordentered.mp3 */; };
+		F2C3799E27D71EC3000FDC49 /* letterentry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799927D71EC3000FDC49 /* letterentry.mp3 */; };
 		F2C5512D27D309F100B29653 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = F2C5512C27D309F100B29653 /* Charts */; };
 		F2DD0BFD27CF0C00003E4D21 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */; };
 		F2DD0BFF27CF170A003E4D21 /* guessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */; };
@@ -41,6 +46,11 @@
 		F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurdleGameStatsDataModel.swift; sourceTree = "<group>"; };
 		F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWord.swift; sourceTree = "<group>"; };
 		F2B1729127D1B46B00F3FC9E /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
+		F2C3799527D71EC3000FDC49 /* gamelost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamelost.mp3; sourceTree = "<group>"; };
+		F2C3799627D71EC3000FDC49 /* startnewgame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startnewgame.mp3; sourceTree = "<group>"; };
+		F2C3799727D71EC3000FDC49 /* correctguess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correctguess.mp3; sourceTree = "<group>"; };
+		F2C3799827D71EC3000FDC49 /* wordentered.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wordentered.mp3; sourceTree = "<group>"; };
+		F2C3799927D71EC3000FDC49 /* letterentry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = letterentry.mp3; sourceTree = "<group>"; };
 		F2DD0BFC27CF0C00003E4D21 /* tableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
 		F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guessTableViewCell.swift; sourceTree = "<group>"; };
 		F2FBC34827D0903C00EA961C /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
@@ -82,6 +92,7 @@
 			children = (
 				F2FEE03427CC938C003BAB28 /* Helpers */,
 				F24337A427CC4DF1005E72A5 /* AppDelegate.swift */,
+				F2C3799427D71EA6000FDC49 /* Sounds */,
 				F24337A627CC4DF1005E72A5 /* SceneDelegate.swift */,
 				F24337BA27CC4E48005E72A5 /* Model */,
 				F24337AA27CC4DF1005E72A5 /* Main.storyboard */,
@@ -114,6 +125,18 @@
 				F2DD0BFE27CF170A003E4D21 /* guessTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F2C3799427D71EA6000FDC49 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F2C3799727D71EC3000FDC49 /* correctguess.mp3 */,
+				F2C3799527D71EC3000FDC49 /* gamelost.mp3 */,
+				F2C3799927D71EC3000FDC49 /* letterentry.mp3 */,
+				F2C3799627D71EC3000FDC49 /* startnewgame.mp3 */,
+				F2C3799827D71EC3000FDC49 /* wordentered.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		F2FEE03427CC938C003BAB28 /* Helpers */ = {
@@ -192,8 +215,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24337B127CC4DF1005E72A5 /* LaunchScreen.storyboard in Resources */,
+				F2C3799C27D71EC3000FDC49 /* correctguess.mp3 in Resources */,
+				F2C3799B27D71EC3000FDC49 /* startnewgame.mp3 in Resources */,
 				F24337AE27CC4DF1005E72A5 /* Assets.xcassets in Resources */,
+				F2C3799D27D71EC3000FDC49 /* wordentered.mp3 in Resources */,
+				F2C3799A27D71EC3000FDC49 /* gamelost.mp3 in Resources */,
 				F24337AC27CC4DF1005E72A5 /* Main.storyboard in Resources */,
+				F2C3799E27D71EC3000FDC49 /* letterentry.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

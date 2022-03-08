@@ -6,6 +6,7 @@
     //
 
 import UIKit
+import AVFoundation
 
 
 class tableViewController: UIViewController {
@@ -18,6 +19,7 @@ class tableViewController: UIViewController {
     @IBAction func startNewGame(_ sender: UIButton) {
         gameSession.startNewGame()
         isNewGame = true
+        playSound("startnewgame")
         guessesTableView.reloadData()
         
     }
@@ -25,6 +27,7 @@ class tableViewController: UIViewController {
     var isNewGame: Bool = true
     var tmpText: String = ""
     var msgText: String = ""
+    var player: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,7 @@ class tableViewController: UIViewController {
     @IBAction func inputTextEditing(_ sender: UITextField) {
         if !gameSession.game.isGameOver {
             tmpText = inputText.text ?? ""
+            playSound("letterentry")
             isNewGame = false
             guessesTableView.reloadData()
         }
@@ -82,6 +86,13 @@ class tableViewController: UIViewController {
         }
     }
     
+    func playSound(_ sender: String?) {
+        let url = Bundle.main.url(forResource: sender, withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+        
+    }
+    
 }
 
 extension tableViewController: UITextFieldDelegate {
@@ -89,11 +100,14 @@ extension tableViewController: UITextFieldDelegate {
         if !gameSession.game.isGameOver {
             msgText = gameSession.game.checkGuess(guess: textField.text!)
             gameSession.setGameAttributes()
+              playSound("wordentered")
             textField.text = ""
             tmpText = ""
         }
         guessesTableView.reloadData()
         if gameSession.game.isGameOver {
+            let tmpStr = gameSession.game.isGameWon ? "correctguess" : "gamelost"
+            playSound(tmpStr)
             self.performSegue(withIdentifier: "goToResult", sender: self)
         }
         return true

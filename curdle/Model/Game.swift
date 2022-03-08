@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 
 
+
 struct Game {
     var chosenWord: String
     var guessWords: [GuessWord]
@@ -27,8 +28,9 @@ struct Game {
         isGameWon = false
         isGameOver = false
         numberOfAttempts = 0
-        wordDetails = [WordDetails](repeating: WordDetails(letterImage: UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!, letterDuration: 0.0, letterColor: K.notMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
+        wordDetails = [WordDetails](repeating: WordDetails(letterImage: UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!, letterDuration: 0.1, letterColor: K.notMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
         animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
+
     }
     
     
