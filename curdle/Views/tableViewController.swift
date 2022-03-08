@@ -148,32 +148,6 @@ extension tableViewController: UITableViewDataSource {
         return cell
         
     }
-        // Create a standard header that includes the returned text.
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        
-        let nameLabel = UILabel()
-        nameLabel.frame = CGRect.init(x: 10, y: 5, width: headerView.frame.width/2 - 10, height: headerView.frame.height-10)
-        nameLabel.font = .systemFont(ofSize: 20)
-        nameLabel.textColor = K.notMatchColor
-        let gamesPlayedLabel = UILabel()
-        gamesPlayedLabel.frame = CGRect.init(x: 10 + headerView.frame.width / 2, y: 5, width: headerView.frame.width / 2 - 20, height: headerView.frame.height-10)
-        gamesPlayedLabel.font = .systemFont(ofSize: 20)
-        gamesPlayedLabel.textAlignment = .right
-        gamesPlayedLabel.textColor = K.perfectMatchColor
-        
-        
-        headerView.addSubview(nameLabel)
-        headerView.addSubview(gamesPlayedLabel)
-        
-        nameLabel.text = K.appName
-        gamesPlayedLabel.text = gameSession.getGameStatsForLabel()
-        
-        return headerView
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
     
 }
 
