@@ -10,6 +10,7 @@ import RealmSwift
 
 
 class CurdleGameStatsDataModel: Object {
+    @objc dynamic var gameID = 0
     @objc dynamic var chosenWord = ""
     @objc dynamic var isGameWon = true
     @objc dynamic var noOfAttempts = 0

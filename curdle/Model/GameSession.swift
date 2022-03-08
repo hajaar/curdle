@@ -15,15 +15,17 @@ struct GameSession {
     var gameStats: GameStats
     var currentStreak: Int = 0
     var startingPoint = Date()
-
+    var lastGameId: Int = 0
+    var timeToWin: Int = 0
 
     init() {
         game = Game()
         gameStats = GameStats()
         getGamesStats()
+        
        
 
-        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+       // print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     
@@ -31,16 +33,20 @@ struct GameSession {
         game = Game()
         startingPoint = Date()
         getGamesStats()
+        
     }
     
     mutating func setGameAttributes() {
+        lastGameId = gameStatsModelData.count
         if game.isGameOver {
             try! realm.write({
                 let newgameStat = CurdleGameStatsDataModel()
+                newgameStat.gameID = lastGameId + 1
                 newgameStat.chosenWord = game.chosenWord
                 newgameStat.isGameWon = game.isGameWon
                 newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
-                newgameStat.timeToWin = round(startingPoint.timeIntervalSinceNow * -1 )
+                timeToWin = Int(round(startingPoint.timeIntervalSinceNow * -1 ))
+                newgameStat.timeToWin = Double(timeToWin)
                 realm.add(newgameStat)
             })
            
@@ -84,7 +90,7 @@ struct GameSession {
     
     mutating func getGameStatsForLabel() -> String {
 
-        return String(gameStats.gamesPlayed) + " " + String(gameStats.winPercent) +  "% " + String(gameStats.currentStreak)
+        return "Curdle: " + String(lastGameId + 1) + ", Attempts: " + (game.isGameWon ? String(game.numberOfAttempts) : String("*"))  + "/" + String(K.maxNumberOfAttempts) + String(", Time: ") + String(timeToWin) + "s"
     }
     
 }
