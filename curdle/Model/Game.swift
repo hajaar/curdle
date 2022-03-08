@@ -58,12 +58,9 @@ struct Game {
     }
     
     func isWordDuplicated(_ guess: String) -> Bool {
-        for i in 0..<K.maxNumberOfAttempts {
-            if guessWords[i].gText == guess {
-                return true
-            }
-        }
-        return false
+        
+        return guessWords.filter({$0.gText == (guess)}).isEmpty ? false : true
+
     }
     
     mutating func addGuessToList(_ guess: String) {
@@ -77,11 +74,7 @@ struct Game {
     mutating func findMatchingLetters(_ guess: String) {
         for i in (0...(K.maxLengthOfWord - 1)) {
             if chosenWord.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
-                if chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] {
-                    guessWords[numberOfAttempts].gColor[i] = K.perfectMatchColor
-                } else {
-                    guessWords[numberOfAttempts].gColor[i] = K.imperfectMatchColor
-                }
+                guessWords[numberOfAttempts].gColor[i] = chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] ? K.perfectMatchColor : K.imperfectMatchColor
                 
             }
         }
@@ -113,6 +106,7 @@ struct Game {
         }
         
         
+
         for _ in 0..<(K.maxLengthOfWord - tmpString.count) {
             tmpString += " "
         }
