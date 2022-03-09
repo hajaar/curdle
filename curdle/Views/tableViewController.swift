@@ -21,13 +21,6 @@ class tableViewController: UIViewController {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
-    @IBAction func startNewGame(_ sender: UIButton) {
-        gameSession.startNewGame()
-        isNewGame = true
-        playSound("startnewgame")
-        guessesTableView.reloadData()
-        
-    }
 
     
     override func viewDidLoad() {
@@ -41,7 +34,13 @@ class tableViewController: UIViewController {
         guessesTableView.dataSource = self
     }
     
-
+    @IBAction func startNewGame(_ sender: UIButton) {
+        gameSession.startNewGame()
+        isNewGame = true
+        playSound("startnewgame")
+        guessesTableView.reloadData()
+        
+    }
     
     @IBAction func inputTextEditing(_ sender: UITextField) {
         if !gameSession.game.isGameOver {
@@ -51,7 +50,8 @@ class tableViewController: UIViewController {
             guessesTableView.reloadData()
         }
         if gameSession.game.isGameOver {
-            self.performSegue(withIdentifier: "goToResult", sender: self)
+            startGameOverTasks()
+            
         }
     }
     
@@ -99,6 +99,27 @@ class tableViewController: UIViewController {
         
     }
     
+    func startGameOverTasks() {
+        var tmpStr = gameSession.game.isGameWon ? "correctguess" : "gamelost"
+        playSound(tmpStr)
+        
+        tmpStr = gameSession.game.isGameWon ? "You Win. Woohoo!" : "You Lost. Sorry!"
+        let messageStr = gameSession.getGameStatsForLabel()
+        
+        let alert = UIAlertController(title: tmpStr, message: messageStr, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Remind Me Tomorrow", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: nil))
+        
+            // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+            //self.performSegue(withIdentifier: "goToResult", sender: self)
+    }
+    
 }
 
 extension tableViewController: UITextFieldDelegate {
@@ -112,9 +133,7 @@ extension tableViewController: UITextFieldDelegate {
         }
         guessesTableView.reloadData()
         if gameSession.game.isGameOver {
-            let tmpStr = gameSession.game.isGameWon ? "correctguess" : "gamelost"
-            playSound(tmpStr)
-            self.performSegue(withIdentifier: "goToResult", sender: self)
+            startGameOverTasks()
         }
         return true
     }
