@@ -20,6 +20,7 @@ struct Game {
     var numberOfAttempts: Int
     var wordDetails: [WordDetails]
     var animateOnce: [Bool]
+    var isValidGuess: Bool
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!
@@ -30,12 +31,12 @@ struct Game {
         numberOfAttempts = 0
         wordDetails = [WordDetails](repeating: WordDetails(letterImage: K.defaultTileImage, letterDuration: 0.1, letterColor: K.notMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
         animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
-
+        isValidGuess = false
     }
     
     
     mutating func checkGuess(guess: String) -> String {
-        
+        isValidGuess = false
         if !doesWordExistInVocabulary(guess) {
             return guess + " is not in my vocabulary"
         }
@@ -67,6 +68,7 @@ struct Game {
     
     mutating func addGuessToList(_ guess: String) {
         guessWords[numberOfAttempts].gText = guess
+        isValidGuess = true
     }
     
     func ableToGuess(_ guess: String) -> Bool {

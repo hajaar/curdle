@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F219B08227D876C000C314F1 /* invalidword.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F219B08127D876C000C314F1 /* invalidword.mp3 */; };
 		F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337A427CC4DF1005E72A5 /* AppDelegate.swift */; };
 		F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337A627CC4DF1005E72A5 /* SceneDelegate.swift */; };
 		F24337AC27CC4DF1005E72A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24337AA27CC4DF1005E72A5 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F219B08127D876C000C314F1 /* invalidword.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = invalidword.mp3; sourceTree = "<group>"; };
 		F24337A127CC4DF1005E72A5 /* curdle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = curdle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24337A427CC4DF1005E72A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F24337A627CC4DF1005E72A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		F2C3799427D71EA6000FDC49 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				F219B08127D876C000C314F1 /* invalidword.mp3 */,
 				F2C3799727D71EC3000FDC49 /* correctguess.mp3 */,
 				F2C3799527D71EC3000FDC49 /* gamelost.mp3 */,
 				F2C3799927D71EC3000FDC49 /* letterentry.mp3 */,
@@ -219,6 +222,7 @@
 				F2C3799B27D71EC3000FDC49 /* startnewgame.mp3 in Resources */,
 				F24337AE27CC4DF1005E72A5 /* Assets.xcassets in Resources */,
 				F2C3799D27D71EC3000FDC49 /* wordentered.mp3 in Resources */,
+				F219B08227D876C000C314F1 /* invalidword.mp3 in Resources */,
 				F2C3799A27D71EC3000FDC49 /* gamelost.mp3 in Resources */,
 				F24337AC27CC4DF1005E72A5 /* Main.storyboard in Resources */,
 				F2C3799E27D71EC3000FDC49 /* letterentry.mp3 in Resources */,

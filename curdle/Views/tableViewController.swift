@@ -21,7 +21,7 @@ class tableViewController: UIViewController {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class tableViewController: UIViewController {
     }
     
     @IBAction func showStats(_ sender: UIButton) {
-            self.performSegue(withIdentifier: "goToResult", sender: self)
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
     @IBAction func inputTextEditing(_ sender: UITextField) {
@@ -51,6 +51,9 @@ class tableViewController: UIViewController {
         }
     }
     
+    @IBAction func startNewGame(_ sender: UIButton) {
+        startGame()
+    }
     func startGame() {
         gameSession.startNewGame()
         isNewGame = true
@@ -98,9 +101,9 @@ class tableViewController: UIViewController {
     }
     
     func startGameOverTasks() {
-
+        
         playSound(gameSession.game.isGameWon ? "correctguess" : "gamelost")
-
+        
         
         let alert = UIAlertController(title: gameSession.game.isGameWon ? "You Win. Woohoo!" : "You Lost. Sorry!", message: gameSession.getGameStatsForLabel(), preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Share", style: UIAlertAction.Style.default, handler: {action in self.shareScreenShot(tmpView: self.guessesTableView)}))
@@ -109,7 +112,7 @@ class tableViewController: UIViewController {
         
         
         
-            
+        
     }
     
 }
@@ -118,8 +121,8 @@ extension tableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !gameSession.game.isGameOver {
             msgText = gameSession.game.checkGuess(guess: textField.text!)
+            playSound(gameSession.game.isValidGuess ? "wordentered" : "invalidword")
             gameSession.setGameAttributes()
-              playSound("wordentered")
             textField.text = ""
             tmpText = ""
         }
@@ -131,12 +134,12 @@ extension tableViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-            let typedCharacterSet = CharacterSet(charactersIn: string)
-            let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
-            return alphabet
-
+        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+        return alphabet
+        
     }
 }
 
@@ -151,7 +154,7 @@ extension tableViewController: UITableViewDataSource {
         
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         
-
+        
         
         gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText)
         
