@@ -99,9 +99,10 @@ class resultsViewController: UIViewController {
             // 4
         let yAxis = radarChart.yAxis
         yAxis.labelFont = .systemFont(ofSize: 9, weight: .light)
-        yAxis.labelCount = 6
+        yAxis.labelCount = 5
         yAxis.drawTopYLabelEntryEnabled = false
         yAxis.axisMinimum = 0
+        yAxis.axisMaximum = Double(resultGameStats.attemptDistribution.max()!)
         yAxis.valueFormatter = YAxisFormatter()
         
             // 5
@@ -134,7 +135,7 @@ class DataSetValueFormatter: IValueFormatter {
     // 2
 class XAxisFormatter: IAxisValueFormatter {
     
-    let titles = "123456".map { "Attempt \($0)" }
+    let titles = "123456".map { "Attempt - \($0)" }
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         titles[Int(value) % titles.count]
     }
