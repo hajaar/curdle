@@ -34,12 +34,8 @@ class tableViewController: UIViewController {
         guessesTableView.dataSource = self
     }
     
-    @IBAction func startNewGame(_ sender: UIButton) {
-        gameSession.startNewGame()
-        isNewGame = true
-        playSound("startnewgame")
-        guessesTableView.reloadData()
-        
+    @IBAction func showStats(_ sender: UIButton) {
+            self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
     @IBAction func inputTextEditing(_ sender: UITextField) {
@@ -55,35 +51,37 @@ class tableViewController: UIViewController {
         }
     }
     
-    @IBAction func shareImage(_ sender: UIButton) {
-        
-        takeScreenShot = true
+    func startGame() {
+        gameSession.startNewGame()
+        isNewGame = true
+        playSound("startnewgame")
         guessesTableView.reloadData()
+    }
+    
+    func shareScreenShot(tmpView: UITableView) {
+        takeScreenShot = true
+        tmpView.reloadData()
         
         UIGraphicsBeginImageContextWithOptions(
-            CGSize(width: guessesTableView.bounds.width, height: guessesTableView.bounds.height),
+            CGSize(width: tmpView.bounds.width, height: tmpView.bounds.height),
             false,
             2
         )
         
-        guessesTableView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        tmpView.layer.render(in: UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         takeScreenShot = false
-        guessesTableView.reloadData()
-
+        tmpView.reloadData()
+        
         
             //  UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
         
         let messageStr = gameSession.getGameStatsForLabel()
         let activityViewController:UIActivityViewController = UIActivityViewController(activityItems:  [screenshot, messageStr], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
-        
-        
     }
-    
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
@@ -100,24 +98,18 @@ class tableViewController: UIViewController {
     }
     
     func startGameOverTasks() {
-        var tmpStr = gameSession.game.isGameWon ? "correctguess" : "gamelost"
-        playSound(tmpStr)
+
+        playSound(gameSession.game.isGameWon ? "correctguess" : "gamelost")
+
         
-        tmpStr = gameSession.game.isGameWon ? "You Win. Woohoo!" : "You Lost. Sorry!"
-        let messageStr = gameSession.getGameStatsForLabel()
-        
-        let alert = UIAlertController(title: tmpStr, message: messageStr, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Remind Me Tomorrow", style: UIAlertAction.Style.default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Launch the Missile", style: UIAlertAction.Style.destructive, handler: nil))
-        
-            // show the alert
+        let alert = UIAlertController(title: gameSession.game.isGameWon ? "You Win. Woohoo!" : "You Lost. Sorry!", message: gameSession.getGameStatsForLabel(), preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Share", style: UIAlertAction.Style.default, handler: {action in self.shareScreenShot(tmpView: self.guessesTableView)}))
+        alert.addAction(UIAlertAction(title: "New Game", style: UIAlertAction.Style.default, handler: {action in self.startGame()} ))
         self.present(alert, animated: true, completion: nil)
         
         
         
-            //self.performSegue(withIdentifier: "goToResult", sender: self)
+            
     }
     
 }
