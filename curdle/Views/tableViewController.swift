@@ -11,7 +11,12 @@ import AVFoundation
 
 class tableViewController: UIViewController {
     
-    
+    var gameSession = GameSession()
+    var isNewGame: Bool = true
+    var tmpText: String = ""
+    var msgText: String = ""
+    var player: AVAudioPlayer!
+    var takeScreenShot: Bool = false
     
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var guessesTableView: UITableView!
@@ -23,11 +28,7 @@ class tableViewController: UIViewController {
         guessesTableView.reloadData()
         
     }
-    var gameSession = GameSession()
-    var isNewGame: Bool = true
-    var tmpText: String = ""
-    var msgText: String = ""
-    var player: AVAudioPlayer!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class tableViewController: UIViewController {
         inputText.delegate = self
         inputText.returnKeyType = .done
         
-        guessesTableView.delegate = self
         guessesTableView.dataSource = self
     }
     
@@ -57,6 +57,9 @@ class tableViewController: UIViewController {
     
     @IBAction func shareImage(_ sender: UIButton) {
         
+        takeScreenShot = true
+        guessesTableView.reloadData()
+        
         UIGraphicsBeginImageContextWithOptions(
             CGSize(width: guessesTableView.bounds.width, height: guessesTableView.bounds.height),
             false,
@@ -67,6 +70,9 @@ class tableViewController: UIViewController {
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
+        takeScreenShot = false
+        guessesTableView.reloadData()
+
         
             //  UIImageWriteToSavedPhotosAlbum(screenshot, self, #selector(imageWasSaved), nil)
         
@@ -123,13 +129,6 @@ extension tableViewController: UITextFieldDelegate {
     }
 }
 
-
-
-
-extension tableViewController: UITableViewDelegate {
-    
-}
-
 extension tableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return K.maxNumberOfAttempts
@@ -141,14 +140,20 @@ extension tableViewController: UITableViewDataSource {
         
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         
+
+        
         gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText)
         
         for i in 0...K.maxLengthOfWord - 1 {
+            
+            
+            
             UIView.transition(with: imageArray[i],
                               duration: gameSession.game.wordDetails[i].letterDuration,
                               options: gameSession.game.wordDetails[i].letterAnimation,
-                              animations: { imageArray[i].image = self.gameSession.game.wordDetails[i].letterImage },
+                              animations: { imageArray[i].image = self.takeScreenShot ? K.filledTileImage : self.gameSession.game.wordDetails[i].letterImage },
                               completion: nil)
+            
             imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor
             
         }

@@ -14,6 +14,9 @@ struct K {
     static let largeTitle = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 40), scale: .large)
     static let defaultTile = "square.dashed"
     static let letterTile = ".square.fill"
+    static let filledTile = "square.fill"
+    static let defaultTileImage = UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
+    static let filledTileImage = UIImage(systemName: K.filledTile, withConfiguration: K.largeTitle)!
 
 
     
