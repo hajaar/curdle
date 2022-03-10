@@ -57,7 +57,7 @@ struct Game {
     }
     
     func doesWordExistInVocabulary(_ guess: String) -> Bool {
-        return (K.vocalbulary.contains(guess) ? true : false)
+        return ((K.vocalbulary.contains(guess) ? true : false) || (K.extraVocalbulary.contains(guess) ? true : false))
     }
     
     func isWordDuplicated(_ guess: String) -> Bool {
