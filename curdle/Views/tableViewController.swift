@@ -52,6 +52,7 @@ class tableViewController: UIViewController {
     
     func startGame() {
         gameSession.startNewGame()
+        colorKeys()
         isNewGame = true
         playSound("startnewgame")
         guessesTableView.reloadData()

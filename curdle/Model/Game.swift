@@ -22,7 +22,6 @@ struct Game {
     var animateOnce: [Bool]
     var isValidGuess: Bool
     var colorOfKeys: [UIColor]
-    var alphabetSequence: String
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!
@@ -35,7 +34,6 @@ struct Game {
         wordDetails = [WordDetails](repeating: WordDetails(letterImage: K.defaultTileImage, letterDuration: 0.1, letterColor: K.unMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
         animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
         isValidGuess = false
-        alphabetSequence = "abcdefghijklmnopqrstuvwxyz"
     }
     
     mutating func checkGuess(guess: String) -> String {
@@ -80,7 +78,7 @@ struct Game {
         for i in (0...(K.maxLengthOfWord - 1)) {
             let tmpLetter = guess[guess.index(guess.startIndex, offsetBy: i)]
             let alphabetPosition = K.getAlphabetPosition(s: String(tmpLetter))
-            print(alphabetPosition)
+            // print(alphabetPosition)
             let alphabetColor = colorOfKeys[alphabetPosition]
             
             if chosenWord.contains(tmpLetter) {
@@ -103,7 +101,9 @@ struct Game {
                     colorOfKeys[alphabetPosition] = K.unMatchColor
                 }
             } else {
-                colorOfKeys[alphabetPosition] = K.notMatchColor
+                if alphabetColor != K.perfectMatchColor && alphabetColor != K.imperfectMatchColor{
+                    colorOfKeys[alphabetPosition] = K.notMatchColor
+                }
             }
         }
     }
