@@ -101,6 +101,7 @@ struct Game {
                     colorOfKeys[alphabetPosition] = K.unMatchColor
                 }
             } else {
+                guessWords[numberOfAttempts].gColor[i] = K.notMatchColor
                 if alphabetColor != K.perfectMatchColor && alphabetColor != K.imperfectMatchColor{
                     colorOfKeys[alphabetPosition] = K.notMatchColor
                 }
@@ -180,7 +181,7 @@ struct GuessWord {
     
     init() {
         gText = ""
-        gColor = [UIColor](repeating: K.notMatchColor, count: K.maxNumberOfAttempts)
+        gColor = [UIColor](repeating: K.unMatchColor, count: K.maxNumberOfAttempts)
     }
 }
 
