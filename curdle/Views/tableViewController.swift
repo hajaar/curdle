@@ -197,7 +197,7 @@ class tableViewController: UIViewController {
                 startGameOverTasks()
             }
         }
-        print(tmpText)
+       // print(tmpText)
     }
 }
 
