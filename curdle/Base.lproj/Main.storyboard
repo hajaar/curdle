@@ -570,6 +570,32 @@
                     </view>
                     <connections>
                         <outlet property="guessesTableView" destination="E6z-fb-JMn" id="RKu-uY-Nqu"/>
+                        <outletCollection property="keyButtons" destination="gPj-Mm-6je" collectionClass="NSMutableArray" id="XNj-EJ-soE"/>
+                        <outletCollection property="keyButtons" destination="21J-HD-DaG" collectionClass="NSMutableArray" id="NSU-9s-bam"/>
+                        <outletCollection property="keyButtons" destination="alr-rP-654" collectionClass="NSMutableArray" id="8V1-XJ-wCZ"/>
+                        <outletCollection property="keyButtons" destination="v4p-eq-rcD" collectionClass="NSMutableArray" id="aTA-dN-rw9"/>
+                        <outletCollection property="keyButtons" destination="CeR-od-IZu" collectionClass="NSMutableArray" id="eaT-Pq-bBJ"/>
+                        <outletCollection property="keyButtons" destination="1ML-3A-1lx" collectionClass="NSMutableArray" id="oVP-UP-L2Y"/>
+                        <outletCollection property="keyButtons" destination="hab-qa-ZBy" collectionClass="NSMutableArray" id="8sP-nG-H88"/>
+                        <outletCollection property="keyButtons" destination="HtQ-Pr-xHa" collectionClass="NSMutableArray" id="Y4i-FY-xTk"/>
+                        <outletCollection property="keyButtons" destination="dI6-ra-9aY" collectionClass="NSMutableArray" id="Flu-sT-6zF"/>
+                        <outletCollection property="keyButtons" destination="F0F-3s-XHD" collectionClass="NSMutableArray" id="gJv-5K-n22"/>
+                        <outletCollection property="keyButtons" destination="tmK-yv-7TE" collectionClass="NSMutableArray" id="Kd0-GA-o06"/>
+                        <outletCollection property="keyButtons" destination="FTM-yy-Aqr" collectionClass="NSMutableArray" id="st1-0X-Epg"/>
+                        <outletCollection property="keyButtons" destination="ONv-dF-akL" collectionClass="NSMutableArray" id="oFQ-zb-bCC"/>
+                        <outletCollection property="keyButtons" destination="qJm-9G-oXZ" collectionClass="NSMutableArray" id="I1N-HV-U3g"/>
+                        <outletCollection property="keyButtons" destination="hvP-wd-ZI1" collectionClass="NSMutableArray" id="mg7-sg-6Yp"/>
+                        <outletCollection property="keyButtons" destination="Rz0-It-Acq" collectionClass="NSMutableArray" id="Ceu-wr-KKa"/>
+                        <outletCollection property="keyButtons" destination="b6U-th-XZT" collectionClass="NSMutableArray" id="64c-Ov-ICj"/>
+                        <outletCollection property="keyButtons" destination="V2Y-Za-Axr" collectionClass="NSMutableArray" id="dfY-vC-rtP"/>
+                        <outletCollection property="keyButtons" destination="qJp-uD-UE7" collectionClass="NSMutableArray" id="Q6W-uw-dSA"/>
+                        <outletCollection property="keyButtons" destination="LO8-bu-2R3" collectionClass="NSMutableArray" id="H6t-UY-dOz"/>
+                        <outletCollection property="keyButtons" destination="Lbr-zu-8AM" collectionClass="NSMutableArray" id="bk1-AT-hz6"/>
+                        <outletCollection property="keyButtons" destination="j2t-dP-W3g" collectionClass="NSMutableArray" id="JSg-rZ-PeQ"/>
+                        <outletCollection property="keyButtons" destination="r12-Q3-8Tw" collectionClass="NSMutableArray" id="mKw-c4-Nzs"/>
+                        <outletCollection property="keyButtons" destination="uor-7O-nIl" collectionClass="NSMutableArray" id="I0f-mv-8GF"/>
+                        <outletCollection property="keyButtons" destination="ApJ-9T-zSi" collectionClass="NSMutableArray" id="Hc3-5f-fqY"/>
+                        <outletCollection property="keyButtons" destination="1in-HC-rVz" collectionClass="NSMutableArray" id="wt1-Ti-od2"/>
                         <segue destination="TtS-cX-BSo" kind="presentation" identifier="goToResult" id="r25-Sv-oTL"/>
                     </connections>
                 </viewController>

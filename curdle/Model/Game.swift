@@ -21,6 +21,7 @@ struct Game {
     var wordDetails: [WordDetails]
     var animateOnce: [Bool]
     var isValidGuess: Bool
+    var colorOfKeys: [UIColor] = [UIColor](repeating: K.notMatchColor, count: 26)
     
     init() {
         chosenWord = K.vocalbulary.randomElement()!

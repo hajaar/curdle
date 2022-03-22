@@ -21,36 +21,37 @@ class tableViewController: UIViewController {
     
     @IBOutlet weak var guessesTableView: UITableView!
     
+    @IBOutlet var keyButtons: [UIButton]!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         guessesTableView.dataSource = self
+        colorKeys()
+        
     }
     
     @IBAction func showStats(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
+
+    func colorKeys() {
+        var i = 0
+        for item in keyButtons {
+            let tmpTag = item.tag
+            if tmpTag > 0 && tmpTag < 27 {
+                item.tintColor = gameSession.game.colorOfKeys[i]
+                i += 1
+            }
+        }
+    }
     
-    /*   @IBAction func inputTextEditing(_ sender: UITextField) {
-     if !gameSession.game.isGameOver {
-     tmpText = inputText.text ?? ""
-     playSound("letterentry")
-     isNewGame = false
-     guessesTableView.reloadData()
-     }
-     if gameSession.game.isGameOver {
-     startGameOverTasks()
-     
-     }
-     } */
     
     @IBAction func startNewGame(_ sender: UIButton) {
         startGame()
     }
+    
     func startGame() {
         gameSession.startNewGame()
         isNewGame = true
@@ -189,6 +190,7 @@ class tableViewController: UIViewController {
                 msgText = gameSession.game.checkGuess(guess: tmpText.lowercased())
                 playSound(gameSession.game.isValidGuess ? "wordentered" : "invalidword")
                 gameSession.setGameAttributes()
+                colorKeys()
                 guessesTableView.reloadData()
                 tmpText = ""
             }
@@ -219,7 +221,7 @@ extension tableViewController: UITableViewDataSource {
         
         for i in 0...K.maxLengthOfWord - 1 {
             
-            print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
+           // print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
             
             UIView.transition(with: imageArray[i],
                               duration: gameSession.game.wordDetails[i].letterDuration,
