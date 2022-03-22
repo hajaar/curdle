@@ -167,7 +167,9 @@ class tableViewController: UIViewController {
         case 26:
             tmpText += "Z"
         case 27:
-            tmpText += "A"
+            if tmpText.isEmpty == false {
+                tmpText.removeLast()
+            }
         case 28:
             tmpText += "A"
         default:
