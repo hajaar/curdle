@@ -192,12 +192,10 @@ class tableViewController: UIViewController {
                 guessesTableView.reloadData()
                 tmpText = ""
             }
-            guessesTableView.reloadData()
             if gameSession.game.isGameOver {
                 startGameOverTasks()
             }
         }
-        
         print(tmpText)
     }
 }
@@ -217,11 +215,11 @@ extension tableViewController: UITableViewDataSource {
         
         
         
-        gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText)
+        gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText.lowercased())
         
         for i in 0...K.maxLengthOfWord - 1 {
             
-            
+            print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
             
             UIView.transition(with: imageArray[i],
                               duration: gameSession.game.wordDetails[i].letterDuration,

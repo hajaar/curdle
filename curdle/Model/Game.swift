@@ -99,7 +99,7 @@ struct Game {
         var isGuessDone = true
         let tmpTextLength = typeText.count
         
-
+  //      print("getWordDetails \(typeText)")
         if (row != numberOfAttempts) || isGameWon {
             
             tmpString = guessWords[row].gText
