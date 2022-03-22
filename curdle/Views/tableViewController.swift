@@ -37,12 +37,10 @@ class tableViewController: UIViewController {
     }
 
     func colorKeys() {
-        var i = 0
         for item in keyButtons {
             let tmpTag = item.tag
             if tmpTag > 0 && tmpTag < 27 {
-                item.tintColor = gameSession.game.colorOfKeys[i]
-                i += 1
+                item.tintColor = gameSession.game.colorOfKeys[tmpTag - 1]
             }
         }
     }

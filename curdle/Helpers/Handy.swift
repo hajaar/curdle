@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 private var __maxLengths = [UITextField: Int]()
+
+
+
+
+
+
 extension UITextField {
     @IBInspectable var maxLength: Int {
         get {
@@ -45,3 +51,4 @@ extension String {
         return indices
     }
 }
+

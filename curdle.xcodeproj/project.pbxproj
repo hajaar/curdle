@@ -16,7 +16,6 @@
 		F24337B927CC4E2F005E72A5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337B827CC4E2F005E72A5 /* K.swift */; };
 		F24337C027CC60B8005E72A5 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24337BF27CC60B8005E72A5 /* Game.swift */; };
 		F2487C8D27D210F500E6CDE2 /* resultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2487C8C27D210F500E6CDE2 /* resultsViewController.swift */; };
-		F2A9DC9327D8ABE200DB91BB /* KeyboardKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2A9DC9227D8ABE200DB91BB /* KeyboardKit */; };
 		F2B1728A27D1A3E400F3FC9E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728927D1A3E400F3FC9E /* Realm */; };
 		F2B1728C27D1A3E400F3FC9E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728B27D1A3E400F3FC9E /* RealmSwift */; };
 		F2B1728E27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */; };
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2A9DC9327D8ABE200DB91BB /* KeyboardKit in Frameworks */,
 				F2B1728C27D1A3E400F3FC9E /* RealmSwift in Frameworks */,
 				F2B1728A27D1A3E400F3FC9E /* Realm in Frameworks */,
 				F2C5512D27D309F100B29653 /* Charts in Frameworks */,
@@ -166,7 +164,6 @@
 				F2B1728927D1A3E400F3FC9E /* Realm */,
 				F2B1728B27D1A3E400F3FC9E /* RealmSwift */,
 				F2C5512C27D309F100B29653 /* Charts */,
-				F2A9DC9227D8ABE200DB91BB /* KeyboardKit */,
 			);
 			productName = curdle;
 			productReference = F24337A127CC4DF1005E72A5 /* curdle.app */;
@@ -199,7 +196,6 @@
 			packageReferences = (
 				F2B1728827D1A3E400F3FC9E /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F2C5512B27D309F100B29653 /* XCRemoteSwiftPackageReference "Charts" */,
-				F2A9DC9127D8ABE200DB91BB /* XCRemoteSwiftPackageReference "KeyboardKit" */,
 			);
 			productRefGroup = F24337A227CC4DF1005E72A5 /* Products */;
 			projectDirPath = "";
@@ -465,14 +461,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F2A9DC9127D8ABE200DB91BB /* XCRemoteSwiftPackageReference "KeyboardKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielsaidi/KeyboardKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 		F2B1728827D1A3E400F3FC9E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -492,11 +480,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F2A9DC9227D8ABE200DB91BB /* KeyboardKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2A9DC9127D8ABE200DB91BB /* XCRemoteSwiftPackageReference "KeyboardKit" */;
-			productName = KeyboardKit;
-		};
 		F2B1728927D1A3E400F3FC9E /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F2B1728827D1A3E400F3FC9E /* XCRemoteSwiftPackageReference "realm-swift" */;
