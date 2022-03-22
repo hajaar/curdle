@@ -135,7 +135,12 @@
                                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPj-Mm-6je" userLabel="Q">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="q.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="q.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="d4U-dQ-3Y8"/>
                                                         </connections>
@@ -143,7 +148,12 @@
                                                     <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21J-HD-DaG" userLabel="W">
                                                         <rect key="frame" x="36" y="0.0" width="35.666666666666657" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="w.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="w.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="amB-q0-Lpe"/>
                                                         </connections>
@@ -151,7 +161,12 @@
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alr-rP-654" userLabel="E">
                                                         <rect key="frame" x="71.666666666666671" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="e.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="e.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="U71-iQ-rmo"/>
                                                         </connections>
@@ -159,7 +174,12 @@
                                                     <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4p-eq-rcD" userLabel="R">
                                                         <rect key="frame" x="107.66666666666667" y="0.0" width="36.000000000000014" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="r.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="r.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="fZ9-wL-jaw"/>
                                                         </connections>
@@ -167,7 +187,12 @@
                                                     <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeR-od-IZu" userLabel="T">
                                                         <rect key="frame" x="143.66666666666666" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="t.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="t.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="WMX-sc-uWD"/>
                                                         </connections>
@@ -175,7 +200,12 @@
                                                     <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ML-3A-1lx" userLabel="Y">
                                                         <rect key="frame" x="179.66666666666666" y="0.0" width="35.666666666666657" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="y.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="y.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="DPN-Vz-LA7"/>
                                                         </connections>
@@ -183,7 +213,12 @@
                                                     <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hab-qa-ZBy" userLabel="U">
                                                         <rect key="frame" x="215.33333333333334" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="u.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="u.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="ixS-Km-iSA"/>
                                                         </connections>
@@ -191,7 +226,12 @@
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtQ-Pr-xHa" userLabel="I">
                                                         <rect key="frame" x="251.33333333333331" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="i.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="i.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="d8g-Aj-ia8"/>
                                                         </connections>
@@ -199,7 +239,12 @@
                                                     <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI6-ra-9aY" userLabel="O">
                                                         <rect key="frame" x="287.33333333333331" y="0.0" width="35.666666666666686" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="o.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="o.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="ST2-Ef-bgO"/>
                                                         </connections>
@@ -207,7 +252,12 @@
                                                     <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0F-3s-XHD" userLabel="P">
                                                         <rect key="frame" x="323" y="0.0" width="36" height="48"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="p.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="p.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="Ghu-kb-aZf"/>
                                                         </connections>
@@ -224,7 +274,12 @@
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmK-yv-7TE" userLabel="A">
                                                         <rect key="frame" x="18" y="0.0" width="36" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="a.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="a.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="snH-SL-aNS"/>
                                                         </connections>
@@ -232,7 +287,12 @@
                                                     <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTM-yy-Aqr" userLabel="S">
                                                         <rect key="frame" x="54" y="0.0" width="35.666666666666657" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="s.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="s.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="e8c-Tw-Wgc"/>
                                                         </connections>
@@ -240,7 +300,12 @@
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONv-dF-akL" userLabel="D">
                                                         <rect key="frame" x="89.666666666666671" y="0.0" width="36" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="d.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="d.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="pEG-uC-77S"/>
                                                         </connections>
@@ -248,7 +313,12 @@
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-9G-oXZ" userLabel="F">
                                                         <rect key="frame" x="125.66666666666666" y="0.0" width="36" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="f.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="f.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="JMF-Y0-VE8"/>
                                                         </connections>
@@ -256,7 +326,12 @@
                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvP-wd-ZI1" userLabel="G">
                                                         <rect key="frame" x="161.66666666666666" y="0.0" width="35.666666666666657" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="g.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="g.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="xKA-Ea-cIc"/>
                                                         </connections>
@@ -264,7 +339,12 @@
                                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz0-It-Acq" userLabel="H">
                                                         <rect key="frame" x="197.33333333333334" y="0.0" width="36" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="h.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="h.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="xFH-qk-MnM"/>
                                                         </connections>
@@ -272,7 +352,12 @@
                                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-Za-Axr" userLabel="J">
                                                         <rect key="frame" x="233.33333333333334" y="0.0" width="36.000000000000028" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="j.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="j.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="3Nf-Pt-SdI"/>
                                                         </connections>
@@ -280,7 +365,12 @@
                                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6U-th-XZT" userLabel="K">
                                                         <rect key="frame" x="269.33333333333331" y="0.0" width="35.666666666666686" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="k.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="k.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="ubb-Y7-nO9"/>
                                                         </connections>
@@ -288,7 +378,12 @@
                                                     <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJp-uD-UE7" userLabel="L">
                                                         <rect key="frame" x="305" y="0.0" width="36" height="47.666666666666664"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="l.circle.fill" catalog="system"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="l.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
                                                         <connections>
                                                             <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="rYB-lC-EXU"/>
                                                         </connections>
@@ -312,60 +407,147 @@
                                                     <constraint firstItem="qJm-9G-oXZ" firstAttribute="width" secondItem="5EO-wB-DnC" secondAttribute="width" multiplier="0.1" id="vRc-f2-CGM"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zo8-pX-2cp" userLabel="Third Row">
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zo8-pX-2cp" userLabel="Third Row">
                                                 <rect key="frame" x="0.0" y="95.666666666666629" width="359" height="48"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FD-5G-v5a">
-                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="48"/>
+                                                    <button opaque="NO" tag="27" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FD-5G-v5a" userLabel="delete">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="delete.left.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="B19-Pq-9vh"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LO8-bu-2R3">
-                                                        <rect key="frame" x="36" y="0.0" width="35.666666666666657" height="48"/>
+                                                    <button opaque="NO" tag="26" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LO8-bu-2R3" userLabel="Z">
+                                                        <rect key="frame" x="54" y="0.0" width="35.666666666666657" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="z.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="TgW-Nr-J7g"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbr-zu-8AM">
-                                                        <rect key="frame" x="71.666666666666671" y="0.0" width="36" height="48"/>
+                                                    <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbr-zu-8AM" userLabel="X">
+                                                        <rect key="frame" x="89.666666666666671" y="0.0" width="36" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="x.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="f5Y-5u-09v"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-dP-W3g">
-                                                        <rect key="frame" x="107.66666666666667" y="0.0" width="36.000000000000014" height="48"/>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2t-dP-W3g" userLabel="C">
+                                                        <rect key="frame" x="125.66666666666666" y="0.0" width="36" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="c.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="H0f-Du-oAa"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r12-Q3-8Tw">
-                                                        <rect key="frame" x="143.66666666666666" y="0.0" width="36" height="48"/>
+                                                    <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r12-Q3-8Tw" userLabel="V">
+                                                        <rect key="frame" x="161.66666666666666" y="0.0" width="35.666666666666657" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="v.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="Stp-Vv-1lS"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uor-7O-nIl">
-                                                        <rect key="frame" x="179.66666666666666" y="0.0" width="35.666666666666657" height="48"/>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uor-7O-nIl" userLabel="B">
+                                                        <rect key="frame" x="197.33333333333334" y="0.0" width="36" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="b.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="2Km-GJ-pGK"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-9T-zSi">
-                                                        <rect key="frame" x="215.33333333333334" y="0.0" width="36" height="48"/>
+                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-9T-zSi" userLabel="N">
+                                                        <rect key="frame" x="233.33333333333334" y="0.0" width="36.000000000000028" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="n.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="QK1-l4-hRv"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1in-HC-rVz">
-                                                        <rect key="frame" x="251.33333333333331" y="0.0" width="36" height="48"/>
+                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1in-HC-rVz" userLabel="M">
+                                                        <rect key="frame" x="269.33333333333331" y="0.0" width="35.666666666666686" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="m.circle.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="kTK-0n-m7g"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HV-DS-VSf">
-                                                        <rect key="frame" x="287.33333333333331" y="0.0" width="35.666666666666686" height="48"/>
+                                                    <button opaque="NO" tag="28" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HV-DS-VSf" userLabel="enter">
+                                                        <rect key="frame" x="305" y="0.0" width="54" height="48"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-df-H7R">
-                                                        <rect key="frame" x="323" y="0.0" width="36" height="48"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="plus.square.fill" catalog="system" symbolScale="large"/>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="bold">
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                            </preferredSymbolConfiguration>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="changeLanguageWithSender:" destination="Md2-S9-XsS" eventType="touchUpInside" id="uEl-xc-Msj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="j2t-dP-W3g" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="5U0-DX-Pb2"/>
+                                                    <constraint firstItem="uor-7O-nIl" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="98c-cs-PP5"/>
+                                                    <constraint firstItem="Lbr-zu-8AM" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="FAW-RE-XxX"/>
+                                                    <constraint firstItem="r12-Q3-8Tw" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="IUb-iG-q4o"/>
+                                                    <constraint firstItem="LO8-bu-2R3" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="Pqk-1c-4ul"/>
+                                                    <constraint firstItem="1in-HC-rVz" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="VJa-4S-iXe"/>
+                                                    <constraint firstItem="ApJ-9T-zSi" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.1" id="dhM-44-Kqm"/>
+                                                    <constraint firstItem="4FD-5G-v5a" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.15" id="iuV-YU-01K"/>
+                                                    <constraint firstItem="0HV-DS-VSf" firstAttribute="width" secondItem="Zo8-pX-2cp" secondAttribute="width" multiplier="0.15" id="leF-rS-dPq"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
@@ -576,8 +758,11 @@
     </scenes>
     <resources>
         <image name="a.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="b.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="c.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="128" height="101"/>
         <image name="d.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="delete.left.fill" catalog="system" width="128" height="104"/>
         <image name="e.circle.fill" catalog="system" width="128" height="121"/>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
         <image name="g.circle.fill" catalog="system" width="128" height="121"/>
@@ -586,17 +771,23 @@
         <image name="j.circle.fill" catalog="system" width="128" height="121"/>
         <image name="k.circle.fill" catalog="system" width="128" height="121"/>
         <image name="l.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="m.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="n.circle.fill" catalog="system" width="128" height="121"/>
         <image name="o.circle.fill" catalog="system" width="128" height="121"/>
         <image name="p.circle.fill" catalog="system" width="128" height="121"/>
         <image name="play" catalog="system" width="120" height="128"/>
+        <image name="plus.square.fill" catalog="system" width="128" height="114"/>
         <image name="q.circle.fill" catalog="system" width="128" height="121"/>
         <image name="r.circle.fill" catalog="system" width="128" height="121"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
         <image name="t.circle.fill" catalog="system" width="128" height="121"/>
         <image name="u.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="v.circle.fill" catalog="system" width="128" height="121"/>
         <image name="w.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="x.circle.fill" catalog="system" width="128" height="121"/>
         <image name="x.square" catalog="system" width="128" height="114"/>
         <image name="y.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="z.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
