@@ -20,8 +20,6 @@
 		F2B1728A27D1A3E400F3FC9E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728927D1A3E400F3FC9E /* Realm */; };
 		F2B1728C27D1A3E400F3FC9E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2B1728B27D1A3E400F3FC9E /* RealmSwift */; };
 		F2B1728E27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */; };
-		F2B1729027D1B3AC00F3FC9E /* GuessWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */; };
-		F2B1729227D1B46B00F3FC9E /* GameStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B1729127D1B46B00F3FC9E /* GameStats.swift */; };
 		F2C3799A27D71EC3000FDC49 /* gamelost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799527D71EC3000FDC49 /* gamelost.mp3 */; };
 		F2C3799B27D71EC3000FDC49 /* startnewgame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799627D71EC3000FDC49 /* startnewgame.mp3 */; };
 		F2C3799C27D71EC3000FDC49 /* correctguess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2C3799727D71EC3000FDC49 /* correctguess.mp3 */; };
@@ -47,8 +45,6 @@
 		F24337BF27CC60B8005E72A5 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F2487C8C27D210F500E6CDE2 /* resultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultsViewController.swift; sourceTree = SOURCE_ROOT; };
 		F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurdleGameStatsDataModel.swift; sourceTree = "<group>"; };
-		F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWord.swift; sourceTree = "<group>"; };
-		F2B1729127D1B46B00F3FC9E /* GameStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStats.swift; sourceTree = "<group>"; };
 		F2C3799527D71EC3000FDC49 /* gamelost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamelost.mp3; sourceTree = "<group>"; };
 		F2C3799627D71EC3000FDC49 /* startnewgame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startnewgame.mp3; sourceTree = "<group>"; };
 		F2C3799727D71EC3000FDC49 /* correctguess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correctguess.mp3; sourceTree = "<group>"; };
@@ -115,8 +111,6 @@
 				F24337BF27CC60B8005E72A5 /* Game.swift */,
 				F2FBC34827D0903C00EA961C /* GameSession.swift */,
 				F2B1728D27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift */,
-				F2B1728F27D1B3AC00F3FC9E /* GuessWord.swift */,
-				F2B1729127D1B46B00F3FC9E /* GameStats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,10 +239,8 @@
 				F2B1728E27D1A55600F3FC9E /* CurdleGameStatsDataModel.swift in Sources */,
 				F24337C027CC60B8005E72A5 /* Game.swift in Sources */,
 				F24337B927CC4E2F005E72A5 /* K.swift in Sources */,
-				F2B1729027D1B3AC00F3FC9E /* GuessWord.swift in Sources */,
 				F24337A527CC4DF1005E72A5 /* AppDelegate.swift in Sources */,
 				F2DD0BFD27CF0C00003E4D21 /* tableViewController.swift in Sources */,
-				F2B1729227D1B46B00F3FC9E /* GameStats.swift in Sources */,
 				F2FEE03127CC8CA5003BAB28 /* Handy.swift in Sources */,
 				F24337A727CC4DF1005E72A5 /* SceneDelegate.swift in Sources */,
 				F2487C8D27D210F500E6CDE2 /* resultsViewController.swift in Sources */,

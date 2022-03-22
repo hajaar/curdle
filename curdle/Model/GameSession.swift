@@ -96,4 +96,12 @@ struct GameSession {
 }
 
 
+struct GameStats {
+    var gamesPlayed = 0
+    var winPercent = 0
+    var currentStreak = 0
+    var maxStreak = 0
+    var attemptDistribution = [Int](repeating: 0, count: K.maxNumberOfAttempts)
+    var avgTimeToWin = 0
+}
 
