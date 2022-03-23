@@ -142,64 +142,8 @@ class tableViewController: UIViewController {
             }
         default:
             if tmpText.count < K.maxLengthOfWord {
-                switch keyEntered {
-                case 1:
-                    tmpText += "A"
-                case 2:
-                    tmpText += "B"
-                case 3:
-                    tmpText += "C"
-                case 4:
-                    tmpText += "D"
-                case 5:
-                    tmpText += "E"
-                case 6:
-                    tmpText += "F"
-                case 7:
-                    tmpText += "G"
-                case 8:
-                    tmpText += "H"
-                case 9:
-                    tmpText += "I"
-                case 10:
-                    tmpText += "J"
-                case 11:
-                    tmpText += "K"
-                case 12:
-                    tmpText += "L"
-                case 13:
-                    tmpText += "M"
-                case 14:
-                    tmpText += "N"
-                case 15:
-                    tmpText += "O"
-                case 16:
-                    tmpText += "P"
-                case 17:
-                    tmpText += "Q"
-                case 18:
-                    tmpText += "R"
-                case 19:
-                    tmpText += "S"
-                case 20:
-                    tmpText += "T"
-                case 21:
-                    tmpText += "U"
-                case 22:
-                    tmpText += "V"
-                case 23:
-                    tmpText += "W"
-                case 24:
-                    tmpText += "X"
-                case 25:
-                    tmpText += "Y"
-                case 26:
-                    tmpText += "Z"
-                    
-                default:
-                    print("Unknown language")
-                    return
-                }
+                tmpText += K.getNumberPosition(i: keyEntered)
+ 
                 if !gameSession.game.isGameOver {
                     playSound("letterentry")
                     isNewGame = false
