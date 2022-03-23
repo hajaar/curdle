@@ -16,3 +16,8 @@ class CurdleGameStatsDataModel: Object {
     @objc dynamic var noOfAttempts = 0
     @objc dynamic var timeToWin = 0.0
 }
+
+
+class CurdleGameDetailsDataModel: Object {
+    @objc dynamic var gameID = 0
+}
