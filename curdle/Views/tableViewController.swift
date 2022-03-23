@@ -142,7 +142,7 @@ class tableViewController: UIViewController {
             }
         default:
             if tmpText.count < K.maxLengthOfWord {
-                tmpText += K.getNumberPosition(i: keyEntered)
+                tmpText += K.getNumberPosition(i: keyEntered - 1)
  
                 if !gameSession.game.isGameOver {
                     playSound("letterentry")

@@ -77,13 +77,13 @@ struct Game {
     
     mutating func findMatchingLetters(_ guess: String) {
         for i in (0...(K.maxLengthOfWord - 1)) {
-            let tmpLetter = guess[guess.index(guess.startIndex, offsetBy: i)]
+            let tmpLetter = guess[i]
             let alphabetPosition = K.getAlphabetPosition(s: String(tmpLetter))
             // print(alphabetPosition)
             let alphabetMatch = colorOfKeys[alphabetPosition]
             
-            if chosenWord.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
-                guessWords[numberOfAttempts].gMatch[i] = chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] ? .perfect : .imperfect
+            if chosenWord.contains(guess[i]) {
+                guessWords[numberOfAttempts].gMatch[i] = chosenWord[i] == guess[i] ? .perfect : .imperfect
 
                 let newMatch = guessWords[numberOfAttempts].gMatch[i]
                 switch alphabetMatch {
@@ -158,7 +158,7 @@ struct Game {
                 } else {
                     wordDetails[i].letterDuration = 0.0
                 }
-                wordDetails[i].letter = String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)])
+                wordDetails[i].letter = String(tmpString[i])
              //   print(wordDetails[i].letter)
             } else {
                 if (i == tmpTextLength - 1) {
@@ -168,7 +168,7 @@ struct Game {
                     wordDetails[i].letterDuration = 0.0
                 }
             }
-            wordDetails[i].letterImage = UIImage(systemName: (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
+            wordDetails[i].letterImage = UIImage(systemName: (String(tmpString[i]) + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
             wordDetails[i].letterMatch = guessWords[row].gMatch[i]
         }
 
