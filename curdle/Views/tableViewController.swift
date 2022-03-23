@@ -25,8 +25,8 @@ class tableViewController: UIViewController {
     
     @IBAction func resetStats(_ sender: UIButton) {
         let alert = UIAlertController(title: "Warning!", message: "All your stats will be reset. Are You Really Sure?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: {action in return}))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {action in self.gameSession.resetStats()} ))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {action in return}))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive, handler: {action in self.gameSession.resetStats()} ))
         self.present(alert, animated: true, completion: nil)
         
     }

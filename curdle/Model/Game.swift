@@ -105,7 +105,7 @@ struct Game {
 
                 if alphabetColor != K.perfectMatchColor && alphabetColor != K.imperfectMatchColor{
                     colorOfKeys[alphabetPosition] = K.notMatchColor
-                    // guessWords[numberOfAttempts].gColor[i] = K.notMatchColor
+                    guessWords[numberOfAttempts].gColor[i] = K.notMatchColor
                 }
             }
      /*       print(" numberOfAttempts \(numberOfAttempts)")
