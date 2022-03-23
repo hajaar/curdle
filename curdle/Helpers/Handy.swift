@@ -9,11 +9,6 @@ import Foundation
 import UIKit
 private var __maxLengths = [UITextField: Int]()
 
-
-
-
-
-
 extension UITextField {
     @IBInspectable var maxLength: Int {
         get {
@@ -34,5 +29,9 @@ extension UITextField {
     }
 }
 
-
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
 

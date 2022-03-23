@@ -44,7 +44,7 @@ struct K {
     
     static func getNumberPosition(i: Int) -> String {
         let a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        return String(a[a.index(a.startIndex, offsetBy: i)])
+        return String(a[i])
     }
     
     
