@@ -87,7 +87,7 @@ struct Game {
                 let newColor = guessWords[numberOfAttempts].gColor[i]
                 switch alphabetColor {
                 case K.perfectMatchColor:
-                    return
+                    colorOfKeys[alphabetPosition] = K.perfectMatchColor
                 case K.imperfectMatchColor:
                     if newColor == K.perfectMatchColor {
                         colorOfKeys[alphabetPosition] = newColor
@@ -108,11 +108,11 @@ struct Game {
                     // guessWords[numberOfAttempts].gColor[i] = K.notMatchColor
                 }
             }
-            print(" numberOfAttempts \(numberOfAttempts)")
+     /*       print(" numberOfAttempts \(numberOfAttempts)")
+            print("gText \(guessWords[numberOfAttempts].gText)")
             print("i \(i)")
-            print("guessWords[numberOfAttempts].gText \(guessWords[numberOfAttempts].gText)")
             print("tmpLetter \(tmpLetter)")
-            print("guessWords[numberOfAttempts].gColor[i] \(guessWords[numberOfAttempts].gColor[i])")
+            print("gColor[i] \(guessWords[numberOfAttempts].gColor[i])") */
         }
     }
     
