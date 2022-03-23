@@ -26,7 +26,7 @@ struct GameSession {
         
        
 
-      // print(Realm.Configuration.defaultConfiguration.fileURL!)
+       print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     mutating func resetStats() {

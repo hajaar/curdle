@@ -68,8 +68,8 @@ class resultsViewController: UIViewController {
         redDataSet.lineWidth = 2
         
 
-        let redColor = K.imperfectMatchColor
-        let redFillColor = K.perfectMatchColor
+        let redColor = Colors.matchColor(matchtype: .imperfect)
+        let redFillColor = Colors.matchColor(matchtype: .perfect)
         redDataSet.colors = [redColor]
         redDataSet.fillColor = redFillColor
         redDataSet.drawFilledEnabled = true
@@ -91,7 +91,7 @@ class resultsViewController: UIViewController {
             // 3
         let xAxis = radarChart.xAxis
         xAxis.labelFont = .systemFont(ofSize: 9, weight: .bold)
-        xAxis.labelTextColor = K.notMatchColor
+        xAxis.labelTextColor = Colors.matchColor(matchtype: .no)
         xAxis.xOffset = 10
         xAxis.yOffset = 10
         xAxis.valueFormatter = XAxisFormatter()

@@ -47,7 +47,7 @@ class tableViewController: UIViewController {
         for item in keyButtons {
             let tmpTag = item.tag
             if tmpTag > 0 && tmpTag < 27 {
-                item.tintColor = gameSession.game.colorOfKeys[tmpTag - 1]
+                item.tintColor = Colors.matchColor(matchtype: gameSession.game.colorOfKeys[tmpTag - 1])
             }
         }
     }

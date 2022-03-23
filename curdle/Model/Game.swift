@@ -21,18 +21,18 @@ struct Game {
     var wordDetails: [WordDetails]
     var animateOnce: [Bool]
     var isValidGuess: Bool
-    var colorOfKeys: [UIColor]
+    var colorOfKeys: [matchType]
     
     
     init() {
-        chosenWord = K.vocalbulary.randomElement()!
+        chosenWord = Dictionary.vocalbulary.randomElement()!
         print(chosenWord)
         guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-        colorOfKeys = [UIColor](repeating: K.unMatchColor, count: 26)
+        colorOfKeys = [matchType](repeating: .notyet, count: 26)
         isGameWon = false
         isGameOver = false
         numberOfAttempts = 0
-        wordDetails = [WordDetails](repeating: WordDetails(letterImage: K.defaultTileImage, letterDuration: 0.1, letterColor: K.unMatchColor, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
+        wordDetails = [WordDetails](repeating: WordDetails(letterImage: K.defaultTileImage, letterDuration: 0.1, letterMatch: .notyet, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
         animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
         isValidGuess = false
     }
@@ -59,7 +59,7 @@ struct Game {
     }
     
     func doesWordExistInVocabulary(_ guess: String) -> Bool {
-        return ((K.vocalbulary.contains(guess) ? true : false) || (K.extraVocalbulary.contains(guess) ? true : false))
+        return ((Dictionary.vocalbulary.contains(guess) ? true : false) || (Dictionary.extraVocalbulary.contains(guess) ? true : false))
     }
     
     func isWordDuplicated(_ guess: String) -> Bool {
@@ -80,33 +80,31 @@ struct Game {
             let tmpLetter = guess[guess.index(guess.startIndex, offsetBy: i)]
             let alphabetPosition = K.getAlphabetPosition(s: String(tmpLetter))
             // print(alphabetPosition)
-            let alphabetColor = colorOfKeys[alphabetPosition]
+            let alphabetMatch = colorOfKeys[alphabetPosition]
             
             if chosenWord.contains(guess[guess.index(guess.startIndex, offsetBy: i)]) {
-                guessWords[numberOfAttempts].gColor[i] = chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] ? K.perfectMatchColor : K.imperfectMatchColor
+                guessWords[numberOfAttempts].gMatch[i] = chosenWord[chosenWord.index(guess.startIndex, offsetBy: i)] == guess[guess.index(guess.startIndex, offsetBy: i)] ? .perfect : .imperfect
 
-                let newColor = guessWords[numberOfAttempts].gColor[i]
-                switch alphabetColor {
-                case K.perfectMatchColor:
-                    colorOfKeys[alphabetPosition] = K.perfectMatchColor
-                case K.imperfectMatchColor:
-                    if newColor == K.perfectMatchColor {
-                        colorOfKeys[alphabetPosition] = newColor
+                let newMatch = guessWords[numberOfAttempts].gMatch[i]
+                switch alphabetMatch {
+                case .perfect:
+                    colorOfKeys[alphabetPosition] = .perfect
+                case .imperfect:
+                    if newMatch == .perfect {
+                        colorOfKeys[alphabetPosition] = newMatch
                     }
-                case K.notMatchColor:
-                    if newColor == K.perfectMatchColor || newColor == K.imperfectMatchColor{
-                        colorOfKeys[alphabetPosition] = newColor
+                case .no:
+                    if newMatch == .perfect || newMatch == .imperfect{
+                        colorOfKeys[alphabetPosition] = newMatch
                     }
-                case K.unMatchColor:
-                    colorOfKeys[alphabetPosition] = newColor
-                default:
-                    colorOfKeys[alphabetPosition] = K.unMatchColor
+                case .notyet:
+                    colorOfKeys[alphabetPosition] = newMatch
                 }
             } else {
 
-                if alphabetColor != K.perfectMatchColor && alphabetColor != K.imperfectMatchColor{
-                    colorOfKeys[alphabetPosition] = K.notMatchColor
-                    guessWords[numberOfAttempts].gColor[i] = K.notMatchColor
+                if alphabetMatch != .perfect && alphabetMatch != .imperfect{
+                    colorOfKeys[alphabetPosition] = .no
+                    guessWords[numberOfAttempts].gMatch[i] = .no
                 }
             }
      /*       print(" numberOfAttempts \(numberOfAttempts)")
@@ -171,7 +169,7 @@ struct Game {
                 }
             }
             wordDetails[i].letterImage = UIImage(systemName: (String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)]) + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
-            wordDetails[i].letterColor = guessWords[row].gColor[i]
+            wordDetails[i].letterMatch = guessWords[row].gMatch[i]
         }
 
     }
@@ -181,18 +179,21 @@ struct WordDetails {
     var letter: String = ""
     var letterImage: UIImage
     var letterDuration: Double
-    var letterColor: UIColor
+    var letterMatch: matchType
+    var letterColor: UIColor {
+        Colors.matchColor(matchtype: letterMatch)
+    }
     var letterAnimation: UIView.AnimationOptions
     var letterAnimateOnce: Bool
 }
 
 struct GuessWord {
     var gText: String
-    var gColor: [UIColor]
+    var gMatch: [matchType]
     
     init() {
         gText = ""
-        gColor = [UIColor](repeating: K.unMatchColor, count: K.maxNumberOfAttempts)
+        gMatch = [matchType](repeating: .notyet, count: K.maxNumberOfAttempts)
     }
 }
 
