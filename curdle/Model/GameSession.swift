@@ -11,6 +11,7 @@ import RealmSwift
 struct GameSession {
     let realm = try! Realm()
     lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
+    
     var game: Game
     var gameStats: GameStats
     var currentStreak: Int = 0

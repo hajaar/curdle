@@ -23,6 +23,7 @@ struct Game {
     var isValidGuess: Bool
     var colorOfKeys: [UIColor]
     
+    
     init() {
         chosenWord = K.vocalbulary.randomElement()!
         print(chosenWord)
@@ -159,6 +160,8 @@ struct Game {
                 } else {
                     wordDetails[i].letterDuration = 0.0
                 }
+                wordDetails[i].letter = String(tmpString[tmpString.index(tmpString.startIndex, offsetBy: i)])
+             //   print(wordDetails[i].letter)
             } else {
                 if (i == tmpTextLength - 1) {
                     wordDetails[i].letterAnimation = .transitionFlipFromTop
@@ -175,6 +178,7 @@ struct Game {
 }
 
 struct WordDetails {
+    var letter: String = ""
     var letterImage: UIImage
     var letterDuration: Double
     var letterColor: UIColor
