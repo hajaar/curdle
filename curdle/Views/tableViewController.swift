@@ -23,6 +23,13 @@ class tableViewController: UIViewController {
     
     @IBOutlet var keyButtons: [UIButton]!
     
+    @IBAction func resetStats(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Warning!", message: "All your stats will be reset. Are You Really Sure?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.cancel, handler: {action in return}))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: {action in self.gameSession.resetStats()} ))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     
     override func viewDidLoad() {

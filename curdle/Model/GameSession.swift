@@ -28,6 +28,12 @@ struct GameSession {
       // print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
+    func resetStats() {
+        try! realm.write({
+            realm.deleteAll()
+        })
+    }
+    
     
     mutating func startNewGame() {
         game = Game()

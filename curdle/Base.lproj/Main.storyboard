@@ -118,7 +118,7 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="showStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="Vfu-5J-cqw"/>
+                                                    <action selector="resetStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="vcD-Hc-ZeU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-VY-XX5" userLabel="History">
