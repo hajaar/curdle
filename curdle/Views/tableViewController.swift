@@ -42,7 +42,7 @@ class tableViewController: UIViewController {
     @IBAction func showStats(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
-
+    
     func colorKeys() {
         for item in keyButtons {
             let tmpTag = item.tag
@@ -120,78 +120,15 @@ class tableViewController: UIViewController {
             return
         }
         let keyEntered: Int = button.tag
-        if keyEntered != 28 {
-            switch keyEntered {
-            case 1:
-                tmpText += "A"
-            case 2:
-                tmpText += "B"
-            case 3:
-                tmpText += "C"
-            case 4:
-                tmpText += "D"
-            case 5:
-                tmpText += "E"
-            case 6:
-                tmpText += "F"
-            case 7:
-                tmpText += "G"
-            case 8:
-                tmpText += "H"
-            case 9:
-                tmpText += "I"
-            case 10:
-                tmpText += "J"
-            case 11:
-                tmpText += "K"
-            case 12:
-                tmpText += "L"
-            case 13:
-                tmpText += "M"
-            case 14:
-                tmpText += "N"
-            case 15:
-                tmpText += "O"
-            case 16:
-                tmpText += "P"
-            case 17:
-                tmpText += "Q"
-            case 18:
-                tmpText += "R"
-            case 19:
-                tmpText += "S"
-            case 20:
-                tmpText += "T"
-            case 21:
-                tmpText += "U"
-            case 22:
-                tmpText += "V"
-            case 23:
-                tmpText += "W"
-            case 24:
-                tmpText += "X"
-            case 25:
-                tmpText += "Y"
-            case 26:
-                tmpText += "Z"
-            case 27:
-                if tmpText.isEmpty == false {
-                    tmpText.removeLast()
-                }
-            default:
-                print("Unknown language")
-                return
-            }
-            if !gameSession.game.isGameOver {
+        switch keyEntered {
+        case 27:
+            if !gameSession.game.isGameOver && tmpText.isEmpty == false {
+                tmpText.removeLast()
                 playSound("letterentry")
                 isNewGame = false
                 guessesTableView.reloadData()
             }
-            if gameSession.game.isGameOver {
-                startGameOverTasks()
-                
-            }
-        } else {
+        case 28:
             if !gameSession.game.isGameOver {
                 msgText = gameSession.game.checkGuess(guess: tmpText.lowercased())
                 playSound(gameSession.game.isValidGuess ? "wordentered" : "invalidword")
@@ -203,8 +140,76 @@ class tableViewController: UIViewController {
             if gameSession.game.isGameOver {
                 startGameOverTasks()
             }
+        default:
+            if tmpText.count < K.maxLengthOfWord {
+                switch keyEntered {
+                case 1:
+                    tmpText += "A"
+                case 2:
+                    tmpText += "B"
+                case 3:
+                    tmpText += "C"
+                case 4:
+                    tmpText += "D"
+                case 5:
+                    tmpText += "E"
+                case 6:
+                    tmpText += "F"
+                case 7:
+                    tmpText += "G"
+                case 8:
+                    tmpText += "H"
+                case 9:
+                    tmpText += "I"
+                case 10:
+                    tmpText += "J"
+                case 11:
+                    tmpText += "K"
+                case 12:
+                    tmpText += "L"
+                case 13:
+                    tmpText += "M"
+                case 14:
+                    tmpText += "N"
+                case 15:
+                    tmpText += "O"
+                case 16:
+                    tmpText += "P"
+                case 17:
+                    tmpText += "Q"
+                case 18:
+                    tmpText += "R"
+                case 19:
+                    tmpText += "S"
+                case 20:
+                    tmpText += "T"
+                case 21:
+                    tmpText += "U"
+                case 22:
+                    tmpText += "V"
+                case 23:
+                    tmpText += "W"
+                case 24:
+                    tmpText += "X"
+                case 25:
+                    tmpText += "Y"
+                case 26:
+                    tmpText += "Z"
+                    
+                default:
+                    print("Unknown language")
+                    return
+                }
+                if !gameSession.game.isGameOver {
+                    playSound("letterentry")
+                    isNewGame = false
+                    guessesTableView.reloadData()
+                }
+
+            }
         }
-       // print(tmpText)
+
+            // print(tmpText)
     }
 }
 
@@ -227,7 +232,7 @@ extension tableViewController: UITableViewDataSource {
         
         for i in 0...K.maxLengthOfWord - 1 {
             
-           // print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
+                // print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
             
             UIView.transition(with: imageArray[i],
                               duration: gameSession.game.wordDetails[i].letterDuration,
