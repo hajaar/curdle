@@ -50,9 +50,9 @@ struct Game {
         findMatchingLetters(guess)
         numberOfAttempts += 1
         if isGuessCorrect(guess){
-            let a = encodeWordString()
-            guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-            decodeWordString(s1: a.0, s2: a.1)
+            var a = EncodeDecodeGuesses(guessWords: guessWords)
+            let b = a.encodeWordString()
+            a.decodeWordString(s1: b.0, s2: b.1)
             return "Woohoo!. You win."
         }
         if !ableToGuess(guess) {
@@ -62,24 +62,24 @@ struct Game {
         return "You guessed " + guess
     }
     
-    func doesWordExistInVocabulary(_ guess: String) -> Bool {
+    private func doesWordExistInVocabulary(_ guess: String) -> Bool {
         return ((Dictionary.vocalbulary.contains(guess) ? true : false) || (Dictionary.extraVocalbulary.contains(guess) ? true : false))
     }
     
-    func isWordDuplicated(_ guess: String) -> Bool {
+    private func isWordDuplicated(_ guess: String) -> Bool {
         return guessWords.filter({$0.gText == (guess)}).isEmpty ? false : true
     }
     
-    mutating func addGuessToList(_ guess: String) {
+    private mutating func addGuessToList(_ guess: String) {
         guessWords[numberOfAttempts].gText = guess
         isValidGuess = true
     }
     
-    func ableToGuess(_ guess: String) -> Bool {
+    private func ableToGuess(_ guess: String) -> Bool {
         return (numberOfAttempts < K.maxNumberOfAttempts ? true : false)
     }
     
-    mutating func findMatchingLetters(_ guess: String) {
+    private mutating func findMatchingLetters(_ guess: String) {
         for i in (0...(K.maxLengthOfWord - 1)) {
             let tmpLetter = guess[i]
             let alphabetPosition = K.getAlphabetPosition(s: String(tmpLetter))
@@ -119,7 +119,7 @@ struct Game {
         }
     }
     
-    mutating func isGuessCorrect(_ guess: String) -> Bool {
+    private mutating func isGuessCorrect(_ guess: String) -> Bool {
         if guess == chosenWord {
             isGameWon =  true
             isGameOver = true
@@ -176,90 +176,13 @@ struct Game {
 
     }
     
-    func encodeWordString() -> (String, String) {
-        var s1 = ""
-        var s2 = ""
-        guessWords.forEach { l in
-            s1.append(l.gText)
-            for i in 0...K.maxLengthOfWord - 1{
-                s2.append(contentsOf: String(encodeMatchType(m: l.gMatch[i])))
-            }
-        }
-        let maxLength = K.maxLengthOfWord * K.maxNumberOfAttempts
-        for _ in 0...maxLength - 1 {
-
-            if s1.count < maxLength {
-                s1.append(" ")
-            }
-        }
-        print("\(s1) \(s2)")
-        return (s1, s2)
-    }
     
-    mutating func decodeWordString(s1: String, s2: String) {
-        for i in 0...K.maxNumberOfAttempts - 1 {
-            for j in 0...K.maxLengthOfWord - 1{
-                guessWords[i].gText.append(s1[j + i * 5])
-                guessWords[i].gMatch[j] = decodeMatchType(c: s2[j + i * 5])
-            }
-        }
-        print(guessWords)
-    }
-    
-    func encodeMatchType(m: matchType) -> Int {
-        switch m {
-        case .notyet:
-            return 0
-        case .no:
-            return 1
-        case .imperfect:
-            return 2
-        case .perfect:
-            return 3
-        }
-    }
-    
-    func decodeMatchType(c: Character) -> matchType {
-        switch Int(String(c)) {
-        case 0:
-            return .notyet
-        case 1:
-            return .no
-        case 2:
-            return .imperfect
-        case 3:
-            return .perfect
-        default:
-            return .notyet
-        }
-    }
     
 }
     
-    
-
-
-struct WordDetails {
-    var letter: String = ""
-    var letterImage: UIImage {
-        UIImage(systemName: (letter + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
-    }
-    var letterDuration: Double = 0.1
-    var letterMatch: matchType = .notyet
-    var letterColor: UIColor {
-        Colors.matchColor(matchtype: letterMatch)
-    }
-    var letterAnimation: UIView.AnimationOptions = .transitionCurlDown
-    var letterAnimateOnce: Bool = true
-}
-
 struct GuessWord {
-    var gText: String
-    var gMatch: [matchType]
-    
-    init() {
-        gText = ""
-        gMatch = [matchType](repeating: .notyet, count: K.maxNumberOfAttempts)
-    }
+    var gText: String = ""
+    var gMatch: [matchType] = [matchType](repeating: .notyet, count: K.maxNumberOfAttempts)
+
 }
 
