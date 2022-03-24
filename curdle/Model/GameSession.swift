@@ -9,24 +9,26 @@ import Foundation
 import RealmSwift
 
 struct GameSession {
-    let realm = try! Realm()
-    lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
+    private let realm = try! Realm()
+    private lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
     
     var game: Game
     var gameStats: GameStats
-    var currentStreak: Int = 0
-    var startingPoint = Date()
-    var lastGameId: Int = 0
-    var timeToWin: Int = 0
+    var encodeDecodeGuesses: EncodeDecodeGuesses
+    private var currentStreak: Int = 0
+    private var startingPoint = Date()
+    private var lastGameId: Int = 0
+    private var timeToWin: Int = 0
 
     init() {
         game = Game()
         gameStats = GameStats()
+        encodeDecodeGuesses = EncodeDecodeGuesses()
         getGamesStats()
         
        
 
-      // print(Realm.Configuration.defaultConfiguration.fileURL!)
+       print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     mutating func resetStats() {
@@ -55,6 +57,10 @@ struct GameSession {
                 newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
                 timeToWin = Int(round(startingPoint.timeIntervalSinceNow * -1 ))
                 newgameStat.timeToWin = Double(timeToWin)
+                encodeDecodeGuesses.setGuessWords(guessWords: game.guessWords)
+                let e = encodeDecodeGuesses.encodeWordString()
+                newgameStat.letter = e.0
+                newgameStat.match = e.1
                 realm.add(newgameStat)
             })
            

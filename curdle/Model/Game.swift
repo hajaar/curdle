@@ -50,9 +50,6 @@ struct Game {
         findMatchingLetters(guess)
         numberOfAttempts += 1
         if isGuessCorrect(guess){
-            var a = EncodeDecodeGuesses(guessWords: guessWords)
-            let b = a.encodeWordString()
-            a.decodeWordString(s1: b.0, s2: b.1)
             return "Woohoo!. You win."
         }
         if !ableToGuess(guess) {

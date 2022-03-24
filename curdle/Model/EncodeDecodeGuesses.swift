@@ -9,10 +9,10 @@ import Foundation
 
 struct EncodeDecodeGuesses {
     private var guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-    init(guessWords: [GuessWord]) {
+
+    mutating func setGuessWords(guessWords: [GuessWord]) {
         self.guessWords = guessWords
     }
-    
     
     func encodeWordString() -> (String, String) {
         var s1 = ""
