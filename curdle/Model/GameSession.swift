@@ -74,7 +74,7 @@ struct GameSession {
         if currentGameId <= tmpMax  && currentGameId >= 1 {
             self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
 
-            print("currentgameid \(currentGameId)")
+          //  print("currentgameid \(currentGameId)")
             encodeDecodeGuesses.decodeWordString(s1: gameStatsModelData[currentGameId - 1].letter, s2: gameStatsModelData[currentGameId - 1].match)
             let i = goBack ? -1 : 1
             currentGameId += i

@@ -33,7 +33,7 @@ struct EncodeDecodeGuesses {
                 s1.append(" ")
             }
         }
-        print("\(s1) \(s2)")
+  //      print("\(s1) \(s2)")
         return (s1, s2)
     }
     
@@ -76,13 +76,7 @@ struct EncodeDecodeGuesses {
         }
     }
     
-    private func convertToImage() {
-        
-    }
-    
-    private func convertToColor() {
-        
-    }
+
 }
 
 struct HistoryWord {
