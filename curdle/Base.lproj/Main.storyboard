@@ -645,8 +645,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameIDLabel" destination="siP-z1-cdd" id="jYP-TO-r8g"/>
                         <outlet property="guessesTableView" destination="E6z-fb-JMn" id="RKu-uY-Nqu"/>
                         <outlet property="nextGameButton" destination="BLo-ya-tPl" id="v5Y-G9-BCQ"/>
+                        <outlet property="timeTakenLabel" destination="8h9-Ur-Tz9" id="EFf-Gb-1hh"/>
                         <outletCollection property="keyButtons" destination="gPj-Mm-6je" collectionClass="NSMutableArray" id="XNj-EJ-soE"/>
                         <outletCollection property="keyButtons" destination="21J-HD-DaG" collectionClass="NSMutableArray" id="NSU-9s-bam"/>
                         <outletCollection property="keyButtons" destination="alr-rP-654" collectionClass="NSMutableArray" id="8V1-XJ-wCZ"/>

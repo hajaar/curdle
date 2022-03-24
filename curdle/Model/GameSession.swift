@@ -37,6 +37,10 @@ struct GameSession {
     func abc() {
         
     }
+    func getGameID() -> Int {
+        return lastGameId + 1
+    }
+    
     
     mutating func startNewGame() {
         game = Game()
@@ -69,8 +73,9 @@ struct GameSession {
         getGamesStats()
     }
     
-    mutating func getHistory(goBack: Bool = true) {
+    mutating func getHistory(goBack: Bool = true) -> Int {
         let tmpMax = gameStatsModelData.count
+        let oldid = currentGameId
         if currentGameId <= tmpMax  && currentGameId >= 1 {
             self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
 
@@ -85,6 +90,7 @@ struct GameSession {
                 currentGameId = tmpMax
             }
         }
+        return oldid
     }
     
     

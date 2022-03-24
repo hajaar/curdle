@@ -23,6 +23,8 @@ class tableViewController: UIViewController {
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var guessesTableView: UITableView!
     
+    @IBOutlet weak var gameIDLabel: UILabel!
+    @IBOutlet weak var timeTakenLabel: UILabel!
     @IBOutlet var keyButtons: [UIButton]!
     
     @IBAction func resetStats(_ sender: UIButton) {
@@ -61,6 +63,7 @@ class tableViewController: UIViewController {
         isViewingHistory = false
         nextGameButton.isEnabled = false
         gameSession.startNewGame()
+        gameIDLabel.text = String(gameSession.getGameID())
         colorKeys()
         isNewGame = true
         playSound("startnewgame")
@@ -121,12 +124,12 @@ class tableViewController: UIViewController {
     @IBAction func viewPreviousGame(_ sender: UIButton) {
         isViewingHistory = true
         nextGameButton.isEnabled = true
-        gameSession.getHistory()
+        gameIDLabel.text = String(gameSession.getHistory())
         guessesTableView.reloadData()
     }
     
     @IBAction func viewNextGame(_ sender: UIButton) {
-        gameSession.getHistory(goBack: false)
+        gameIDLabel.text = String(gameSession.getHistory(goBack: false))
         guessesTableView.reloadData()
     }
     
