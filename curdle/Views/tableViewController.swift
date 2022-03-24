@@ -19,6 +19,7 @@ class tableViewController: UIViewController {
     var player: AVAudioPlayer!
     var takeScreenShot: Bool = false
     var isViewingHistory: Bool = false
+
     
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var guessesTableView: UITableView!
@@ -68,6 +69,12 @@ class tableViewController: UIViewController {
         isNewGame = true
         playSound("startnewgame")
         guessesTableView.reloadData()
+        let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.timeTakenLabel.text = String(Int(round(self.gameSession.startingPoint.timeIntervalSinceNow * -1 )))
+            if self.isViewingHistory == true || self.gameSession.game.isGameOver == true {
+                timer.invalidate()
+            }
+        }
     }
     
     func shareScreenShot(tmpView: UITableView) {

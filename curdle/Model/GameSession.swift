@@ -16,7 +16,7 @@ struct GameSession {
     var gameStats: GameStats = GameStats()
     var encodeDecodeGuesses: EncodeDecodeGuesses = EncodeDecodeGuesses()
     private var currentStreak: Int = 0
-    private var startingPoint = Date()
+    var startingPoint = Date()
     private var lastGameId: Int = 0
     private var timeToWin: Int = 0
     private var currentGameId: Int = 0
