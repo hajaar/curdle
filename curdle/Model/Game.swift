@@ -33,7 +33,7 @@ struct Game {
         isGameWon = false
         isGameOver = false
         numberOfAttempts = 0
-        wordDetails = [WordDetails](repeating: WordDetails(letter: "", letterDuration: 0.1, letterMatch: .notyet, letterAnimation: .transitionCurlDown, letterAnimateOnce: true),  count: K.maxLengthOfWord)
+        wordDetails = [WordDetails](repeating: WordDetails(),  count: K.maxLengthOfWord)
         animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
         isValidGuess = false
     }
@@ -238,13 +238,13 @@ struct WordDetails {
     var letterImage: UIImage {
         UIImage(systemName: (letter + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
     }
-    var letterDuration: Double
-    var letterMatch: matchType
+    var letterDuration: Double = 0.1
+    var letterMatch: matchType = .notyet
     var letterColor: UIColor {
         Colors.matchColor(matchtype: letterMatch)
     }
-    var letterAnimation: UIView.AnimationOptions
-    var letterAnimateOnce: Bool
+    var letterAnimation: UIView.AnimationOptions = .transitionCurlDown
+    var letterAnimateOnce: Bool = true
 }
 
 struct GuessWord {
