@@ -30,7 +30,6 @@ class tableViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: {action in return}))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive, handler: {action in self.gameSession.resetStats()} ))
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     
@@ -38,7 +37,6 @@ class tableViewController: UIViewController {
         super.viewDidLoad()
         guessesTableView.dataSource = self
         startGame()
-        
     }
     
     @IBAction func showStats(_ sender: UIButton) {
@@ -123,10 +121,11 @@ class tableViewController: UIViewController {
     @IBAction func viewPreviousGame(_ sender: UIButton) {
         isViewingHistory = true
         nextGameButton.isEnabled = true
+        guessesTableView.reloadData()
     }
     
     @IBAction func viewNextGame(_ sender: UIButton) {
-        
+        guessesTableView.reloadData()
         
     }
     

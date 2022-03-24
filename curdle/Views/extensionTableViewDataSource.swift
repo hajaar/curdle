@@ -1,9 +1,9 @@
-//
-//  extensionTableViewDataSource.swift
-//  curdle
-//
-//  Created by Kartik Narayanan on 24/03/22.
-//
+    //
+    //  extensionTableViewDataSource.swift
+    //  curdle
+    //
+    //  Created by Kartik Narayanan on 24/03/22.
+    //
 
 import Foundation
 import UIKit
@@ -19,24 +19,31 @@ extension tableViewController: UITableViewDataSource {
         
         let imageArray = [cell.imageView1!, cell.imageView2!, cell.imageView3!, cell.imageView4!, cell.imageView5!]
         
-        
-        
-        gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText.lowercased())
-        
-        for i in 0...K.maxLengthOfWord - 1 {
+        if !isViewingHistory {
             
-                // print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
+            gameSession.game.getWordDetails(row: indexPath.row, typeText: tmpText.lowercased())
             
-            UIView.transition(with: imageArray[i],
-                              duration: gameSession.game.wordDetails[i].letterDuration,
-                              options: gameSession.game.wordDetails[i].letterAnimation,
-                              animations: { imageArray[i].image = self.takeScreenShot ? K.filledTileImage : self.gameSession.game.wordDetails[i].letterImage },
-                              completion: nil)
-            
-            imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor
-            
+            for i in 0...K.maxLengthOfWord - 1 {
+                
+                    // print("\(i) \(gameSession.game.wordDetails[i].letterImage)")
+                
+                UIView.transition(with: imageArray[i],
+                                  duration: gameSession.game.wordDetails[i].letterDuration,
+                                  options: gameSession.game.wordDetails[i].letterAnimation,
+                                  animations: { imageArray[i].image = self.takeScreenShot ? K.filledTileImage : self.gameSession.game.wordDetails[i].letterImage },
+                                  completion: nil)
+                
+                imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor
+                
+            }
+        } else {
+            for i in 0...K.maxLengthOfWord - 1 {
+                
+ 
+                imageArray[i].image = gameSession.game.wordDetails[i].letterImage
+                imageArray[i].tintColor = gameSession.game.wordDetails[i].letterColor
+            }
         }
-        
         
         return cell
         

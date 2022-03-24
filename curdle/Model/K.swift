@@ -52,7 +52,7 @@ struct K {
         return ("ABCDEFGHIJKLMNOPQRSTUVWXYZ".firstIndex(of: Character(s.uppercased()))?.utf16Offset(in: "ABCDEFGHIKLMNOPQRSTUVWXYZ"))!
     }
     
-       
+    
     
 }
 

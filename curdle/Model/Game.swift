@@ -50,9 +50,9 @@ struct Game {
         findMatchingLetters(guess)
         numberOfAttempts += 1
         if isGuessCorrect(guess){
-          //  let a = encodeWordString()
-          //  guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-          //  decodeWordString(s1: a.0, s2: a.1)
+            let a = encodeWordString()
+            guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
+            decodeWordString(s1: a.0, s2: a.1)
             return "Woohoo!. You win."
         }
         if !ableToGuess(guess) {
@@ -180,11 +180,17 @@ struct Game {
         var s1 = ""
         var s2 = ""
         guessWords.forEach { l in
-            s1 += l.gText
+            s1.append(l.gText)
             for i in 0...K.maxLengthOfWord - 1{
-                s2 += String(encodeMatchType(m: l.gMatch[i]))
+                s2.append(contentsOf: String(encodeMatchType(m: l.gMatch[i])))
             }
-            
+        }
+        let maxLength = K.maxLengthOfWord * K.maxNumberOfAttempts
+        for _ in 0...maxLength - 1 {
+
+            if s1.count < maxLength {
+                s1.append(" ")
+            }
         }
         print("\(s1) \(s2)")
         return (s1, s2)
@@ -193,7 +199,7 @@ struct Game {
     mutating func decodeWordString(s1: String, s2: String) {
         for i in 0...K.maxNumberOfAttempts - 1 {
             for j in 0...K.maxLengthOfWord - 1{
-                guessWords[i].gText += String(s1[j + i * 5])
+                guessWords[i].gText.append(s1[j + i * 5])
                 guessWords[i].gMatch[j] = decodeMatchType(c: s2[j + i * 5])
             }
         }
