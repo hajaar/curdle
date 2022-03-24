@@ -37,14 +37,14 @@ extension tableViewController: UITableViewDataSource {
                 
             }
         } else {
-            for j in 0...K.maxNumberOfAttempts {
+
                 for i in 0...K.maxLengthOfWord - 1 {
                     
                     
-                    imageArray[i].image = gameSession.encodeDecodeGuesses.historyWords[i].letterImage
-                    imageArray[i].tintColor = gameSession.encodeDecodeGuesses.historyWords[i].letterColor
+                    imageArray[i].image = gameSession.encodeDecodeGuesses.historyWords[i + 5 * indexPath.row].letterImage
+                    imageArray[i].tintColor = gameSession.encodeDecodeGuesses.historyWords[i + 5 * indexPath.row].letterColor
                 }
-            }
+            
         }
         
         return cell
