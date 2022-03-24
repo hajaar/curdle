@@ -23,13 +23,60 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6q5-oD-7cy" userLabel="Title Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="71.666666666666671"/>
                                         <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Y6-dR-78V" userLabel="ID Stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="71.666666666666671"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PL3-Dq-5Im" userLabel="Game ID">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siP-z1-cdd" userLabel="ID">
+                                                        <rect key="frame" x="0.0" y="21.666666666666671" width="89.666666666666671" height="50"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="PL3-Dq-5Im" firstAttribute="height" secondItem="7Y6-dR-78V" secondAttribute="height" multiplier="0.3" id="5KA-qf-Eaf"/>
+                                                    <constraint firstItem="siP-z1-cdd" firstAttribute="height" secondItem="7Y6-dR-78V" secondAttribute="height" multiplier="0.7" id="g2h-vk-wRU"/>
+                                                </constraints>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curdle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2K-Rw-9H3">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="71.666666666666671"/>
+                                                <rect key="frame" x="89.666666666666671" y="0.0" width="179.66666666666663" height="71.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-PN-wsz" userLabel="Time Stack">
+                                                <rect key="frame" x="269.33333333333331" y="0.0" width="89.666666666666686" height="71.666666666666671"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbO-Fy-WW4" userLabel="Time">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="21.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h9-Ur-Tz9" userLabel="Secs">
+                                                        <rect key="frame" x="0.0" y="21.666666666666671" width="89.666666666666671" height="50"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="SbO-Fy-WW4" firstAttribute="height" secondItem="1Pb-PN-wsz" secondAttribute="height" multiplier="0.3" id="3aW-M6-bZx"/>
+                                                    <constraint firstItem="8h9-Ur-Tz9" firstAttribute="height" secondItem="1Pb-PN-wsz" secondAttribute="height" multiplier="0.7" id="aJI-Gt-6Hl"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="7Y6-dR-78V" firstAttribute="width" secondItem="6q5-oD-7cy" secondAttribute="width" multiplier="0.25" id="3IK-nb-zJ6"/>
+                                            <constraint firstItem="1Pb-PN-wsz" firstAttribute="width" secondItem="6q5-oD-7cy" secondAttribute="width" multiplier="0.25" id="85f-rt-mIP"/>
+                                            <constraint firstItem="s2K-Rw-9H3" firstAttribute="width" secondItem="6q5-oD-7cy" secondAttribute="width" multiplier="0.5" id="hCx-1t-3Z7"/>
+                                        </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="E6z-fb-JMn">
                                         <rect key="frame" x="0.0" y="71.666666666666686" width="359" height="359"/>

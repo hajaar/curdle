@@ -117,7 +117,6 @@ struct GameSession {
         }
         gameStats.avgTimeToWin = tmpGamesWon > 0 ? Int(tmpTotalTimeToWin)/tmpGamesWon : 0
             // print(gameStats)
-        
     }
     
     
