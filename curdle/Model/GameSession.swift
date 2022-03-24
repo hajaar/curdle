@@ -110,7 +110,7 @@ struct GameSession {
         }
         
         gameStats.gamesPlayed = tmpGamesPlayed
-        gameStats.winPercent = tmpGamesPlayed > 0 ? tmpGamesWon/tmpGamesPlayed * 100 : 0
+        gameStats.winPercent = tmpGamesPlayed > 0 ? tmpGamesWon * 100/tmpGamesPlayed : 0
         gameStats.currentStreak = currentStreak
         for i in 0...tmpattemptDistribution.count - 1 {
             gameStats.attemptDistribution[i] = tmpattemptDistribution[i]
