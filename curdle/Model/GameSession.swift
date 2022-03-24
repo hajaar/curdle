@@ -43,7 +43,7 @@ struct GameSession {
         startingPoint = Date()
         getGamesStats()
         lastGameId = gameStatsModelData.count
-        currentGameId = lastGameId - 1
+        currentGameId = lastGameId
     }
     
     mutating func setGameAttributes() {
@@ -73,17 +73,17 @@ struct GameSession {
         let tmpMax = gameStatsModelData.count
         if currentGameId <= tmpMax  && currentGameId >= 1 {
             self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
+
+            print("currentgameid \(currentGameId)")
+            encodeDecodeGuesses.decodeWordString(s1: gameStatsModelData[currentGameId - 1].letter, s2: gameStatsModelData[currentGameId - 1].match)
             let i = goBack ? -1 : 1
             currentGameId += i
-            if currentGameId >= tmpMax {
+            if currentGameId > tmpMax {
                 currentGameId = 1
             }
             if currentGameId < 1 {
-                currentGameId = tmpMax - 1
+                currentGameId = tmpMax
             }
-            print("currentgameid \(currentGameId)")
-            encodeDecodeGuesses.decodeWordString(s1: gameStatsModelData[currentGameId].letter, s2: gameStatsModelData[currentGameId].match)
-            
         }
     }
     
