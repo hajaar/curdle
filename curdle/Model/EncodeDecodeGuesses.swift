@@ -42,7 +42,7 @@ struct EncodeDecodeGuesses {
 
                 historyWords[i].letter = String((s1[i]))
                 historyWords[i].letterMatch = decodeMatchType(c: s2[i])
-            print("s2 \(s2[i]) letterMatch \(historyWords[i].letterMatch)")
+         //   print("s2 \(s2[i]) letterMatch \(historyWords[i].letterMatch)")
 
         }
      //   print("historywords letter \(historyWords)")

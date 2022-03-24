@@ -126,8 +126,8 @@ class tableViewController: UIViewController {
     }
     
     @IBAction func viewNextGame(_ sender: UIButton) {
+        gameSession.getHistory(goBack: false)
         guessesTableView.reloadData()
-        
     }
     
 
