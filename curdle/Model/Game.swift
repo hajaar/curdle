@@ -13,31 +13,18 @@ import UIKit
 
 
 struct Game {
-    var chosenWord: String
-    var guessWords: [GuessWord]
-    var isGameWon: Bool
-    var isGameOver: Bool
-    var numberOfAttempts: Int
-    var wordDetails: [WordDetails]
-    var animateOnce: [Bool]
-    var isValidGuess: Bool
-    var colorOfKeys: [matchType]
+    var chosenWord: String = Dictionary.vocalbulary.randomElement()!
+    var guessWords: [GuessWord] = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
+    var isGameWon: Bool = false
+    var isGameOver: Bool = false
+    var numberOfAttempts: Int = 0
+    var wordDetails: [WordDetails] = [WordDetails](repeating: WordDetails(),  count: K.maxLengthOfWord)
+    var animateOnce: [Bool] = [Bool](repeating: true, count: K.maxNumberOfAttempts)
+    var isValidGuess: Bool = false
+    var colorOfKeys: [matchType] = [matchType](repeating: .notyet, count: 26)
 
     
-    
-    init() {
-        chosenWord = Dictionary.vocalbulary.randomElement()!
-        print(chosenWord)
-        guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
-        colorOfKeys = [matchType](repeating: .notyet, count: 26)
-        isGameWon = false
-        isGameOver = false
-        numberOfAttempts = 0
-        wordDetails = [WordDetails](repeating: WordDetails(),  count: K.maxLengthOfWord)
-        animateOnce = [Bool](repeating: true, count: K.maxNumberOfAttempts)
-        isValidGuess = false
-    }
-    
+
     mutating func checkGuess(guess: String) -> String {
         isValidGuess = false
         if !doesWordExistInVocabulary(guess) {

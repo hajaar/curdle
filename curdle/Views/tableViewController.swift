@@ -121,6 +121,7 @@ class tableViewController: UIViewController {
     @IBAction func viewPreviousGame(_ sender: UIButton) {
         isViewingHistory = true
         nextGameButton.isEnabled = true
+        gameSession.getHistory()
         guessesTableView.reloadData()
     }
     

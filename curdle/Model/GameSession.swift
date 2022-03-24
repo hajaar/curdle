@@ -12,23 +12,19 @@ struct GameSession {
     private let realm = try! Realm()
     private lazy var gameStatsModelData: Results<CurdleGameStatsDataModel> = {self.realm.objects(CurdleGameStatsDataModel.self)}()
     
-    var game: Game
-    var gameStats: GameStats
-    var encodeDecodeGuesses: EncodeDecodeGuesses
+    var game: Game = Game()
+    var gameStats: GameStats = GameStats()
+    var encodeDecodeGuesses: EncodeDecodeGuesses = EncodeDecodeGuesses()
     private var currentStreak: Int = 0
     private var startingPoint = Date()
     private var lastGameId: Int = 0
     private var timeToWin: Int = 0
-
+    private var currentGameId: Int = 0
+    
     init() {
-        game = Game()
-        gameStats = GameStats()
-        encodeDecodeGuesses = EncodeDecodeGuesses()
-        getGamesStats()
         
-       
-
-       print(Realm.Configuration.defaultConfiguration.fileURL!)
+        startNewGame()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     mutating func resetStats() {
@@ -38,16 +34,20 @@ struct GameSession {
         gameStats = GameStats()
     }
     
+    func abc() {
+        
+    }
     
     mutating func startNewGame() {
         game = Game()
         startingPoint = Date()
         getGamesStats()
-        
+        lastGameId = gameStatsModelData.count
+        currentGameId = lastGameId - 1
     }
     
     mutating func setGameAttributes() {
-        lastGameId = gameStatsModelData.count
+        
         if game.isGameOver {
             try! realm.write({
                 let newgameStat = CurdleGameStatsDataModel()
@@ -63,11 +63,22 @@ struct GameSession {
                 newgameStat.match = e.1
                 realm.add(newgameStat)
             })
-           
+            
             currentStreak = game.isGameWon ? currentStreak + 1 : 0
         }
         getGamesStats()
     }
+    
+    mutating func getHistory(goBack: Bool = true) {
+        if currentGameId < gameStatsModelData.count && currentGameId > 0 {
+            self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
+            let i = goBack ? -1 : 1
+            print("currentgameid \(currentGameId)")
+            currentGameId += i
+            encodeDecodeGuesses.decodeWordString(s1: gameStatsModelData[currentGameId].letter, s2: gameStatsModelData[currentGameId].match)
+        }
+    }
+    
     
     mutating func getGamesStats() {
         self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
@@ -97,13 +108,15 @@ struct GameSession {
             gameStats.attemptDistribution[i] = tmpattemptDistribution[i]
         }
         gameStats.avgTimeToWin = tmpGamesWon > 0 ? Int(tmpTotalTimeToWin)/tmpGamesWon : 0
-        // print(gameStats)
+            // print(gameStats)
         
     }
     
     
+    
+    
     mutating func getGameStatsForLabel() -> String {
-
+        
         return "Curdle: " + String(lastGameId + 1) + ", Attempts: " + (game.isGameWon ? String(game.numberOfAttempts) : String("*"))  + "/" + String(K.maxNumberOfAttempts) + String(", Time: ") + String(timeToWin) + "s"
     }
     

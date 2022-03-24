@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct EncodeDecodeGuesses {
     private var guessWords = [GuessWord](repeating: GuessWord(), count: K.maxNumberOfAttempts)
+    var historyWords: [HistoryWord] = [HistoryWord](repeating: HistoryWord(), count: K.maxNumberOfAttempts * K.maxNumberOfAttempts)
+    
 
     mutating func setGuessWords(guessWords: [GuessWord]) {
         self.guessWords = guessWords
@@ -35,13 +38,14 @@ struct EncodeDecodeGuesses {
     }
     
     mutating func decodeWordString(s1: String, s2: String) {
-        for i in 0...K.maxNumberOfAttempts - 1 {
-            for j in 0...K.maxLengthOfWord - 1{
-                guessWords[i].gText.append(s1[j + i * 5])
-                guessWords[i].gMatch[j] = decodeMatchType(c: s2[j + i * 5])
-            }
+        for i in 0...K.maxNumberOfAttempts * K.maxLengthOfWord - 1 {
+
+                historyWords[i].letter = String((s1[i]))
+                historyWords[i].letterMatch = decodeMatchType(c: s2[i])
+            print("s2 \(s2[i]) letterMatch \(historyWords[i].letterMatch)")
+
         }
-        print(guessWords)
+     //   print("historywords letter \(historyWords)")
     }
     
     private func encodeMatchType(m: matchType) -> Int {
@@ -71,4 +75,26 @@ struct EncodeDecodeGuesses {
             return .notyet
         }
     }
+    
+    private func convertToImage() {
+        
+    }
+    
+    private func convertToColor() {
+        
+    }
+}
+
+struct HistoryWord {
+    var letter = ""
+    var letterImage: UIImage {
+            (UIImage(systemName: (letter + K.letterTile), withConfiguration: K.largeTitle) ?? UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!)
+        }
+        
+    
+    var letterMatch: matchType = .notyet
+    var letterColor: UIColor {
+        Colors.matchColor(matchtype: letterMatch)
+    }
+
 }
