@@ -73,14 +73,15 @@ struct GameSession {
         getGamesStats()
     }
     
-    mutating func getHistory(goBack: Bool = true) -> Int {
+    mutating func getHistory(goBack: Bool = true) -> (Int, Int) {
         let tmpMax = gameStatsModelData.count
-        let oldid = currentGameId
+        var (oldid, oldtime) = (currentGameId, 0)
         if currentGameId <= tmpMax  && currentGameId >= 1 {
             self.gameStatsModelData = try! Realm().objects(CurdleGameStatsDataModel.self)
 
           //  print("currentgameid \(currentGameId)")
             encodeDecodeGuesses.decodeWordString(s1: gameStatsModelData[currentGameId - 1].letter, s2: gameStatsModelData[currentGameId - 1].match)
+            oldtime = Int(gameStatsModelData[currentGameId - 1].timeToWin)
             let i = goBack ? -1 : 1
             currentGameId += i
             if currentGameId > tmpMax {
@@ -90,7 +91,7 @@ struct GameSession {
                 currentGameId = tmpMax
             }
         }
-        return oldid
+        return (oldid, oldtime)
     }
     
     

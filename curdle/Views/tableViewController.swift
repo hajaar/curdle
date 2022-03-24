@@ -124,12 +124,16 @@ class tableViewController: UIViewController {
     @IBAction func viewPreviousGame(_ sender: UIButton) {
         isViewingHistory = true
         nextGameButton.isEnabled = true
-        gameIDLabel.text = String(gameSession.getHistory())
+        let tmp = gameSession.getHistory()
+        gameIDLabel.text = String(tmp.0)
+        timeTakenLabel.text = String(tmp.1)
         guessesTableView.reloadData()
     }
     
     @IBAction func viewNextGame(_ sender: UIButton) {
-        gameIDLabel.text = String(gameSession.getHistory(goBack: false))
+        let tmp = gameSession.getHistory(goBack: false)
+        gameIDLabel.text = String(tmp.0)
+        timeTakenLabel.text = String(tmp.1)
         guessesTableView.reloadData()
     }
     
