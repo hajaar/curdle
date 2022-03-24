@@ -18,7 +18,9 @@ class tableViewController: UIViewController {
     var msgText: String = ""
     var player: AVAudioPlayer!
     var takeScreenShot: Bool = false
+    var isViewingHistory: Bool = false
     
+    @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var guessesTableView: UITableView!
     
     @IBOutlet var keyButtons: [UIButton]!
@@ -35,7 +37,7 @@ class tableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guessesTableView.dataSource = self
-        colorKeys()
+        startGame()
         
     }
     
@@ -58,6 +60,8 @@ class tableViewController: UIViewController {
     }
     
     func startGame() {
+        isViewingHistory = false
+        nextGameButton.isEnabled = false
         gameSession.startNewGame()
         colorKeys()
         isNewGame = true
@@ -115,6 +119,27 @@ class tableViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    @IBAction func viewPreviousGame(_ sender: UIButton) {
+        isViewingHistory = true
+        enableKeyboard(enable: false)
+        nextGameButton.isEnabled = true
+    }
+    
+    @IBAction func viewNextGame(_ sender: UIButton) {
+        
+        
+    }
+    
+    func enableKeyboard(enable: Bool) {
+        for item in keyButtons {
+            let tmpTag = item.tag
+            if tmpTag > 0 && tmpTag < 29 {
+                item.isEnabled = enable
+            }
+        }
+    }
+    
     @IBAction func changeLanguage(sender: AnyObject) {
         guard let button = sender as? UIButton else {
             return

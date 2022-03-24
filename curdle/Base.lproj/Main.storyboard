@@ -110,19 +110,8 @@
                                                     <action selector="showStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="PnV-Uj-UpJ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-ya-tPl" userLabel="Reset">
-                                                <rect key="frame" x="89.666666666666686" y="0.0" width="90" height="72"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Reset Stats">
-                                                    <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="resetStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="vcD-Hc-ZeU"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-VY-XX5" userLabel="History">
-                                                <rect key="frame" x="179.66666666666666" y="0.0" width="89.666666666666657" height="72"/>
+                                                <rect key="frame" x="89.666666666666686" y="0.0" width="90" height="72"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
                                                     <imageReference key="image" image="backward" catalog="system" symbolScale="large"/>
@@ -132,7 +121,21 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="showStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="B40-0s-PY1"/>
+                                                    <action selector="viewPreviousGame:" destination="Md2-S9-XsS" eventType="touchUpInside" id="SYv-kp-tOV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-ya-tPl" userLabel="Forward">
+                                                <rect key="frame" x="179.66666666666666" y="0.0" width="89.666666666666657" height="72"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="forward" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="font" scale="large" weight="regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                    </preferredSymbolConfiguration>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="viewNextGame:" destination="Md2-S9-XsS" eventType="touchUpInside" id="uWG-v8-bF4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKE-zz-jha" userLabel="New">
@@ -596,6 +599,7 @@
                     </view>
                     <connections>
                         <outlet property="guessesTableView" destination="E6z-fb-JMn" id="RKu-uY-Nqu"/>
+                        <outlet property="nextGameButton" destination="BLo-ya-tPl" id="v5Y-G9-BCQ"/>
                         <outletCollection property="keyButtons" destination="gPj-Mm-6je" collectionClass="NSMutableArray" id="XNj-EJ-soE"/>
                         <outletCollection property="keyButtons" destination="21J-HD-DaG" collectionClass="NSMutableArray" id="NSU-9s-bam"/>
                         <outletCollection property="keyButtons" destination="alr-rP-654" collectionClass="NSMutableArray" id="8V1-XJ-wCZ"/>
@@ -818,6 +822,7 @@
         <image name="delete.left.fill" catalog="system" width="128" height="104"/>
         <image name="e.circle.fill" catalog="system" width="128" height="121"/>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="forward" catalog="system" width="128" height="79"/>
         <image name="g.circle.fill" catalog="system" width="128" height="121"/>
         <image name="h.circle.fill" catalog="system" width="128" height="121"/>
         <image name="i.circle.fill" catalog="system" width="128" height="121"/>
