@@ -21,14 +21,8 @@ struct EncodeDecodeGuesses {
         var s1 = ""
         var s2 = ""
         s1 = guessWords.reduce(""){ $0 + $1.gText}
+        s1.append(String(repeating: " ", count: K.maxLengthOfWord * K.maxNumberOfAttempts - s1.count))
         s2 = guessWords.reduce(""){ $0 + $1.gMatch.reduce(""){ $0 + encodeMatchType(m: $1) }}
-        let maxLength = K.maxLengthOfWord * K.maxNumberOfAttempts
-        for _ in 0...maxLength - 1 {
-            
-            if s1.count < maxLength {
-                s1.append(" ")
-            }
-        }
   //      print("\(s1) \(s2)")
         return (s1, s2)
     }
