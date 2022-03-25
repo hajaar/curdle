@@ -41,6 +41,18 @@ struct K {
     static let defaultTileImage = UIImage(systemName: K.defaultTile, withConfiguration: K.largeTitle)!
     static let filledTileImage = UIImage(systemName: K.filledTile, withConfiguration: K.largeTitle)!
     
+    static private let matchDict: [matchType: String] = [.no: "0", .notyet: "1", .imperfect: "2", .perfect: "3"]
+
+    static func getMatchValue(key: matchType) -> String {
+        return matchDict[key]!
+    }
+    
+    static func getMatchKey(value: Character) -> matchType {
+        let keys = (matchDict as NSDictionary).allKeys(for: String(value)) as! [matchType]
+        return keys[0]
+    }
+    
+    
     
     static func getNumberPosition(i: Int) -> String {
         let a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
