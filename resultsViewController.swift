@@ -17,8 +17,8 @@ class resultsViewController: UIViewController {
     @IBOutlet weak var maxStreakLabel: UILabel!
     @IBOutlet weak var avgTimeLabel: UILabel!
 
-    @IBOutlet weak var radarChart: RadarChartView!
-    
+    @IBOutlet weak var radarChart: BarChartView!
+
     
     var resultGameStats = GameStats()
     
@@ -35,8 +35,12 @@ class resultsViewController: UIViewController {
         maxStreakLabel.text = String(resultGameStats.maxStreak)
         avgTimeLabel.text = String(resultGameStats.avgTimeToWin)
         
-        setChartData()
-        formatChart()
+       // setChartData()
+        
+      //  formatChart()
+        
+        setChartData2()
+        formatChart2()
         
     }
     
@@ -46,7 +50,65 @@ class resultsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func setChartData2() {
+        let blueDataSet = BarChartDataSet(
+            entries: [
+                BarChartDataEntry(x: 0.0, y: Double(resultGameStats.attemptDistribution[0])),
+                BarChartDataEntry(x: 1.0, y: Double(resultGameStats.attemptDistribution[1])),
+                BarChartDataEntry(x: 2.0, y: Double(resultGameStats.attemptDistribution[2])),
+                BarChartDataEntry(x: 3.0, y: Double(resultGameStats.attemptDistribution[3])),
+                BarChartDataEntry(x: 4.0, y: Double(resultGameStats.attemptDistribution[4])),
+                BarChartDataEntry(x: 5.0, y: Double(resultGameStats.attemptDistribution[5])),
+                
+            ]
+        )
+        
+        let data = BarChartData(dataSets: [blueDataSet])
+        
+        
+        radarChart.data = data
+    
+        
+        
+        
+            // 3
+        blueDataSet.valueFormatter = DataSetValueFormatter()
+    }
+    
+    func formatChart2() {
+        
+        
+        
+        
+        radarChart.drawValueAboveBarEnabled = false
+        
+        radarChart.borderLineWidth = 1.5
+        radarChart.tintColor = .lightGray
+        radarChart.backgroundColor = .darkGray
+        radarChart.borderColor = .systemBlue
+        
+            // 3
+        let xAxis = radarChart.xAxis
+        xAxis.labelFont = .systemFont(ofSize: 12, weight: .bold)
+        xAxis.labelTextColor = .blue
+        xAxis.xOffset = 10
+        xAxis.yOffset = 10
+        xAxis.valueFormatter = XAxisFormatter()
+        
+            // 4
+       
+        
+            // 5
+
+        radarChart.legend.enabled = true
+    }
+    
+
+    
+    
     func setChartData() {
+
+        
         let redDataSet = RadarChartDataSet(
             entries: [
                 RadarChartDataEntry(value: Double(resultGameStats.attemptDistribution[0])),
@@ -58,7 +120,7 @@ class resultsViewController: UIViewController {
 
             ]
         )
-        print(resultGameStats.attemptDistribution)
+    //    print(resultGameStats.attemptDistribution)
 
         let data = RadarChartData(dataSets: [redDataSet])
         
@@ -78,7 +140,7 @@ class resultsViewController: UIViewController {
         redDataSet.valueFormatter = DataSetValueFormatter()
     }
     
-    func formatChart() {
+ /*   func formatChart() {
         
 
         
@@ -110,16 +172,7 @@ class resultsViewController: UIViewController {
         radarChart.legend.enabled = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+*/
 
 }
 class DataSetValueFormatter: IValueFormatter {
@@ -135,7 +188,7 @@ class DataSetValueFormatter: IValueFormatter {
     // 2
 class XAxisFormatter: IAxisValueFormatter {
     
-    let titles = "123456".map { "Attempt - \($0)" }
+    let titles = "123456".map { "\($0)" }
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         titles[Int(value) % titles.count]
     }

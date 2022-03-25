@@ -20,12 +20,8 @@ struct EncodeDecodeGuesses {
     func encodeWordString() -> (String, String) {
         var s1 = ""
         var s2 = ""
-        guessWords.forEach { l in
-            s1.append(l.gText)
-            for i in 0...K.maxLengthOfWord - 1{
-                s2.append(contentsOf: String(encodeMatchType(m: l.gMatch[i])))
-            }
-        }
+        s1 = guessWords.reduce(""){ $0 + $1.gText}
+        s2 = guessWords.reduce(""){ $0 + $1.gMatch.reduce(""){ $0 + encodeMatchType(m: $1) }}
         let maxLength = K.maxLengthOfWord * K.maxNumberOfAttempts
         for _ in 0...maxLength - 1 {
             
@@ -48,17 +44,19 @@ struct EncodeDecodeGuesses {
      //   print("historywords letter \(historyWords)")
     }
     
-    private func encodeMatchType(m: matchType) -> Int {
+    private func encodeMatchType(m: matchType) -> String {
+        let s: Int
         switch m {
         case .notyet:
-            return 0
+            s = 0
         case .no:
-            return 1
+            s = 1
         case .imperfect:
-            return 2
+            s = 2
         case .perfect:
-            return 3
+            s = 3
         }
+        return String(s)
     }
     
     private func decodeMatchType(c: Character) -> matchType {

@@ -166,7 +166,25 @@ struct Game {
     
 struct GuessWord {
     var gText: String = ""
-    var gMatch: [matchType] = [matchType](repeating: .notyet, count: K.maxNumberOfAttempts)
-
+    var gMatch: [matchType] = [matchType](repeating: .notyet, count: K.maxLengthOfWord)
+    var gMatchCombined: String {
+        return gMatch.reduce(""){ $0 + encodeMatchType(m: $1) }
+    }
+    
+    private func encodeMatchType(m: matchType) -> String {
+        let s: Int
+        switch m {
+        case .notyet:
+            s = 0
+        case .no:
+            s = 1
+        case .imperfect:
+            s = 2
+        case .perfect:
+            s = 3
+        }
+        print("\(gText) \(gMatch) \(m) \(s)")
+        return String(s)
+    }
 }
 
