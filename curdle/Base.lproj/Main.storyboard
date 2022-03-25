@@ -157,7 +157,7 @@
                                                     <action selector="showStats:" destination="Md2-S9-XsS" eventType="touchUpInside" id="PnV-Uj-UpJ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-VY-XX5" userLabel="History">
+                                            <button opaque="NO" tag="30" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU7-VY-XX5" userLabel="History">
                                                 <rect key="frame" x="89.666666666666686" y="0.0" width="90" height="72"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -171,7 +171,7 @@
                                                     <action selector="viewPreviousGame:" destination="Md2-S9-XsS" eventType="touchUpInside" id="SYv-kp-tOV"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-ya-tPl" userLabel="Forward">
+                                            <button opaque="NO" tag="31" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLo-ya-tPl" userLabel="Forward">
                                                 <rect key="frame" x="179.66666666666666" y="0.0" width="89.666666666666657" height="72"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain">
@@ -182,7 +182,7 @@
                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="viewNextGame:" destination="Md2-S9-XsS" eventType="touchUpInside" id="uWG-v8-bF4"/>
+                                                    <action selector="viewPreviousGame:" destination="Md2-S9-XsS" eventType="touchUpInside" id="qr7-dO-puE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKE-zz-jha" userLabel="New">

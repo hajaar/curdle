@@ -20,6 +20,7 @@ class tableViewController: UIViewController {
     var takeScreenShot: Bool = false
     var isViewingHistory: Bool = false
 
+
     
     @IBOutlet weak var nextGameButton: UIButton!
     @IBOutlet weak var guessesTableView: UITableView!
@@ -131,19 +132,12 @@ class tableViewController: UIViewController {
     @IBAction func viewPreviousGame(_ sender: UIButton) {
         isViewingHistory = true
         nextGameButton.isEnabled = true
-        let tmp = gameSession.getHistory()
+        let tmp = gameSession.getHistory(goBack: sender.tag == 30 ? true : false)
         gameIDLabel.text = String(tmp.0)
         timeTakenLabel.text = String(tmp.1)
         guessesTableView.reloadData()
     }
-    
-    @IBAction func viewNextGame(_ sender: UIButton) {
-        let tmp = gameSession.getHistory(goBack: false)
-        gameIDLabel.text = String(tmp.0)
-        timeTakenLabel.text = String(tmp.1)
-        guessesTableView.reloadData()
-    }
-    
+
 
     
     @IBAction func changeLanguage(sender: AnyObject) {
@@ -172,7 +166,7 @@ class tableViewController: UIViewController {
                 if gameSession.game.isGameOver {
                     startGameOverTasks()
                 }
-            default:
+            case 1...26:
                 if tmpText.count < K.maxLengthOfWord {
                     tmpText += K.getNumberPosition(i: keyEntered - 1)
                     
@@ -183,6 +177,8 @@ class tableViewController: UIViewController {
                     }
                     
                 }
+            default:
+                break
             }
         }
 
