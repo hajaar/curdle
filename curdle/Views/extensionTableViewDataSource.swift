@@ -40,9 +40,10 @@ extension tableViewController: UITableViewDataSource {
 
                 for i in 0...K.maxLengthOfWord - 1 {
                     
-                    
-                    imageArray[i].image = gameSession.encodeDecodeGuesses.historyWords[i + 5 * indexPath.row].letterImage
-                    imageArray[i].tintColor = gameSession.encodeDecodeGuesses.historyWords[i + 5 * indexPath.row].letterColor
+                    let tmpHstryGuess = gameSession.encodeDecodeGuesses.historyGuesses[i + 5 * indexPath.row]
+                    imageArray[i].image = tmpHstryGuess.0
+                    imageArray[i].tintColor = tmpHstryGuess.1
+
                 }
             
         }

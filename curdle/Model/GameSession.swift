@@ -61,8 +61,7 @@ struct GameSession {
                 newgameStat.noOfAttempts = game.isGameWon ? game.numberOfAttempts : -1
                 timeToWin = Int(round(startingPoint.timeIntervalSinceNow * -1 ))
                 newgameStat.timeToWin = Double(timeToWin)
-                encodeDecodeGuesses.setGuessWords(guessWords: game.guessWords)
-                let e = encodeDecodeGuesses.encodeWordString()
+                let e = encodeDecodeGuesses.encodeWordString(guessWords: game.guessWords)
                 newgameStat.letter = e.0
                 newgameStat.match = e.1
                 realm.add(newgameStat)
